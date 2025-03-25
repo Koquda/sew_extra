@@ -1,0 +1,229 @@
+/* layout.css - Maquetación y posicionamiento */
+
+/* Base structure */
+/* Especificidad: 001 */
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Especificidad: 001 */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Contenedores principales */
+/* Especificidad: 001 */
+main, section, header, footer, nav, article, figure {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Especificidad: 001 */
+main {
+    flex: 1;
+    margin: 0 auto;
+    padding: 1em;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+/* Especificidad: 001 */
+header, footer {
+    flex-shrink: 0;
+}
+
+/* Navegación Flexbox */
+/* Especificidad: 001 */
+nav {
+    display: flex;
+    justify-content: center;
+    overflow-x: auto;
+}
+
+/* Especificidad: 002 */
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Especificidad: 003 */
+nav ul li {
+    flex: 0 1 auto;
+}
+
+/* Grid layout */
+/* Especificidad: 001 */
+section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5em;
+    margin-bottom: 2em;
+}
+
+/* Especificidad: 002 */
+section figure {
+    display: grid;
+    place-items: center;
+    margin: 0;
+}
+
+/* Especificidad: 002 */
+body main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2em;
+}
+
+/* Tablas adaptativas */
+/* Especificidad: 001 */
+table {
+    width: 100%;
+    table-layout: fixed;
+    box-sizing: border-box;
+}
+
+/* Especificidad: 001 */
+table, th, td {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+/* Elementos layout */
+/* Especificidad: 003 */
+main section + section {
+    border-top: 0.0625rem solid #eee;
+    padding-top: 1em;
+}
+
+/* Especificidad: 002 */
+section ul, section ol {
+    columns: 1;
+    column-gap: 2em;
+    column-rule: 0.0625rem solid #eee;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Especificidad: 002 */
+section article {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1em;
+    padding: 1em;
+    border: 0.0625rem solid #eee;
+    border-radius: 0.3125rem;
+    box-sizing: border-box;
+}
+
+/* Especificidad: 003 */
+section figure img, section figure video, section figure audio {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+/* Media queries */
+@media screen and (min-width: 48rem) { /* Tablets */
+    /* Especificidad: 002 - Redefinido */
+    section ul, section ol {
+        columns: 2;
+    }
+    
+    /* Especificidad: 002 */
+    main section:first-child {
+        grid-column: 1 / -1;
+    }
+}
+
+@media screen and (min-width: 64rem) { /* Desktop */
+    /* Especificidad: 001 - Redefinido */
+    main {
+        max-width: 90%;
+    }
+    
+    /* Especificidad: 002 - Redefinido */
+    section ul, section ol {
+        columns: 3;
+    }
+    
+    /* Especificidad: 002 - Redefinido */
+    section article {
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+@media print {
+    /* Especificidad: 001 - Redefinido */
+    nav {
+        display: none;
+    }
+    
+    /* Especificidad: 001 - Redefinido */
+    body {
+        background-color: white;
+        color: black;
+    }
+    
+    /* Especificidad: 001 - Redefinido */
+    a {
+        text-decoration: underline;
+        color: #000;
+    }
+    
+    /* Especificidad: 002 */
+    main section {
+        page-break-inside: avoid;
+    }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi) {
+    /* Especificidad: 001 - Redefinido */
+    body {
+        font-size: 1.125rem;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    /* Especificidad: 001 - Redefinido */
+    body {
+        background-color: #222;
+        color: #eee;
+    }
+    
+    /* Especificidad: 001 - Redefinido */
+    a, h1, h2, h3 {
+        color: #8bc34a;
+    }
+    
+    /* Especificidad: 001 - Redefinido */
+    table {
+        border-color: #444;
+    }
+    
+    /* Especificidad: 001 - Redefinido */
+    th {
+        background-color: #3d8b40;
+    }
+    
+    /* Especificidad: 001 - Redefinido */
+    td {
+        border-color: #444;
+    }
+    
+    /* Especificidad: 022 - Redefinido */
+    tbody tr:nth-child(even) {
+        background-color: #333;
+    }
+    
+    /* Especificidad: 012 - Redefinido */
+    tbody tr:hover {
+        background-color: #444;
+    }
+}

@@ -10,8 +10,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!--Añadir el nombre del documento (o del sitio web) - Pestañas e historial de navegación-->
 	<title>Reservas - Pesoz</title>
-	<!-- enlace a la hoja de estilo -->
+	<!-- enlaces a las hojas de estilo -->
 	<link rel="stylesheet" type="text/css" href="estilo/estilo.css">
+	<link rel="stylesheet" type="text/css" href="estilo/layout.css">
 </head>
 <body>
 	<header>
@@ -30,6 +31,12 @@
 	</nav>
 	<main>
 		<!-- Contenido del sistema de reservas (formularios, etc.) -->
+		<?php
+		// Código PHP para el sistema de reservas irá aquí
+		?>
 	</main>
+	<footer>
+		<p>Sistema de reservas - Turismo en Pesoz</p>
+	</footer>
 </body>
 </html>

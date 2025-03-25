@@ -10,8 +10,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!--Añadir el nombre del documento (o del sitio web) - Pestañas e historial de navegación-->
 	<title>Gastronomía - Pesoz</title>
-	<!-- enlace a la hoja de estilo -->
+	<!-- enlaces a las hojas de estilo -->
 	<link rel="stylesheet" type="text/css" href="estilo/estilo.css">
+	<link rel="stylesheet" type="text/css" href="estilo/layout.css">
 </head>
 <body>
 	<header>
@@ -29,7 +30,135 @@
 		</ul>
 	</nav>
 	<main>
-		<!-- Contenido sobre gastronomía -->
+		<section>
+			<h2>Introducción a la gastronomía de Pesoz</h2>
+			<p>Pesoz es un pequeño concejo asturiano con una rica tradición gastronómica que refleja la historia y cultura de la región. La cocina de este rincón de Asturias se caracteriza por platos contundentes elaborados con productos locales de gran calidad, adaptados al clima de montaña y a las tradiciones agrícolas y ganaderas de la zona.</p>
+			
+			<figure>
+				<img src="multimedia/gastronomia-pesoz.jpg" alt="Platos típicos de la gastronomía de Pesoz" width="600" height="400">
+				<figcaption>Variedad de platos típicos de la gastronomía de Pesoz</figcaption>
+			</figure>
+		</section>
+
+		<section>
+			<h2>Platos más populares</h2>
+			<p>La cocina de Pesoz destaca por sus platos tradicionales que han pasado de generación en generación. A continuación presentamos los más representativos:</p>
+			
+			<!-- Lista ordenada con 3+ elementos -->
+			<h3>Ranking de platos más solicitados</h3>
+			<ol>
+				<li>Fabada asturiana con compango local</li>
+				<li>Pote asturiano con berzas de la huerta</li>
+				<li>Cachopo de ternera asturiana</li>
+				<li>Arroz con leche casero</li>
+				<li>Caldereta de cordero de montaña</li>
+			</ol>
+			
+			<!-- Lista no ordenada con 3+ elementos y una lista anidada -->
+			<h3>Ingredientes típicos de la zona</h3>
+			<ul>
+				<li>Productos cárnicos:
+					<!-- Lista anidada -->
+					<ul>
+						<li>Ternera asturiana (IGP)</li>
+						<li>Cordero de montaña</li>
+						<li>Embutidos artesanales</li>
+						<li>Chosco de Tineo</li>
+					</ul>
+				</li>
+				<li>Productos lácteos y quesos</li>
+				<li>Miel de montaña</li>
+				<li>Frutas y verduras de temporada</li>
+				<li>Setas silvestres</li>
+			</ul>
+		</section>
+
+		<section>
+			<h3>Postres tradicionales</h3>
+			<!-- Lista de definición con 3+ elementos -->
+			<dl>
+				<dt>Arroz con leche</dt>
+				<dd>Delicioso postre elaborado con arroz, leche, azúcar, canela y limón, cocinado a fuego lento y con una característica capa caramelizada por encima.</dd>
+				
+				<dt>Frixuelos</dt>
+				<dd>Una especie de crepes asturianos elaborados con harina, leche, huevos y azúcar. Se pueden rellenar con crema, chocolate o mermelada.</dd>
+				
+				<dt>Casadielles</dt>
+				<dd>Dulces en forma de empanadilla rellenos de una mezcla de nueces, avellanas, anís y azúcar, fritos y espolvoreados con azúcar.</dd>
+				
+				<dt>Marañuelas</dt>
+				<dd>Galletas tradicionales elaboradas con mantequilla, huevos, azúcar y harina, con forma característica y una textura crujiente.</dd>
+			</dl>
+		</section>
+
+		<section>
+			<h2>Restaurantes recomendados</h2>
+			<!-- Tabla accesible y adaptable de 2 columnas y 4 filas -->
+			<table id="tablaRestaurantes">
+				<caption>Restaurantes destacados en Pesoz y alrededores</caption>
+				<thead>
+					<tr>
+						<th id="nombre">Nombre del establecimiento</th>
+						<th id="especialidad">Especialidad culinaria</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td headers="nombre">Casa Pepe</td>
+						<td headers="especialidad">Fabada asturiana y cachopo</td>
+					</tr>
+					<tr>
+						<td headers="nombre">La Cocina de María</td>
+						<td headers="especialidad">Guisos tradicionales y carnes a la brasa</td>
+					</tr>
+					<tr>
+						<td headers="nombre">El Rincón del Sabor</td>
+						<td headers="especialidad">Pescados de río y postres caseros</td>
+					</tr>
+					<tr>
+						<td headers="nombre">Sidrería El Hórreo</td>
+						<td headers="especialidad">Platos con sidra y embutidos artesanales</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+
+		<section>
+			<h2>Proceso de elaboración de la fabada</h2>
+			<!-- Vídeo adaptable y accesible con 2 formatos -->
+			<figure>
+				<video controls width="600" height="400">
+					<source src="multimedia/fabada-pesoz.mp4" type="video/mp4">
+					<source src="multimedia/fabada-pesoz.webm" type="video/webm">
+					<p>Su navegador no soporta videos HTML5. Puede <a href="multimedia/fabada-pesoz.mp4">descargar el video</a>.</p>
+				</video>
+				<figcaption>Proceso tradicional de elaboración de la fabada asturiana en Pesoz</figcaption>
+			</figure>
+			
+			<!-- Audio adaptable y accesible con 2 formatos (opcional) -->
+			<figure>
+				<audio controls>
+					<source src="multimedia/sonidos-cocina-pesoz.mp3" type="audio/mpeg">
+					<source src="multimedia/sonidos-cocina-pesoz.ogg" type="audio/ogg">
+					<p>Su navegador no soporta audio HTML5. Puede <a href="multimedia/sonidos-cocina-pesoz.mp3">descargar el audio</a>.</p>
+				</audio>
+				<figcaption>Sonidos ambientales de una cocina tradicional en Pesoz</figcaption>
+			</figure>
+		</section>
+
+		<section>
+			<h2>Eventos gastronómicos</h2>
+			<p>A lo largo del año, Pesoz celebra diferentes eventos y ferias donde puedes degustar la gastronomía local:</p>
+			<ul>
+				<li>Feria de la Fabada (febrero)</li>
+				<li>Jornadas Gastronómicas de Primavera (mayo)</li>
+				<li>Festival de la Sidra (julio)</li>
+				<li>Mercado de Productos Tradicionales (cada primer domingo de mes)</li>
+			</ul>
+		</section>
 	</main>
+	<footer>
+		<p>Página sobre la gastronomía de Pesoz - Turismo en Asturias</p>
+	</footer>
 </body>
 </html>
