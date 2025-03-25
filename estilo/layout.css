@@ -131,33 +131,24 @@ section figure img, section figure video, section figure audio {
 
 /* Media queries */
 @media screen and (min-width: 48rem) { /* Tablets */
-    /* Especificidad: 002 - Redefinido */
-    section ul, section ol {
-        columns: 2;
-    }
-    
-    /* Especificidad: 002 */
+    /* Eliminado: Configuración de múltiples columnas para listas */
     main section:first-child {
-        grid-column: 1 / -1;
+        grid-column: 1 / -1; /* Mantiene la configuración de ancho completo para la primera sección */
     }
 }
 
 @media screen and (min-width: 64rem) { /* Desktop */
-    /* Especificidad: 001 - Redefinido */
+    /* Eliminado: Configuración de múltiples columnas para listas */
     main {
         max-width: 90%;
     }
-    
-    /* Especificidad: 002 - Redefinido */
-    section ul, section ol {
-        columns: 3;
-    }
-    
-    /* Especificidad: 002 - Redefinido */
     section article {
-        grid-template-columns: 1fr 2fr;
+        grid-template-columns: 1fr 2fr; /* Mantiene la configuración de diseño para artículos */
     }
 }
+
+/* Justificación de advertencias del validador de CSS */
+/* Herencia de colores: Los colores de texto se heredan del elemento padre (body) */
 
 @media print {
     /* Especificidad: 001 - Redefinido */

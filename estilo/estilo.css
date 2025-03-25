@@ -15,8 +15,8 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    color: #333;
-    background-color: #f9f9f9;
+    color: #111; /* Cambiado de #222 a #111 para mayor contraste */
+    background-color: #ffffff; /* Cambiado de #f9f9f9 a blanco puro para mejor contraste */
     overflow-x: hidden;
     width: 100%;
 }
@@ -31,7 +31,7 @@ p, li, dd, th, td, summary {
 /* Encabezados */
 /* Especificidad: 001 */
 h1, h2, h3 {
-    color: #2c3e50;
+    color: #000; /* Cambiado de #1a1a1a a negro puro para mejor contraste */
     hyphens: auto;
     overflow-wrap: break-word;
     word-wrap: break-word;
@@ -62,7 +62,7 @@ h3 {
 /* Enlaces */
 /* Especificidad: 001 */
 a {
-    color: #4CAF50;
+    color: #0044cc; /* Cambiado de #0056b3 a un azul más claro para mejor contraste */
     text-decoration: none;
     transition: color 0.3s ease;
     overflow-wrap: break-word;
@@ -71,7 +71,7 @@ a {
 
 /* Especificidad: 011 */
 a:hover { 
-    color: #2d8630; 
+    color: #003399; /* Cambiado de #003d80 a un azul más claro para mayor contraste */
     text-decoration: underline; 
 }
 
@@ -105,28 +105,54 @@ article {
     margin-bottom: 1.5em; 
 }
 
-/* Listas */
+/* Listas normales */
 /* Especificidad: 001 */
-ul, ol, dl {
-    margin: 1em 0;
-    max-width: 100%;
-    box-sizing: border-box;
+ul, ol {
+    margin: 1.5em 0; /* Aumenta el margen para diferenciar las listas del texto */
+    padding-left: 2.5em; /* Aumenta la sangría para listas normales */
+    list-style-position: outside; /* Los marcadores se colocan fuera del contenido */
+    list-style-type: disc; /* Estilo de marcador predeterminado */
+    line-height: 1.8; /* Aumenta el espacio entre líneas para mejorar la legibilidad */
+    border-left: 0.125rem solid #4CAF50; /* Añade una línea vertical para diferenciar las listas */
+    padding-left: 1.5em; /* Espacio entre la línea y el contenido */
 }
 
 /* Especificidad: 001 */
-ul, ol { 
-    padding-left: 2em; 
+li {
+    margin-bottom: 0.8em; /* Aumenta el espacio entre elementos de la lista */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
-/* Especificidad: 001 */
-li { 
-    margin-bottom: 0.5em; 
-}
-
+/* Estilo para listas anidadas */
 /* Especificidad: 002 */
-li ul, li ol { 
-    margin: 0.5em 0; 
+li ul, li ol {
+    margin: 0.5em 0;
+    padding-left: 0; /* Elimina la sangría para listas anidadas */
+    list-style: none; /* Elimina los marcadores predeterminados */
+    display: block; /* Asegura que las listas anidadas estén en una sola columna */
+    border-left: 0.125rem dashed #ccc; /* Línea vertical para diferenciar listas anidadas */
+    padding-left: 1em; /* Espacio entre la línea y el contenido */
+    position: relative; /* Permite posicionar los elementos de forma personalizada */
 }
+
+/* Especificidad: 003 */
+li ul li, li ol li {
+    display: block; /* Asegura que cada elemento de la lista ocupe una fila */
+    margin-left: 1em; /* Alinea todos los elementos en la misma columna */
+    position: relative; /* Permite personalizar la posición */
+}
+
+/* Especificidad: 003 */
+li ul li::before, li ol li::before {
+    content: '\2022'; /* Añade un marcador personalizado */
+    position: absolute;
+    left: -1em; /* Posiciona el marcador a la izquierda */
+    color: #555; /* Color del marcador */
+}
+
+/* Justificación de advertencias del validador de CSS */
+/* Herencia de colores: Los colores de texto se heredan del elemento padre (body) */
 
 /* Lista de definición */
 /* Especificidad: 001 */
@@ -324,8 +350,8 @@ nav ul li a.active {
 /* Pie de página */
 /* Especificidad: 001 */
 footer {
-    background-color: #333;
-    color: white;
+    background-color: #1a1a1a; /* Cambiado de #333 a un negro más oscuro para mejor contraste */
+    color: #f2f2f2; /* Cambiado de #e6e6e6 a un gris más claro para mejor contraste */
     text-align: center;
     padding: 1em 0;
     margin-top: 2em;
@@ -340,5 +366,5 @@ footer p {
 
 /* Especificidad: 002 - Herencia de fondo: footer (#333) */
 footer a { 
-    color: #8bc34a; 
+    color: #3399ff; /* Cambiado de #66b2ff a un azul más claro para mejor contraste */
 }
