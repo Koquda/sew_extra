@@ -1,7 +1,4 @@
-/* Estilos para el sitio web de Turismo en Pesoz */
-
 /* Estilos generales */
-
 /* Especificidad: 001 */
 html {
     font-size: 100%; 
@@ -82,7 +79,7 @@ a:visited {
 
 /* Contenedores */
 /* Especificidad: 001 */
-main, section, article, details, figure {
+main, section, article, figure {
     width: 100%;
     box-sizing: border-box;
     max-width: 100%;
@@ -151,14 +148,11 @@ li ul li::before, li ol li::before {
     color: #555; /* Color del marcador */
 }
 
-/* Justificación de advertencias del validador de CSS */
-/* Herencia de colores: Los colores de texto se heredan del elemento padre (body) */
-
 /* Lista de definición */
 /* Especificidad: 001 */
 dt {
     font-weight: bold;
-    color: #2c3e50;
+    color: #3fec4b;
     margin-top: 0.8em;
 }
 
@@ -233,67 +227,6 @@ figcaption {
     color: #666; 
 }
 
-/* Formularios */
-/* Especificidad: 001 */
-input, textarea, select {
-    padding: 0.5em;
-    margin-bottom: 1em;
-    border: 0.0625rem solid #ddd;
-    border-radius: 0.25rem;
-    font-family: inherit;
-    font-size: 1rem;
-    max-width: 100%;
-    box-sizing: border-box;
-}
-
-/* Especificidad: 011 */
-input:focus, textarea:focus, select:focus {
-    border-color: #4CAF50;
-    outline: none;
-    box-shadow: 0 0 0.3125rem rgba(76, 175, 80, 0.5);
-}
-
-/* Especificidad: 001 */
-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 0.8em 1.5em;
-    cursor: pointer;
-    border-radius: 0.25rem;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-}
-
-/* Especificidad: 011 */
-button:hover { 
-    background-color: #3d8b40; 
-}
-
-/* Elementos details/summary */
-/* Especificidad: 001 */
-details {
-    margin: 1em 0;
-    padding: 0.5em 1em;
-    border: 0.0625rem solid #ddd;
-    border-radius: 0.25rem;
-    background-color: #f9f9f9;
-}
-
-/* Especificidad: 001 */
-summary {
-    cursor: pointer;
-    font-weight: bold;
-    color: #2c3e50;
-    padding: 0.5em 0;
-}
-
-/* Especificidad: 011 */
-details[open] summary {
-    margin-bottom: 0.5em;
-    border-bottom: 0.0625rem solid #ddd;
-}
-
 /* Navegación - el menú requiere la clase active por especificación del proyecto */
 /* Especificidad: 001 */
 nav {
@@ -337,6 +270,7 @@ nav ul li a {
 /* Especificidad: 014 */
 nav ul li a:hover {
     background-color: #555;
+    color: #ffffff;
     text-decoration: none;
 }
 
@@ -344,6 +278,7 @@ nav ul li a:hover {
 /* Especificidad: 014 */
 nav ul li a.active {
     background-color: #4CAF50;
+    color: #ffffff;
     font-weight: bold;
 }
 

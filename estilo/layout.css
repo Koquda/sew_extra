@@ -1,5 +1,3 @@
-/* layout.css - Maquetación y posicionamiento */
-
 /* Base structure */
 /* Especificidad: 001 */
 html, body {
@@ -131,14 +129,12 @@ section figure img, section figure video, section figure audio {
 
 /* Media queries */
 @media screen and (min-width: 48rem) { /* Tablets */
-    /* Eliminado: Configuración de múltiples columnas para listas */
     main section:first-child {
         grid-column: 1 / -1; /* Mantiene la configuración de ancho completo para la primera sección */
     }
 }
 
 @media screen and (min-width: 64rem) { /* Desktop */
-    /* Eliminado: Configuración de múltiples columnas para listas */
     main {
         max-width: 90%;
     }
@@ -147,73 +143,59 @@ section figure img, section figure video, section figure audio {
     }
 }
 
-/* Justificación de advertencias del validador de CSS */
-/* Herencia de colores: Los colores de texto se heredan del elemento padre (body) */
-
+/* Media queries importantes para accesibilidad */
 @media print {
-    /* Especificidad: 001 - Redefinido */
     nav {
         display: none;
     }
     
-    /* Especificidad: 001 - Redefinido */
     body {
         background-color: white;
         color: black;
     }
     
-    /* Especificidad: 001 - Redefinido */
     a {
         text-decoration: underline;
         color: #000;
     }
     
-    /* Especificidad: 002 */
     main section {
         page-break-inside: avoid;
     }
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi) {
-    /* Especificidad: 001 - Redefinido */
     body {
         font-size: 1.125rem;
     }
 }
 
 @media (prefers-color-scheme: dark) {
-    /* Especificidad: 001 - Redefinido */
     body {
         background-color: #222;
         color: #eee;
     }
     
-    /* Especificidad: 001 - Redefinido */
     a, h1, h2, h3 {
         color: #8bc34a;
     }
     
-    /* Especificidad: 001 - Redefinido */
     table {
         border-color: #444;
     }
     
-    /* Especificidad: 001 - Redefinido */
     th {
         background-color: #3d8b40;
     }
     
-    /* Especificidad: 001 - Redefinido */
     td {
         border-color: #444;
     }
     
-    /* Especificidad: 022 - Redefinido */
     tbody tr:nth-child(even) {
         background-color: #333;
     }
     
-    /* Especificidad: 012 - Redefinido */
     tbody tr:hover {
         background-color: #444;
     }
