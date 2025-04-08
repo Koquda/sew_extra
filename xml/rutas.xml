@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rutas SYSTEM "rutas.dtd">
+<rutas>
+  <ruta>
+    <nombre>Ruta de los Molinos de Pesoz</nombre>
+    <tipo>Arquitectura y monumentos</tipo>
+    <transporte>A pie</transporte>
+    <fechaInicio>2025-05-15</fechaInicio>
+    <horaInicio>09:30</horaInicio>
+    <duracion>4 horas</duracion>
+    <agencia>Turismo Rural Asturias</agencia>
+    <descripcion>Esta ruta recorre los antiguos molinos hidráulicos de Pesoz, permitiendo conocer el patrimonio industrial tradicional de la zona y disfrutar de impresionantes paisajes naturales a lo largo del recorrido.</descripcion>
+    <personasAdecuadas>Adecuada para todos los públicos, incluso familias con niños</personasAdecuadas>
+    
+    <inicio>
+      <lugar>Plaza del Ayuntamiento de Pesoz</lugar>
+      <direccion>Plaza Mayor s/n</direccion>
+      <coordenadas>
+        <longitud>-6.8932</longitud>
+        <latitud>43.2395</latitud>
+        <altitud>340</altitud>
+      </coordenadas>
+    </inicio>
+    
+    <referencias>
+      <referencia url="https://www.turismoasturias.es/pesoz">Turismo Asturias - Pesoz</referencia>
+      <referencia url="https://www.pesoz.es/turismo/rutas">Web oficial del Ayuntamiento de Pesoz</referencia>
+      <referencia url="https://www.asturnatura.com/turismo/pesoz/1899.html">Asturnatura - Patrimonio de Pesoz</referencia>
+    </referencias>
+    
+    <recomendacion>8</recomendacion>
+    
+    <hitos>
+      <hito>
+        <nombreHito>Molino de la Ribera</nombreHito>
+        <descripcionHito>Antiguo molino hidráulico restaurado del siglo XVIII que muestra el funcionamiento tradicional de la molienda.</descripcionHito>
+        <coordenadasHito>
+          <longitud>-6.8954</longitud>
+          <latitud>43.2401</latitud>
+          <altitud>330</altitud>
+        </coordenadasHito>
+        <distancia unidad="km">1.2</distancia>
+        <fotografias>
+          <fotografia>molino-ribera1.jpg</fotografia>
+          <fotografia>molino-ribera2.jpg</fotografia>
+        </fotografias>
+        <videos>
+          <video>molino-funcionamiento.mp4</video>
+        </videos>
+      </hito>
+      
+      <hito>
+        <nombreHito>Mirador del Valle</nombreHito>
+        <descripcionHito>Punto panorámico con vistas privilegiadas al valle del río Agüeira y las montañas circundantes.</descripcionHito>
+        <coordenadasHito>
+          <longitud>-6.9012</longitud>
+          <latitud>43.2423</latitud>
+          <altitud>410</altitud>
+        </coordenadasHito>
+        <distancia unidad="km">1.5</distancia>
+        <fotografias>
+          <fotografia>mirador-valle1.jpg</fotografia>
+          <fotografia>mirador-valle2.jpg</fotografia>
+          <fotografia>mirador-valle3.jpg</fotografia>
+        </fotografias>
+      </hito>
+      
+      <hito>
+        <nombreHito>Molino del Puente</nombreHito>
+        <descripcionHito>Molino tradicional situado junto a un puente histórico de piedra sobre el río Agüeira.</descripcionHito>
+        <coordenadasHito>
+          <longitud>-6.9045</longitud>
+          <latitud>43.2467</latitud>
+          <altitud>315</altitud>
+        </coordenadasHito>
+        <distancia unidad="km">2.1</distancia>
+        <fotografias>
+          <fotografia>molino-puente1.jpg</fotografia>
+          <fotografia>molino-puente2.jpg</fotografia>
+        </fotografias>
+        <videos>
+          <video>puente-medieval.mp4</video>
+        </videos>
+      </hito>
+      
+      <hito>
+        <nombreHito>Antigua Herrería</nombreHito>
+        <descripcionHito>Edificio restaurado donde se pueden observar las herramientas y técnicas tradicionales de forja utilizadas históricamente en la zona.</descripcionHito>
+        <coordenadasHito>
+          <longitud>-6.9087</longitud>
+          <latitud>43.2489</latitud>
+          <altitud>335</altitud>
+        </coordenadasHito>
+        <distancia unidad="km">1.3</distancia>
+        <fotografias>
+          <fotografia>herreria1.jpg</fotografia>
+          <fotografia>herreria2.jpg</fotografia>
+        </fotografias>
+      </hito>
+      
+      <hito>
+        <nombreHito>Molino de Argul</nombreHito>
+        <descripcionHito>El molino mejor conservado de la zona, con más de 200 años de antigüedad y maquinaria original restaurada.</descripcionHito>
+        <coordenadasHito>
+          <longitud>-6.9134</longitud>
+          <latitud>43.2512</latitud>
+          <altitud>320</altitud>
+        </coordenadasHito>
+        <distancia unidad="km">1.8</distancia>
+        <fotografias>
+          <fotografia>molino-argul1.jpg</fotografia>
+          <fotografia>molino-argul2.jpg</fotografia>
+          <fotografia>molino-argul3.jpg</fotografia>
+        </fotografias>
+        <videos>
+          <video>restauracion-molino.mp4</video>
+        </videos>
+      </hito>
+    </hitos>
+    
+    <planimetria archivo="ruta-molinos.kml">Planimetría generada con Python para la Ruta de los Molinos</planimetria>
+    <altimetria archivo="ruta-molinos.svg">Perfil de elevación generado con Python para la Ruta de los Molinos</altimetria>
+  </ruta>
+  
+  <ruta>
+    <nombre>Senda del Río Agüeira</nombre>
+    <tipo>Paisajística</tipo>
+    <transporte>Bicicleta</transporte>
+    <duracion>3 horas</duracion>
+    <agencia>Sin agencia</agencia>
+    <descripcion>Recorrido que sigue el curso del río Agüeira, permitiendo disfrutar de la vegetación de ribera, pequeñas cascadas y pozas naturales. Ideal para días calurosos de verano.</descripcion>
+    <personasAdecuadas>Personas en buena forma física</personasAdecuadas>
+    
+    <inicio>
+      <lugar>Área recreativa de Pesoz</lugar>
+      <direccion>Carretera AS-12, km 35</direccion>
+      <coordenadas>
+        <longitud>-6.8901</longitud>
+        <latitud>43.2375</latitud>
+        <altitud>325</altitud>
+      </coordenadas>
+    </inicio>
+    
+    <referencias>
+      <referencia url="https://www.turismoasturias.es/rutas-senderismo">Rutas de senderismo Asturias</referencia>
+      <referencia url="https://www.asturiasenbici.com/rutas-pesoz">Asturias en bici - Rutas por Pesoz</referencia>
+      <referencia url="https://www.wikiloc.com/pesoz-rutas">Wikiloc - Rutas por Pesoz</referencia>
+    </referencias>
+    
+    <recomendacion>9</recomendacion>
+    
+    <hitos>
+      <hito>
+        <nombreHito>Puente Medieval</nombreHito>
+        <descripcionHito>Antiguo puente de piedra que cruza el río Agüeira, construido en el siglo XV.</descripcionHito>
+        <coordenadasHito>
+          <longitud>-6.8925</longitud>
+          <latitud>43.2390</latitud>
+          <altitud>320</altitud>
+        </coordenadasHito>
+        <distancia unidad="km">0.8</distancia>
+        <fotografias>
+          <fotografia>puente-medieval1.jpg</fotografia>
+          <fotografia>puente-medieval2.jpg</fotografia>
+        </fotografias>
+      </hito>
+      
+      <hito>
+        <nombreHito>Cascada del Xiblu</nombreHito>
+        <descripcionHito>Pequeña pero pintoresca cascada entre rocas graníticas con una poza natural ideal para refrescarse.</descripcionHito>
+        <coordenadasHito>
+          <longitud>-6.8976</longitud>
+          <latitud>43.2423</latitud>
+          <altitud>310</altitud>
+        </coordenadasHito>
+        <distancia unidad="km">1.4</distancia>
+        <fotografias>
+          <fotografia>cascada-xiblu1.jpg</fotografia>
+          <fotografia>cascada-xiblu2.jpg</fotografia>
+          <fotografia>cascada-xiblu3.jpg</fotografia>
+        </fotografias>
+        <videos>
+          <video>cascada-sonido.mp4</video>
+        </videos>
+      </hito>
+      
+      <hito>
+        <nombreHito>Meandro del Águila</nombreHito>
+        <descripcionHito>Impresionante curva del río donde se pueden observar águilas pescadoras en determinadas épocas del año.</descripcionHito>
+        <coordenadasHito>
+          <longitud>-6.9034</longitud>
+          <latitud>43.2467</latitud>
+          <altitud>305</altitud>
+        </coordenadasHito>
+        <distancia unidad="km">2.3</distancia>
+        <fotografias>
+          <fotografia>meandro1.jpg</fotografia>
+          <fotografia>meandro2.jpg</fotografia>
+        </fotografias>
+      </hito>
+      
+      <hito>
+        <nombreHito>Bosque de Ribera</nombreHito>
+        <descripcionHito>Denso bosque de alisos, fresnos y sauces con una gran biodiversidad de aves y pequeños mamíferos.</descripcionHito>
+        <coordenadasHito>
+          <longitud>-6.9089</longitud>
+          <latitud>43.2498</latitud>
+          <altitud>300</altitud>
+        </coordenadasHito>
+        <distancia unidad="km">1.5</distancia>
+        <fotografias>
+          <fotografia>bosque1.jpg</fotografia>
+          <fotografia>bosque2.jpg</fotografia>
+          <fotografia>bosque3.jpg</fotografia>
+        </fotografias>
+        <videos>
+          <video>aves-bosque.mp4</video>
+        </videos>
+      </hito>
+      
+      <hito>
+        <nombreHito>Área de Descanso El Rebollo</nombreHito>
+        <descripcionHito>Zona acondicionada con mesas, bancos y una fuente de agua potable bajo un centenario roble.</descripcionHito>
+        <coordenadasHito>
+          <longitud>-6.9145</longitud>
+          <latitud>43.2523</latitud>
+          <altitud>315</altitud>
+        </coordenadasHito>
+        <distancia unidad="km">1.2</distancia>
+        <fotografias>
+          <fotografia>area-descanso1.jpg</fotografia>
+          <fotografia>area-descanso2.jpg</fotografia>
+        </fotografias>
+      </hito>
+    </hitos>
+    
+    <planimetria archivo="senda-rio.kml">Planimetría generada con Python para la Senda del Río Agüeira</planimetria>
+    <altimetria archivo="senda-rio.svg">Perfil de elevación generado con Python para la Senda del Río Agüeira</altimetria>
+  </ruta>
+  
+  <ruta>
+    <nombre>Ruta Gastronómica de Pesoz</nombre>
+    <tipo>Gastronómica</tipo>
+    <transporte>A pie</transporte>
+    <fechaInicio>2025-06-10</fechaInicio>
+    <horaInicio>12:00</horaInicio>
+    <duracion>6 horas</duracion>
+    <agencia>Sabores de Asturias</agencia>
+    <descripcion>Un recorrido por los establecimientos más emblemáticos de Pesoz donde degustar la auténtica gastronomía asturiana, desde la fabada hasta los quesos artesanales, acompañados de sidra de la tierra.</descripcion>
+    <personasAdecuadas>Para todos los públicos adultos</personasAdecuadas>
+    
+    <inicio>
+      <lugar>Plaza de la Iglesia</lugar>
+      <direccion>Calle Mayor, 8</direccion>
+      <coordenadas>
+        <longitud>-6.8922</longitud>
+        <latitud>43.2385</latitud>
+        <altitud>335</altitud>
+      </coordenadas>
+    </inicio>
+    
+    <referencias>
+      <referencia url="https://www.gastronomiaasturiana.com/pesoz">Gastronomía Asturiana - Pesoz</referencia>
+      <referencia url="https://www.sidrerias.com/occidenteastur">Sidrerías del Occidente Asturiano</referencia>
+      <referencia url="https://www.quesos-asturianos.org">Asociación de Quesos Artesanos de Asturias</referencia>
+    </referencias>
+    
+    <recomendacion>10</recomendacion>
+    
+    <hitos>
+      <hito>
+        <nombreHito>Sidrería El Hórreo</nombreHito>
+        <descripcionHito>Tradicional sidrería donde se puede degustar sidra escanciada por expertos y platos de la gastronomía local.</descripcionHito>
+        <coordenadasHito>
+          <longitud>-6.8929</longitud>
+          <latitud>43.2389</latitud>
+          <altitud>335</altitud>
+        </coordenadasHito>
+        <distancia unidad="metros">150</distancia>
+        <fotografias>
+          <fotografia>sidreria1.jpg</fotografia>
+          <fotografia>sidreria2.jpg</fotografia>
+          <fotografia>escanciado.jpg</fotografia>
+        </fotografias>
+        <videos>
+          <video>escanciado-sidra.mp4</video>
+        </videos>
+      </hito>
+      
+      <hito>
+        <nombreHito>Casa Pepe</nombreHito>
+        <descripcionHito>Restaurante familiar especializado en fabada asturiana y cachopo, elaborados con productos locales de máxima calidad.</descripcionHito>
+        <coordenadasHito>
+          <longitud>-6.8942</longitud>
+          <latitud>43.2397</latitud>
+          <altitud>337</altitud>
+        </coordenadasHito>
+        <distancia unidad="metros">250</distancia>
+        <fotografias>
+          <fotografia>casa-pepe1.jpg</fotografia>
+          <fotografia>fabada.jpg</fotografia>
+          <fotografia>cachopo.jpg</fotografia>
+        </fotografias>
+      </hito>
+      
+      <hito>
+        <nombreHito>Quesería Artesanal La Cabreira</nombreHito>
+        <descripcionHito>Obrador donde se elaboran quesos artesanales de cabra, con posibilidad de ver el proceso y realizar una degustación.</descripcionHito>
+        <coordenadasHito>
+          <longitud>-6.8967</longitud>
+          <latitud>43.2410</latitud>
+          <altitud>345</altitud>
+        </coordenadasHito>
+        <distancia unidad="metros">450</distancia>
+        <fotografias>
+          <fotografia>queseria1.jpg</fotografia>
+          <fotografia>queseria2.jpg</fotografia>
+          <fotografia>quesos-degustacion.jpg</fotografia>
+        </fotografias>
+        <videos>
+          <video>elaboracion-queso.mp4</video>
+        </videos>
+      </hito>
+      
+      <hito>
+        <nombreHito>La Cocina de María</nombreHito>
+        <descripcionHito>Establecimiento especializado en guisos tradicionales y carnes a la brasa, con un ambiente acogedor y familiar.</descripcionHito>
+        <coordenadasHito>
+          <longitud>-6.8991</longitud>
+          <latitud>43.2423</latitud>
+          <altitud>340</altitud>
+        </coordenadasHito>
+        <distancia unidad="metros">500</distancia>
+        <fotografias>
+          <fotografia>cocina-maria1.jpg</fotografia>
+          <fotografia>cocina-maria2.jpg</fotografia>
+          <fotografia>guisos-tradicionales.jpg</fotografia>
+        </fotografias>
+      </hito>
+      
+      <hito>
+        <nombreHito>Pastelería El Dulce</nombreHito>
+        <descripcionHito>Obrador artesanal donde degustar los dulces tradicionales de la región, como casadielles, frixuelos y arroz con leche.</descripcionHito>
+        <coordenadasHito>
+          <longitud>-6.9012</longitud>
+          <latitud>43.2435</latitud>
+          <altitud>338</altitud>
+        </coordenadasHito>
+        <distancia unidad="metros">400</distancia>
+        <fotografias>
+          <fotografia>pasteleria1.jpg</fotografia>
+          <fotografia>dulces-tradicionales.jpg</fotografia>
+          <fotografia>casadielles.jpg</fotografia>
+        </fotografias>
+        <videos>
+          <video>elaboracion-dulces.mp4</video>
+        </videos>
+      </hito>
+    </hitos>
+    
+    <planimetria archivo="ruta-gastronomica.kml">Planimetría generada con Python para la Ruta Gastronómica</planimetria>
+    <altimetria archivo="ruta-gastronomica.svg">Perfil de elevación generado con Python para la Ruta Gastronómica</altimetria>
+  </ruta>
+</rutas>
