@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- DTD para rutas turísticas en Asturias -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:element name="rutas">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="ruta"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ruta">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="nombre"/>
+                <xs:element ref="tipo"/>
+                <xs:element ref="transporte"/>
+                <xs:element minOccurs="0" ref="fechaInicio"/>
+                <xs:element minOccurs="0" ref="horaInicio"/>
+                <xs:element ref="duracion"/>
+                <xs:element ref="agencia"/>
+                <xs:element ref="descripcion"/>
+                <xs:element ref="personasAdecuadas"/>
+                <xs:element ref="inicio"/>
+                <xs:element ref="referencias"/>
+                <xs:element ref="recomendacion"/>
+                <xs:element ref="hitos"/>
+                <xs:element ref="planimetria"/>
+                <xs:element ref="altimetria"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="nombre" type="xs:string"/>
+    <xs:element name="tipo" type="xs:string"/>
+    <xs:element name="transporte" type="xs:string"/>
+    <xs:element name="fechaInicio" type="xs:string"/>
+    <xs:element name="horaInicio" type="xs:string"/>
+    <xs:element name="duracion" type="xs:string"/>
+    <xs:element name="agencia" type="xs:string"/>
+    <xs:element name="descripcion" type="xs:string"/>
+    <xs:element name="personasAdecuadas" type="xs:string"/>
+    <xs:element name="inicio">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="lugar"/>
+                <xs:element ref="direccion"/>
+                <xs:element ref="coordenadas"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="lugar" type="xs:string"/>
+    <xs:element name="direccion" type="xs:string"/>
+    <xs:element name="coordenadas">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="longitud"/>
+                <xs:element ref="latitud"/>
+                <xs:element ref="altitud"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="longitud" type="xs:string"/>
+    <xs:element name="latitud" type="xs:string"/>
+    <xs:element name="altitud" type="xs:string"/>
+    <xs:element name="referencias">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="referencia"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="referencia">
+        <xs:complexType mixed="true">
+            <xs:attribute name="url" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="recomendacion" type="xs:string"/>
+    <xs:element name="hitos">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="hito"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="hito">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="nombreHito"/>
+                <xs:element ref="descripcionHito"/>
+                <xs:element ref="coordenadasHito"/>
+                <xs:element ref="distancia"/>
+                <xs:element ref="fotografias"/>
+                <xs:element minOccurs="0" ref="videos"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="nombreHito" type="xs:string"/>
+    <xs:element name="descripcionHito" type="xs:string"/>
+    <xs:element name="coordenadasHito">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="longitud"/>
+                <xs:element ref="latitud"/>
+                <xs:element ref="altitud"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="distancia">
+        <xs:complexType mixed="true">
+            <xs:attribute name="unidad" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="fotografias">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="fotografia"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="fotografia" type="xs:string"/>
+    <xs:element name="videos">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="video"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="video" type="xs:string"/>
+    <xs:element name="planimetria">
+        <xs:complexType mixed="true">
+            <xs:attribute name="archivo" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="altimetria">
+        <xs:complexType mixed="true">
+            <xs:attribute name="archivo" use="required"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
