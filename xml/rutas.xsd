@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- DTD para rutas turísticas en Asturias -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
     <xs:element name="rutas">
         <xs:complexType>
@@ -64,7 +63,8 @@
     <xs:element name="referencias">
         <xs:complexType>
             <xs:sequence>
-                <xs:element maxOccurs="unbounded" ref="referencia"/>
+                <!-- Mínimo 3 referencias según los requisitos -->
+                <xs:element minOccurs="3" maxOccurs="unbounded" ref="referencia"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -73,11 +73,20 @@
             <xs:attribute name="url" use="required"/>
         </xs:complexType>
     </xs:element>
-    <xs:element name="recomendacion" type="xs:string"/>
+    <xs:element name="recomendacion">
+        <xs:simpleType>
+            <xs:restriction base="xs:integer">
+                <!-- Recomendación de 0 a 10 según los requisitos -->
+                <xs:minInclusive value="0"/>
+                <xs:maxInclusive value="10"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
     <xs:element name="hitos">
         <xs:complexType>
             <xs:sequence>
-                <xs:element maxOccurs="unbounded" ref="hito"/>
+                <!-- Mínimo 5 hitos según los requisitos -->
+                <xs:element minOccurs="5" maxOccurs="unbounded" ref="hito"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -112,7 +121,8 @@
     <xs:element name="fotografias">
         <xs:complexType>
             <xs:sequence>
-                <xs:element maxOccurs="unbounded" ref="fotografia"/>
+                <!-- Mínimo 1, máximo 5 fotografías por hito según los requisitos -->
+                <xs:element minOccurs="1" maxOccurs="5" ref="fotografia"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -120,7 +130,8 @@
     <xs:element name="videos">
         <xs:complexType>
             <xs:sequence>
-                <xs:element maxOccurs="unbounded" ref="video"/>
+                <!-- Máximo 3 videos por hito según los requisitos -->
+                <xs:element maxOccurs="3" ref="video"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>

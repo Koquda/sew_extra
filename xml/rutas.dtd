@@ -1,4 +1,3 @@
-<!-- DTD para rutas turísticas en Asturias -->
 <!ELEMENT rutas (ruta+)>
 <!ELEMENT ruta (nombre, tipo, transporte, fechaInicio?, horaInicio?, duracion, agencia, descripcion, personasAdecuadas, inicio, referencias, recomendacion, hitos, planimetria, altimetria)>
 <!ELEMENT nombre (#PCDATA)>
