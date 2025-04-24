@@ -13,6 +13,9 @@
 	<!-- enlaces a las hojas de estilo -->
 	<link rel="stylesheet" type="text/css" href="estilo/estilo.css">
 	<link rel="stylesheet" type="text/css" href="estilo/layout.css">
+	<link rel="stylesheet" type="text/css" href="estilo/meteorologia.css">
+	<!-- jQuery CDN -->
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 <body>
 	<header>
@@ -30,10 +33,18 @@
 		</ul>
 	</nav>
 	<main>
-		<!-- Contenido sobre meteorología -->
+		<section>
+			<h2>Meteorología en Pesoz</h2>
+			<p>Aquí encontrarás la información meteorológica actual y el pronóstico para los próximos 7 días en Pesoz.</p>
+			<p>Los datos son proporcionados por OpenWeather API y se actualizan en tiempo real.</p>
+		</section>
+		<!-- El contenido meteorológico se cargará dinámicamente a través de JavaScript -->
 	</main>
 	<footer>
 		<p>Información meteorológica - Turismo en Pesoz</p>
 	</footer>
+	
+	<!-- Script de meteorología -->
+	<script src="js/meteorologia.js"></script>
 </body>
 </html>

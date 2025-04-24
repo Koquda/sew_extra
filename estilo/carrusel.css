@@ -1,0 +1,54 @@
+/* Carrusel styles */
+main section:first-of-type {
+    position: relative;
+    width: 100%;
+    max-width: 50rem; /* 800px equivalent at 16px base font size */
+    margin: 2rem auto;
+    overflow: hidden;
+    height: 25rem; /* 400px equivalent at 16px base font size */
+    display: flex;
+    flex-direction: column;
+}
+
+main section:first-of-type h2 {
+    margin-bottom: 0.625rem; /* 10px equivalent */
+}
+
+main section:first-of-type img {
+    max-width: 100%;
+    max-height: calc(100% - 3.125rem); /* 50px equivalent - leaves space for the title */
+    object-fit: contain; /* Maintains image ratio */
+    display: block;
+    margin: auto;
+}
+
+/* Button styles */
+main section:first-of-type button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    width: 2.5rem; /* 40px equivalent */
+    height: 2.5rem; /* 40px equivalent */
+    border-radius: 50%;
+    font-size: 1.125rem; /* 18px equivalent */
+    cursor: pointer;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main section:first-of-type button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+main section:first-of-type button:first-of-type {
+    left: 0.625rem; /* 10px equivalent */
+}
+
+main section:first-of-type button:last-of-type {
+    right: 0.625rem; /* 10px equivalent */
+}

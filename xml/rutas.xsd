@@ -131,7 +131,7 @@
         <xs:complexType>
             <xs:sequence>
                 <!-- Máximo 3 videos por hito según los requisitos -->
-                <xs:element maxOccurs="3" ref="video"/>
+                <xs:element maxOccurs="3" minOccurs="0" ref="video"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>

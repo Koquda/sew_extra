@@ -120,9 +120,9 @@ section article {
 
 /* Especificidad: 003 */
 section figure img, section figure video, section figure audio {
-    width: 100%;
+    width: 50%;
     height: auto;
-    max-width: 100%;
+    max-width: 50%;
     margin: 0 auto;
     object-fit: contain;
 }

@@ -1,0 +1,173 @@
+/* Estilos para la página de meteorología */
+
+/* Estilos para clima actual */
+/* Especificidad: 002 */
+main section:first-of-type + section {
+    margin-bottom: 2rem;
+    text-align: center;
+    /* Se ajusta el margen para mejorar la visualización
+       en la estructura de la página */
+}
+
+/* Especificidad: 003 */
+main section:first-of-type + section > section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    /* Uso de flexbox para centrar el contenido,
+       mejorando la adaptabilidad */
+}
+
+/* Especificidad: 006 */
+main section:nth-of-type(2) > section > section > section > section {
+    display: flex;
+    flex-direction: column;
+    /* Color de fondo con transparencia para mejorar la legibilidad
+       ADVERTENCIA W3C: Color heredado del texto desde el body */
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto; /* Centrado horizontal */
+    /* Ancho máximo fijo pero con width:100% para adaptabilidad en pantallas pequeñas */
+}
+
+/* Especificidad: 005 */
+main section:first-of-type + section > section > section > section > section:first-of-type {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    /* Estructura vertical centrada para mejorar la presentación del clima */
+}
+
+/* Especificidad: 002 */
+main section:nth-of-type(2) img {
+    width: 100px;
+    height: 100px;
+    /* Dimensiones fijas para el icono meteorológico, 
+       mejorando la consistencia visual */
+}
+
+/* Especificidad: 006 */
+main section:first-of-type + section > section > section > section > section:first-of-type h3 {
+    font-size: 2.5rem;
+    margin: 0.5rem 0;
+    /* Tamaño grande para destacar la temperatura actual */
+}
+
+/* Especificidad: 002 */
+main section:nth-of-type(2) p:nth-of-type(3) {
+    font-size: 1.2rem;
+    font-style: italic;
+    /* ADVERTENCIA W3C: Color heredado del texto desde el body */
+}
+
+/* Especificidad: 005 */
+main section:first-of-type + section > section > section > section > section:nth-of-type(2) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    /* Uso de CSS Grid para la disposición adaptable de los detalles meteorológicos,
+       permitiendo reorganización según el tamaño de pantalla */
+}
+
+/* Estilos para pronóstico */
+/* Especificidad: 002 */
+main section:first-of-type + section + section {
+    margin-top: 2rem;
+    /* Separación vertical para distinguir secciones */
+}
+
+/* Especificidad: 003 */
+main section:first-of-type + section + section > section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+    /* CSS Grid para adaptabilidad automática según tamaño de pantalla,
+       con columnas que se ajustan dinámicamente */
+}
+
+/* Especificidad: 003 */
+main section:nth-of-type(3) article {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    /* Fondo semi-transparente para mejorar legibilidad
+       ADVERTENCIA W3C: Color heredado del texto desde el body */
+}
+
+/* Especificidad: 003 */
+main section:nth-of-type(3) h4 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 0.5rem;
+    /* Separador visual para el título del día */
+}
+
+/* Especificidad: 003 */
+main section:nth-of-type(3) img {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    /* Tamaño fijo para los iconos del pronóstico para mantener
+       consistencia visual entre días */
+}
+
+/* Especificidad: 004 - Excepción justificada para distinguir tipo de temperatura */
+main section:nth-of-type(3) article p:nth-of-type(1) {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+    /* Tamaño destacado para la temperatura principal */
+}
+
+/* Especificidad: 004 - Excepción justificada para distinguir tipo de temperatura */
+main section:nth-of-type(3) article p:nth-of-type(2) {
+    color: #ccc;
+    font-size: 0.9rem;
+    /* ADVERTENCIA W3C: Se especifica un color diferente al heredado para
+       dar menor énfasis visual a estos valores */
+}
+
+/* Especificidad: 003 */
+main section:nth-of-type(2) section section p:last-of-type {
+    color: #ff6b6b;
+    text-align: center;
+    padding: 1rem;
+    /* ADVERTENCIA W3C: Color explícitamente definido para
+       resaltar mensajes de error para mejor visibilidad */
+}
+
+/* Media Queries para responsividad */
+/* Las especificidades se mantienen igual para los selectores dentro de las media queries */
+@media screen and (max-width: 768px) {
+    /* Especificidad: 004 */
+    main section:first-of-type + section > section > section > section:first-of-type {
+        padding: 1rem;
+        /* Se reduce el padding en pantallas medianas para
+           aprovechar mejor el espacio disponible */
+    }
+    
+    /* Especificidad: 003 */
+    main section:first-of-type + section + section > section {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        /* Se reducen las dimensiones mínimas de las columnas
+           para acomodar más elementos en pantallas medianas */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* Especificidad: 005 */
+    main section:first-of-type + section > section > section > section > section:nth-of-type(2) {
+        grid-template-columns: 1fr;
+        /* Cambia a una sola columna en móviles para
+           mejor legibilidad de los datos */
+    }
+}
