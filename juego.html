@@ -13,6 +13,11 @@
 	<!-- enlaces a las hojas de estilo -->
 	<link rel="stylesheet" type="text/css" href="estilo/estilo.css">
 	<link rel="stylesheet" type="text/css" href="estilo/layout.css">
+	<link rel="stylesheet" type="text/css" href="estilo/juego.css">
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<!-- Script del juego -->
+	<script src="js/juego.js"></script>
 </head>
 <body>
 	<header>
@@ -30,7 +35,20 @@
 		</ul>
 	</nav>
 	<main>
-		<!-- Contenido del juego -->
+		<section>
+			<h2>Juego turístico de Pesoz</h2>
+			<p>Pon a prueba tus conocimientos sobre Pesoz con este juego de 10 preguntas. Responde correctamente para obtener la máxima puntuación.</p>
+			<p>Instrucciones:</p>
+			<ul>
+				<li>El juego consta de 10 preguntas sobre Pesoz.</li>
+				<li>Cada pregunta tiene 5 opciones y solo una es correcta.</li>
+				<li>Debes responder todas las preguntas para finalizar.</li>
+				<li>Cada respuesta correcta suma 1 punto.</li>
+				<li>La puntuación final será de 0 a 10 puntos.</li>
+			</ul>
+			<input type="button" id="startGame" value="Iniciar juego">
+		</section>
+		<!-- El contenido del juego se cargará dinámicamente con JavaScript -->
 	</main>
 	<footer>
 		<p>Juego interactivo - Turismo en Pesoz</p>
