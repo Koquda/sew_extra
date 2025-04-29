@@ -171,31 +171,34 @@ class JuegoPesoz {
      */
     configurarInterfaz() {
         // Crear contenedor principal del juego
-        const contenedorJuego = $("<article></article>").attr("id", "contenedorJuego");
+        const contenedorJuego = $("<article></article>").attr("data-tipo", "contenedor-juego");
         
         // Crear elemento para mostrar la pregunta
-        const pregunta = $("<article></article>").attr("id", "pregunta");
+        const pregunta = $("<article></article>").attr("data-tipo", "pregunta");
         
         // Crear elemento para las opciones
-        const opciones = $("<article></article>").attr("id", "opciones");
+        const opciones = $("<article></article>").attr("data-tipo", "opciones");
         
         // Crear elementos para navegación
-        const navegacion = $("<article></article>").attr("id", "navegacion");
+        const navegacion = $("<article></article>").attr("data-tipo", "navegacion");
         const btnAnterior = $("<button></button>")
             .text("Anterior")
+            .attr("data-accion", "anterior")
             .on("click", this.preguntaAnterior.bind(this));
         
         const btnSiguiente = $("<button></button>")
             .text("Siguiente")
+            .attr("data-accion", "siguiente")
             .on("click", this.preguntaSiguiente.bind(this));
         
         const btnFinalizar = $("<button></button>")
             .text("Finalizar juego")
+            .attr("data-accion", "finalizar")
             .on("click", this.finalizarJuego.bind(this));
         
         // Crear elemento para resultados
         const resultados = $("<article></article>")
-            .attr("id", "resultados")
+            .attr("data-tipo", "resultados")
             .hide();
         
         // Añadir elementos al DOM
@@ -204,6 +207,12 @@ class JuegoPesoz {
         
         // Añadir el contenedor a la sección existente
         $("main > section").append(contenedorJuego);
+        
+        // Guardar referencias a los elementos para uso posterior
+        this.elementoPregunta = pregunta;
+        this.elementoOpciones = opciones;
+        this.elementoNavegacion = navegacion;
+        this.elementoResultados = resultados;
     }
     
     /**
@@ -217,12 +226,11 @@ class JuegoPesoz {
         const preguntaObj = this.preguntas[indice];
         
         // Actualizar título de la pregunta
-        $("#pregunta").html(`<h2>Pregunta ${indice + 1} de ${this.preguntas.length}</h2>
+        this.elementoPregunta.html(`<h2>Pregunta ${indice + 1} de ${this.preguntas.length}</h2>
                            <p>${preguntaObj.pregunta}</p>`);
         
         // Generar opciones
-        const contenedorOpciones = $("#opciones");
-        contenedorOpciones.empty();
+        this.elementoOpciones.empty();
         
         preguntaObj.opciones.forEach((opcion, i) => {
             const seleccionada = this.respuestasUsuario[indice] === i ? "checked" : "";
@@ -243,7 +251,7 @@ class JuegoPesoz {
             });
             
             opcionHTML.append(radioBtn, opcion);
-            contenedorOpciones.append(opcionHTML);
+            this.elementoOpciones.append(opcionHTML);
         });
     }
     
@@ -303,22 +311,21 @@ class JuegoPesoz {
         const puntuacion = this.calcularPuntuacion();
         
         // Mostrar resultados
-        const resultados = $("#resultados");
-        resultados.empty();
+        this.elementoResultados.empty();
         
         const titulo = $("<h2></h2>").text("Resultados del juego");
         const puntuacionText = $("<p></p>").text(`Tu puntuación: ${puntuacion} de 10`);
         
-        resultados.append(titulo, puntuacionText);
+        this.elementoResultados.append(titulo, puntuacionText);
         
         // Mostrar respuestas correctas e incorrectas
         const respuestasHTML = $("<ul></ul>");
         
         for (let i = 0; i < this.preguntas.length; i++) {
             const esCorrecta = this.respuestasUsuario[i] === this.preguntas[i].respuestaCorrecta;
-            const clase = esCorrecta ? "correcta" : "incorrecta";
+            const resultado = esCorrecta ? "correcto" : "incorrecto";
             
-            const respuestaLi = $("<li></li>").addClass(clase);
+            const respuestaLi = $("<li></li>").attr("data-resultado", resultado);
             
             const respuestaUsuario = this.preguntas[i].opciones[this.respuestasUsuario[i]];
             const respuestaCorrecta = this.preguntas[i].opciones[this.preguntas[i].respuestaCorrecta];
@@ -333,25 +340,31 @@ class JuegoPesoz {
             respuestasHTML.append(respuestaLi);
         }
         
-        resultados.append(respuestasHTML);
+        this.elementoResultados.append(respuestasHTML);
         
         // Mostrar resultados
-        $("#pregunta, #opciones, #navegacion").hide();
-        resultados.show();
+        this.elementoPregunta.hide();
+        this.elementoOpciones.hide();
+        this.elementoNavegacion.hide();
+        this.elementoResultados.show();
         
         // Añadir botones para reiniciar el juego o volver al inicio
-        const botonesContainer = $("<div></div>").css("margin-top", "1.5rem");
+        const botonesContainer = $("<article></article>")
+            .attr("data-tipo", "navegacion")
+            .css("margin-top", "1.5rem");
         
         const btnReiniciar = $("<button></button>")
             .text("Jugar de nuevo")
+            .attr("data-accion", "reiniciar")
             .on("click", this.reiniciarJuego.bind(this));
             
         const btnVolver = $("<button></button>")
             .text("Volver a instrucciones")
+            .attr("data-accion", "volver")
             .on("click", this.volverAInstrucciones.bind(this));
         
         botonesContainer.append(btnReiniciar, btnVolver);
-        resultados.append(botonesContainer);
+        this.elementoResultados.append(botonesContainer);
     }
     
     /**
@@ -364,8 +377,10 @@ class JuegoPesoz {
         this.puntuacion = 0;
         
         // Resetear interfaz
-        $("#resultados").hide();
-        $("#pregunta, #opciones, #navegacion").show();
+        this.elementoResultados.hide();
+        this.elementoPregunta.show();
+        this.elementoOpciones.show();
+        this.elementoNavegacion.show();
         
         // Mostrar primera pregunta
         this.mostrarPregunta(0);
@@ -376,7 +391,7 @@ class JuegoPesoz {
      */
     volverAInstrucciones() {
         // Ocultar el juego
-        $("#contenedorJuego").remove();
+        $("main > section > article[data-tipo='contenedor-juego']").remove();
         
         // Mostrar instrucciones
         $("section > h2, section > p, section > ul, section > button").show();
