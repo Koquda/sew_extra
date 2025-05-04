@@ -1,28 +1,30 @@
 /* Carrusel styles */
+/* Especificidad: 003 */
 main section:first-of-type {
     position: relative;
-    width: 100%;
-    max-width: 50rem; /* 800px equivalent at 16px base font size */
+    max-width: 50rem;
     margin: 2rem auto;
     overflow: hidden;
-    height: 25rem; /* 400px equivalent at 16px base font size */
+    height: 25rem;
     display: flex;
     flex-direction: column;
 }
 
+/* Especificidad: 004 */
 main section:first-of-type h2 {
-    margin-bottom: 0.625rem; /* 10px equivalent */
+    margin-bottom: 0.625rem;
 }
 
+/* Especificidad: 004 */
 main section:first-of-type img {
     max-width: 100%;
-    max-height: calc(100% - 3.125rem); /* 50px equivalent - leaves space for the title */
-    object-fit: contain; /* Maintains image ratio */
-    display: block;
+    max-height: calc(100% - 3.125rem);
+    object-fit: contain;
     margin: auto;
 }
 
 /* Button styles */
+/* Especificidad: 004 */
 main section:first-of-type button {
     position: absolute;
     top: 50%;
@@ -30,10 +32,10 @@ main section:first-of-type button {
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
-    width: 2.5rem; /* 40px equivalent */
-    height: 2.5rem; /* 40px equivalent */
+    width: 2.5rem;
+    height: 2.5rem;
     border-radius: 50%;
-    font-size: 1.125rem; /* 18px equivalent */
+    font-size: 1.125rem;
     cursor: pointer;
     z-index: 2;
     display: flex;
@@ -41,14 +43,17 @@ main section:first-of-type button {
     align-items: center;
 }
 
+/* Especificidad: 014 */
 main section:first-of-type button:hover {
     background-color: rgba(0, 0, 0, 0.7);
 }
 
+/* Especificidad: 014 */
 main section:first-of-type button:first-of-type {
-    left: 0.625rem; /* 10px equivalent */
+    left: 0.625rem;
 }
 
+/* Especificidad: 014 */
 main section:first-of-type button:last-of-type {
-    right: 0.625rem; /* 10px equivalent */
+    right: 0.625rem;
 }

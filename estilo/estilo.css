@@ -12,26 +12,23 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    color: #111; /* Cambiado de #222 a #111 para mayor contraste */
-    background-color: #ffffff; /* Cambiado de #f9f9f9 a blanco puro para mejor contraste */
+    color: #111;
+    background-color: #fff;
     overflow-x: hidden;
-    width: 100%;
 }
 
 /* Elementos de texto */
 /* Especificidad: 001 */
 p, li, dd, th, td, summary {
     overflow-wrap: break-word;
-    word-wrap: break-word;
 }
 
 /* Encabezados */
 /* Especificidad: 001 */
 h1, h2, h3 {
-    color: #000; /* Cambiado de #1a1a1a a negro puro para mejor contraste */
+    color: #000;
     hyphens: auto;
     overflow-wrap: break-word;
-    word-wrap: break-word;
 }
 
 /* Especificidad: 001 */
@@ -45,7 +42,7 @@ h1 {
 /* Especificidad: 001 */
 h2 {
     font-size: 2rem;
-    margin: 1em 0 0.5em 0;
+    margin: 1em 0 0.5em;
     border-bottom: 0.125rem solid #4CAF50;
     padding-bottom: 0.3em;
 }
@@ -53,26 +50,25 @@ h2 {
 /* Especificidad: 001 */
 h3 { 
     font-size: 1.5rem; 
-    margin: 1em 0 0.5em 0; 
+    margin: 1em 0 0.5em; 
 }
 
 /* Enlaces */
 /* Especificidad: 001 */
 a {
-    color: #0044cc; /* Cambiado de #0056b3 a un azul más claro para mejor contraste */
+    color: #0044cc;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.3s;
     overflow-wrap: break-word;
-    word-wrap: break-word;
 }
 
 /* Especificidad: 011 */
 a:hover { 
-    color: #003399; /* Cambiado de #003d80 a un azul más claro para mayor contraste */
+    color: #003399;
     text-decoration: underline; 
 }
 
-/* Especificidad: 011 - Herencia de fondo: body (#f9f9f9) */
+/* Especificidad: 011 - Herencia de fondo: body (#fff) */
 a:visited { 
     color: #3d8b40; 
 }
@@ -82,14 +78,12 @@ a:visited {
 main, section, article, figure {
     width: 100%;
     box-sizing: border-box;
-    max-width: 100%;
 }
 
 /* Especificidad: 001 */
 main { 
     padding: 1em; 
-    overflow-wrap: break-word; 
-    word-wrap: break-word; 
+    overflow-wrap: break-word;
 }
 
 /* Especificidad: 001 */
@@ -105,47 +99,41 @@ article {
 /* Listas normales */
 /* Especificidad: 001 */
 ul, ol {
-    margin: 1.5em 0; /* Aumenta el margen para diferenciar las listas del texto */
-    padding-left: 2.5em; /* Aumenta la sangría para listas normales */
-    list-style-position: outside; /* Los marcadores se colocan fuera del contenido */
-    list-style-type: disc; /* Estilo de marcador predeterminado */
-    line-height: 1.8; /* Aumenta el espacio entre líneas para mejorar la legibilidad */
-    border-left: 0.125rem solid #4CAF50; /* Añade una línea vertical para diferenciar las listas */
-    padding-left: 1.5em; /* Espacio entre la línea y el contenido */
+    margin: 1.5em 0;
+    padding-left: 1.5em;
+    list-style-position: outside;
+    line-height: 1.8;
+    border-left: 0.125rem solid #4CAF50;
 }
 
 /* Especificidad: 001 */
 li {
-    margin-bottom: 0.8em; /* Aumenta el espacio entre elementos de la lista */
+    margin-bottom: 0.8em;
     overflow-wrap: break-word;
-    word-wrap: break-word;
 }
 
 /* Estilo para listas anidadas */
 /* Especificidad: 002 */
 li ul, li ol {
     margin: 0.5em 0;
-    padding-left: 0; /* Elimina la sangría para listas anidadas */
-    list-style: none; /* Elimina los marcadores predeterminados */
-    display: block; /* Asegura que las listas anidadas estén en una sola columna */
-    border-left: 0.125rem dashed #ccc; /* Línea vertical para diferenciar listas anidadas */
-    padding-left: 1em; /* Espacio entre la línea y el contenido */
-    position: relative; /* Permite posicionar los elementos de forma personalizada */
+    border-left: 0.125rem dashed #ccc;
+    padding-left: 1em;
+    list-style: none;
+    position: relative;
 }
 
 /* Especificidad: 003 */
 li ul li, li ol li {
-    display: block; /* Asegura que cada elemento de la lista ocupe una fila */
-    margin-left: 1em; /* Alinea todos los elementos en la misma columna */
-    position: relative; /* Permite personalizar la posición */
+    margin-left: 1em;
+    position: relative;
 }
 
 /* Especificidad: 003 */
 li ul li::before, li ol li::before {
-    content: '\2022'; /* Añade un marcador personalizado */
+    content: '\2022';
     position: absolute;
-    left: -1em; /* Posiciona el marcador a la izquierda */
-    color: #555; /* Color del marcador */
+    left: -1em;
+    color: #555;
 }
 
 /* Lista de definición */
@@ -220,7 +208,7 @@ figure {
     text-align: center;
 }
 
-/* Especificidad: 001 - Herencia de fondo: body (#f9f9f9) */
+/* Especificidad: 001 - Herencia de fondo: body (#fff) */
 figcaption {
     font-style: italic;
     margin-top: 0.5em;
@@ -237,7 +225,6 @@ nav {
     width: 100%;
     z-index: 100;
     box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
 }
 
 /* Especificidad: 002 */
@@ -245,7 +232,6 @@ nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    text-align: center;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -260,7 +246,6 @@ nav ul li {
 /* Especificidad: 004 - Herencia de fondo: nav (#333) */
 nav ul li a {
     color: white;
-    text-decoration: none;
     padding: 0.5em 1em;
     display: block;
     transition: background-color 0.3s;
@@ -270,7 +255,6 @@ nav ul li a {
 /* Especificidad: 014 */
 nav ul li a:hover {
     background-color: #555;
-    color: #ffffff;
     text-decoration: none;
 }
 
@@ -278,20 +262,17 @@ nav ul li a:hover {
 /* Especificidad: 014 */
 nav ul li a.active {
     background-color: #4CAF50;
-    color: #ffffff;
     font-weight: bold;
 }
 
 /* Pie de página */
 /* Especificidad: 001 */
 footer {
-    background-color: #1a1a1a; /* Cambiado de #333 a un negro más oscuro para mejor contraste */
-    color: #f2f2f2; /* Cambiado de #e6e6e6 a un gris más claro para mejor contraste */
+    background-color: #1a1a1a;
+    color: #f2f2f2;
     text-align: center;
     padding: 1em 0;
     margin-top: 2em;
-    width: 100%;
-    box-sizing: border-box;
 }
 
 /* Especificidad: 002 */
@@ -299,7 +280,7 @@ footer p {
     margin: 0; 
 }
 
-/* Especificidad: 002 - Herencia de fondo: footer (#333) */
+/* Especificidad: 002 - Herencia de fondo: footer (#1a1a1a) */
 footer a { 
-    color: #3399ff; /* Cambiado de #66b2ff a un azul más claro para mejor contraste */
+    color: #3399ff; 
 }

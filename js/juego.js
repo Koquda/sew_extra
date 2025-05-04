@@ -38,6 +38,11 @@ class JuegoPesoz {
         if (this.juegoIniciado) return;
         this.juegoIniciado = true;
         
+        // Resetear las respuestas del usuario
+        this.respuestasUsuario = new Array(10).fill(null);
+        this.preguntaActual = 0;
+        this.puntuacion = 0;
+        
         // Ocultar instrucciones y mostrar el juego
         $("section > h2, section > p, section > ul, section > input[type='button']").hide();
         
@@ -348,41 +353,42 @@ class JuegoPesoz {
         this.elementoNavegacion.hide();
         this.elementoResultados.show();
         
-        // Añadir botones para reiniciar el juego o volver al inicio
-        const botonesContainer = $("<article></article>")
-            .attr("data-tipo", "navegacion")
-            .css("margin-top", "1.5rem");
-        
+        // Añadir botones para reiniciar el juego o volver al inicio en una columna vertical
         const btnReiniciar = $("<button></button>")
             .text("Jugar de nuevo")
             .attr("data-accion", "reiniciar")
+            .css({
+                "display": "block",
+                "width": "100%",
+                "margin-bottom": "1rem",
+                "margin-top": "2rem"
+            })
             .on("click", this.reiniciarJuego.bind(this));
             
         const btnVolver = $("<button></button>")
             .text("Volver a instrucciones")
             .attr("data-accion", "volver")
+            .css({
+                "display": "block",
+                "width": "100%"
+            })
             .on("click", this.volverAInstrucciones.bind(this));
         
-        botonesContainer.append(btnReiniciar, btnVolver);
-        this.elementoResultados.append(botonesContainer);
+        // Añadir botones directamente al contenedor de resultados (sin contenedor adicional)
+        this.elementoResultados.append(btnReiniciar, btnVolver);
     }
     
     /**
      * Reinicia el juego
      */
     reiniciarJuego() {
-        // Resetear variables
         this.respuestasUsuario = new Array(10).fill(null);
         this.preguntaActual = 0;
         this.puntuacion = 0;
-        
-        // Resetear interfaz
         this.elementoResultados.hide();
         this.elementoPregunta.show();
         this.elementoOpciones.show();
         this.elementoNavegacion.show();
-        
-        // Mostrar primera pregunta
         this.mostrarPregunta(0);
     }
     
@@ -390,14 +396,12 @@ class JuegoPesoz {
      * Finaliza el juego completamente y vuelve a mostrar las instrucciones
      */
     volverAInstrucciones() {
-        // Ocultar el juego
         $("main > section > article[data-tipo='contenedor-juego']").remove();
-        
-        // Mostrar instrucciones
-        $("section > h2, section > p, section > ul, section > button").show();
-        
-        // Resetear estado
+        $("section > h2, section > p, section > ul, section > input[type='button']").show();
         this.juegoIniciado = false;
+        this.respuestasUsuario = new Array(10).fill(null);
+        this.preguntaActual = 0;
+        this.puntuacion = 0;
     }
 }
 
