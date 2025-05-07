@@ -1,0 +1,68 @@
+/**
+ * Diagrama Entidad-Relación para la Base de Datos de Reservas Turísticas de Pesoz
+ * @author Alejandro Campa Martínez
+ * 
+ * USUARIOS
+ * - id (PK)
+ * - nombre
+ * - apellidos
+ * - email (UNIQUE)
+ * - telefono
+ * - contrasena
+ * - fecha_registro
+ * 
+ * TIPOS_RECURSOS
+ * - id (PK)
+ * - nombre
+ * - descripcion
+ * 
+ * RECURSOS_TURISTICOS
+ * - id (PK)
+ * - nombre
+ * - descripcion
+ * - plazas
+ * - precio
+ * - fecha_inicio
+ * - fecha_fin
+ * - tipo_id (FK → TIPOS_RECURSOS.id)
+ * 
+ * ESTADOS_RESERVA
+ * - id (PK)
+ * - nombre
+ * - descripcion
+ * 
+ * RESERVAS
+ * - id (PK)
+ * - usuario_id (FK → USUARIOS.id)
+ * - recurso_id (FK → RECURSOS_TURISTICOS.id)
+ * - fecha_reserva
+ * - numero_personas
+ * - precio_total
+ * - estado_id (FK → ESTADOS_RESERVA.id)
+ * 
+ * Relaciones:
+ * 
+ * USUARIOS 1:N RESERVAS
+ * Un usuario puede tener varias reservas, pero cada reserva pertenece a un solo usuario.
+ * 
+ * RECURSOS_TURISTICOS 1:N RESERVAS
+ * Un recurso turístico puede tener varias reservas, pero cada reserva corresponde a un solo recurso.
+ * 
+ * TIPOS_RECURSOS 1:N RECURSOS_TURISTICOS
+ * Un tipo de recurso puede tener varios recursos turísticos, pero cada recurso pertenece a un solo tipo.
+ * 
+ * ESTADOS_RESERVA 1:N RESERVAS
+ * Un estado puede aplicar a varias reservas, pero cada reserva tiene un solo estado.
+ * 
+ * Normalización:
+ * 
+ * - Primera Forma Normal (1NF): Todas las tablas tienen valores atómicos en sus columnas.
+ * 
+ * - Segunda Forma Normal (2NF): Todas las tablas cumplen 1NF y todos los atributos no clave
+ *   dependen completamente de la clave primaria.
+ * 
+ * - Tercera Forma Normal (3NF): Todas las tablas cumplen 2NF y no hay dependencias transitivas
+ *   entre atributos no clave.
+ * 
+ * El esquema está normalizado hasta la tercera forma normal (3NF).
+ */

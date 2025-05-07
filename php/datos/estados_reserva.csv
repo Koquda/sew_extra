@@ -1,0 +1,5 @@
+"estados_reserva_id","estados_reserva_nombre","estados_reserva_descripcion"
+1,"Pendiente","Reserva registrada pero pendiente de confirmación"
+2,"Confirmada","Reserva confirmada"
+3,"Cancelada","Reserva cancelada por el usuario"
+4,"Finalizada","Recurso turístico ya disfrutado"
