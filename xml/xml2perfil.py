@@ -44,29 +44,32 @@ class RutaSVG:
         puntos = self._escalar_coordenadas()
         path_d = 'M ' + ' L '.join([f"{x},{y}" for x, y in puntos])
         
-        svg_template = f'''
-    <g transform="translate(0, {self.alto + 50})">
-        <text x="{self.ancho/2}" y="-30" 
-              text-anchor="middle" font-size="16" font-weight="bold">{self.nombre}</text>
-        
-        <!-- Fondo -->
-        <rect x="0" y="-{self.alto}" width="{self.ancho}" height="{self.alto}" fill="#f5f5f5"/>
-        
-        <!-- Cuadrícula -->
-        {self._generar_cuadricula()}
-        
-        <!-- Línea de elevación -->
-        <path d="{path_d}" 
-              stroke="#ff0000" 
-              stroke-width="3" 
-              fill="none"/>
-        
-        <!-- Puntos de los hitos -->
-        {self._generar_puntos_hitos(puntos)}
-        
-        <!-- Etiquetas de ejes -->
-        {self._generar_etiquetas_ejes()}
-    </g>'''
+        svg_template = f'''<?xml version="1.0" encoding="UTF-8"?>
+<svg width="{self.ancho}" height="{self.alto}" xmlns="http://www.w3.org/2000/svg">
+    <title>Perfil de elevación - {self.nombre}</title>
+    
+    <!-- Fondo -->
+    <rect width="100%" height="100%" fill="#f5f5f5"/>
+    
+    <!-- Cuadrícula -->
+    {self._generar_cuadricula()}
+    
+    <!-- Línea de elevación -->
+    <path d="{path_d}" 
+          stroke="#ff0000" 
+          stroke-width="3" 
+          fill="none"/>
+    
+    <!-- Puntos de los hitos -->
+    {self._generar_puntos_hitos(puntos)}
+    
+    <!-- Etiquetas de ejes -->
+    {self._generar_etiquetas_ejes()}
+    
+    <!-- Título -->
+    <text x="{self.ancho/2}" y="30" 
+          text-anchor="middle" font-size="20" font-weight="bold">{self.nombre}</text>
+</svg>'''
         return svg_template
 
     def _generar_cuadricula(self) -> str:
@@ -74,14 +77,14 @@ class RutaSVG:
         lineas_h = []
         num_lineas = 5
         for i in range(num_lineas + 1):
-            y = -(self.margen + (i * (self.alto - 2 * self.margen) / num_lineas))
+            y = self.margen + (i * (self.alto - 2 * self.margen) / num_lineas)
             altitud = self.altura_min + (i * (self.altura_max - self.altura_min) / num_lineas)
             lineas_h.append(f'''
-        <line x1="{self.margen}" y1="{y}" 
-              x2="{self.ancho - self.margen}" y2="{y}" 
-              stroke="#cccccc" stroke-width="1"/>
-        <text x="{self.margen - 10}" y="{y + 5}" 
-              text-anchor="end" font-size="12">{int(altitud)}m</text>''')
+    <line x1="{self.margen}" y1="{y}" 
+          x2="{self.ancho - self.margen}" y2="{y}" 
+          stroke="#cccccc" stroke-width="1"/>
+    <text x="{self.margen - 10}" y="{y + 5}" 
+          text-anchor="end" font-size="12">{int(altitud)}m</text>''')
         
         # Líneas verticales (distancia)
         lineas_v = []
@@ -90,11 +93,11 @@ class RutaSVG:
             x = self.margen + (i * (self.ancho - 2 * self.margen) / num_lineas)
             distancia = i * (self.distancia_total / num_lineas)
             lineas_v.append(f'''
-        <line x1="{x}" y1="-{self.margen}" 
-              x2="{x}" y2="-{self.alto - self.margen}" 
-              stroke="#cccccc" stroke-width="1"/>
-        <text x="{x}" y="20" 
-              text-anchor="middle" font-size="12">{int(distancia)}m</text>''')
+    <line x1="{x}" y1="{self.margen}" 
+          x2="{x}" y2="{self.alto - self.margen}" 
+          stroke="#cccccc" stroke-width="1"/>
+    <text x="{x}" y="{self.alto - self.margen + 20}" 
+          text-anchor="middle" font-size="12">{int(distancia)}m</text>''')
         
         return ''.join(lineas_h + lineas_v)
 
@@ -102,17 +105,17 @@ class RutaSVG:
         puntos_svg = []
         for i, (x, y) in enumerate(puntos):
             puntos_svg.append(f'''
-        <circle cx="{x}" cy="-{y}" r="5" fill="#ff0000"/>
-        <text x="{x + 10}" y="-{y - 10}" font-size="12">Hito {i+1}</text>''')
+    <circle cx="{x}" cy="{y}" r="5" fill="#ff0000"/>
+    <text x="{x + 10}" y="{y - 10}" font-size="12">Hito {i+1}</text>''')
         return ''.join(puntos_svg)
 
     def _generar_etiquetas_ejes(self) -> str:
         return f'''
-        <text x="{self.ancho/2}" y="40" 
-              text-anchor="middle" font-size="14">Distancia (metros)</text>
-        <text x="20" y="-{self.alto/2}" 
-              text-anchor="middle" font-size="14" 
-              transform="rotate(-90, 20, -{self.alto/2})">Altitud (metros)</text>'''
+    <text x="{self.ancho/2}" y="{self.alto - 10}" 
+          text-anchor="middle" font-size="14">Distancia (metros)</text>
+    <text x="20" y="{self.alto/2}" 
+          text-anchor="middle" font-size="14" 
+          transform="rotate(-90, 20, {self.alto/2})">Altitud (metros)</text>'''
 
 class GeneradorSVG:
     def __init__(self, archivo_xml: str):
@@ -152,24 +155,17 @@ class GeneradorSVG:
             
             self.rutas.append(RutaSVG(nombre, coordenadas, distancias))
 
-    def generar_archivo_svg(self):
-        # Calcular altura total necesaria
-        altura_total = sum(ruta.alto + 100 for ruta in self.rutas)  # 100px de margen entre rutas
-        
-        svg_template = f'''<?xml version="1.0" encoding="UTF-8"?>
-<svg width="800" height="{altura_total}" xmlns="http://www.w3.org/2000/svg">
-    <title>Perfiles de elevación - Rutas de Asturias</title>
-    {''.join([ruta.generar_svg() for ruta in self.rutas])}
-</svg>'''
-
-        with open('perfiles_rutas.svg', 'w', encoding='utf-8') as f:
-            f.write(svg_template)
-        print("Archivo SVG generado: perfiles_rutas.svg")
+    def generar_archivos_svg(self):
+        for ruta in self.rutas:
+            nombre_archivo = f"ruta_{ruta.nombre.lower().replace(' ', '_')}.svg"
+            with open(nombre_archivo, 'w', encoding='utf-8') as f:
+                f.write(ruta.generar_svg())
+            print(f"Archivo SVG generado: {nombre_archivo}")
 
 def main():
     generador = GeneradorSVG('rutas.xml')
     generador.cargar_rutas()
-    generador.generar_archivo_svg()
+    generador.generar_archivos_svg()
 
 if __name__ == "__main__":
     main() 

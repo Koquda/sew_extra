@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+    <title>Perfil de elevación - Ruta del Castro de Pesoz</title>
+    
+    <!-- Fondo -->
+    <rect width="100%" height="100%" fill="#f5f5f5"/>
+    
+    <!-- Cuadrícula -->
+    
+    <line x1="50" y1="50.0" 
+          x2="750" y2="50.0" 
+          stroke="#cccccc" stroke-width="1"/>
+    <text x="40" y="55.0" 
+          text-anchor="end" font-size="12">856m</text>
+    <line x1="50" y1="110.0" 
+          x2="750" y2="110.0" 
+          stroke="#cccccc" stroke-width="1"/>
+    <text x="40" y="115.0" 
+          text-anchor="end" font-size="12">876m</text>
+    <line x1="50" y1="170.0" 
+          x2="750" y2="170.0" 
+          stroke="#cccccc" stroke-width="1"/>
+    <text x="40" y="175.0" 
+          text-anchor="end" font-size="12">897m</text>
+    <line x1="50" y1="230.0" 
+          x2="750" y2="230.0" 
+          stroke="#cccccc" stroke-width="1"/>
+    <text x="40" y="235.0" 
+          text-anchor="end" font-size="12">918m</text>
+    <line x1="50" y1="290.0" 
+          x2="750" y2="290.0" 
+          stroke="#cccccc" stroke-width="1"/>
+    <text x="40" y="295.0" 
+          text-anchor="end" font-size="12">939m</text>
+    <line x1="50" y1="350.0" 
+          x2="750" y2="350.0" 
+          stroke="#cccccc" stroke-width="1"/>
+    <text x="40" y="355.0" 
+          text-anchor="end" font-size="12">960m</text>
+    <line x1="50.0" y1="50" 
+          x2="50.0" y2="350" 
+          stroke="#cccccc" stroke-width="1"/>
+    <text x="50.0" y="370" 
+          text-anchor="middle" font-size="12">0m</text>
+    <line x1="137.5" y1="50" 
+          x2="137.5" y2="350" 
+          stroke="#cccccc" stroke-width="1"/>
+    <text x="137.5" y="370" 
+          text-anchor="middle" font-size="12">300m</text>
+    <line x1="225.0" y1="50" 
+          x2="225.0" y2="350" 
+          stroke="#cccccc" stroke-width="1"/>
+    <text x="225.0" y="370" 
+          text-anchor="middle" font-size="12">600m</text>
+    <line x1="312.5" y1="50" 
+          x2="312.5" y2="350" 
+          stroke="#cccccc" stroke-width="1"/>
+    <text x="312.5" y="370" 
+          text-anchor="middle" font-size="12">900m</text>
+    <line x1="400.0" y1="50" 
+          x2="400.0" y2="350" 
+          stroke="#cccccc" stroke-width="1"/>
+    <text x="400.0" y="370" 
+          text-anchor="middle" font-size="12">1200m</text>
+    <line x1="487.5" y1="50" 
+          x2="487.5" y2="350" 
+          stroke="#cccccc" stroke-width="1"/>
+    <text x="487.5" y="370" 
+          text-anchor="middle" font-size="12">1500m</text>
+    <line x1="575.0" y1="50" 
+          x2="575.0" y2="350" 
+          stroke="#cccccc" stroke-width="1"/>
+    <text x="575.0" y="370" 
+          text-anchor="middle" font-size="12">1800m</text>
+    <line x1="662.5" y1="50" 
+          x2="662.5" y2="350" 
+          stroke="#cccccc" stroke-width="1"/>
+    <text x="662.5" y="370" 
+          text-anchor="middle" font-size="12">2100m</text>
+    <line x1="750.0" y1="50" 
+          x2="750.0" y2="350" 
+          stroke="#cccccc" stroke-width="1"/>
+    <text x="750.0" y="370" 
+          text-anchor="middle" font-size="12">2400m</text>
+    
+    <!-- Línea de elevación -->
+    <path d="M 50.0,350.0 L 50.0,251.9230769230769 L 108.33333333333333,179.80769230769232 L 210.41666666666666,150.96153846153848 L 341.6666666666667,107.69230769230768 L 516.6666666666666,50.0" 
+          stroke="#ff0000" 
+          stroke-width="3" 
+          fill="none"/>
+    
+    <!-- Puntos de los hitos -->
+    
+    <circle cx="50.0" cy="350.0" r="5" fill="#ff0000"/>
+    <text x="60.0" y="340.0" font-size="12">Hito 1</text>
+    <circle cx="50.0" cy="251.9230769230769" r="5" fill="#ff0000"/>
+    <text x="60.0" y="241.9230769230769" font-size="12">Hito 2</text>
+    <circle cx="108.33333333333333" cy="179.80769230769232" r="5" fill="#ff0000"/>
+    <text x="118.33333333333333" y="169.80769230769232" font-size="12">Hito 3</text>
+    <circle cx="210.41666666666666" cy="150.96153846153848" r="5" fill="#ff0000"/>
+    <text x="220.41666666666666" y="140.96153846153848" font-size="12">Hito 4</text>
+    <circle cx="341.6666666666667" cy="107.69230769230768" r="5" fill="#ff0000"/>
+    <text x="351.6666666666667" y="97.69230769230768" font-size="12">Hito 5</text>
+    <circle cx="516.6666666666666" cy="50.0" r="5" fill="#ff0000"/>
+    <text x="526.6666666666666" y="40.0" font-size="12">Hito 6</text>
+    
+    <!-- Etiquetas de ejes -->
+    
+    <text x="400.0" y="390" 
+          text-anchor="middle" font-size="14">Distancia (metros)</text>
+    <text x="20" y="200.0" 
+          text-anchor="middle" font-size="14" 
+          transform="rotate(-90, 20, 200.0)">Altitud (metros)</text>
+    
+    <!-- Título -->
+    <text x="400.0" y="30" 
+          text-anchor="middle" font-size="20" font-weight="bold">Ruta del Castro de Pesoz</text>
+</svg>
