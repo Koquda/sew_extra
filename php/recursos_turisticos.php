@@ -18,7 +18,7 @@ $recursos = $recursoTuristico->obtenerTodos($tipoSeleccionado);
 $error = isset($_GET['error']) && $_GET['error'] === '1' ? 'Ha ocurrido un error al procesar la reserva. Inténtelo de nuevo.' : '';
 ?>
 
-<section data-page="recursos">
+<section>
     <h2>Recursos Turísticos Disponibles</h2>
     
     <?php if (!empty($error)): ?>
@@ -27,13 +27,12 @@ $error = isset($_GET['error']) && $_GET['error'] === '1' ? 'Ha ocurrido un error
         </aside>
     <?php endif; ?>
     
-    <!-- Filtro por tipo de recurso -->
-    <section data-type="filtro">
+    <section>
         <form method="get" action="reservas.php">
             <input type="hidden" name="accion" value="recursos">
             <fieldset>
-                <label for="tipo_id">Filtrar por tipo:</label>
-                <select id="tipo_id" name="tipo_id" onchange="this.form.submit()">
+                <label for="tipo">Filtrar por tipo:</label>
+                <select name="tipo_id" onchange="this.form.submit()">
                     <option value="0">Todos los tipos</option>
                     <?php foreach ($tiposRecurso as $tipo): ?>
                         <option value="<?php echo $tipo['id']; ?>" <?php echo $tipoSeleccionado == $tipo['id'] ? 'selected' : ''; ?>>
@@ -46,12 +45,12 @@ $error = isset($_GET['error']) && $_GET['error'] === '1' ? 'Ha ocurrido un error
     </section>
     
     <?php if (count($recursos) > 0): ?>
-        <section role="list">
+        <section>
             <?php foreach ($recursos as $recurso): ?>
                 <article>
                     <h3><?php echo $recurso['nombre']; ?></h3>
-                    <p class="tipo-recurso"><strong>Tipo:</strong> <?php echo $recurso['tipo_nombre']; ?></p>
-                    <p class="descripcion-recurso"><?php echo $recurso['descripcion']; ?></p>
+                    <p><strong>Tipo:</strong> <?php echo $recurso['tipo_nombre']; ?></p>
+                    <p><?php echo $recurso['descripcion']; ?></p>
                     <p><strong>Plazas disponibles:</strong> <?php echo $recurso['plazas']; ?></p>
                     <p><strong>Precio:</strong> <?php echo number_format($recurso['precio'], 2); ?> €</p>
                     <p><strong>Fecha de inicio:</strong> <?php echo date('d/m/Y H:i', strtotime($recurso['fecha_inicio'])); ?></p>
@@ -59,11 +58,11 @@ $error = isset($_GET['error']) && $_GET['error'] === '1' ? 'Ha ocurrido un error
                     
                     <form method="post" action="reservas.php">
                         <input type="hidden" name="recurso_id" value="<?php echo $recurso['id']; ?>">
-                        <fieldset class="grupo-formulario">
-                            <label for="numero_personas_<?php echo $recurso['id']; ?>">Número de personas:</label>
-                            <input type="number" id="numero_personas_<?php echo $recurso['id']; ?>" name="numero_personas" min="1" max="<?php echo $recurso['plazas']; ?>" value="1" required>
+                        <fieldset>
+                            <label for="personas">Número de personas:</label>
+                            <input type="number" name="numero_personas" min="1" max="<?php echo $recurso['plazas']; ?>" value="1" required>
                         </fieldset>
-                        <fieldset class="grupo-formulario">
+                        <fieldset>
                             <button type="submit" name="crear_reserva">Reservar</button>
                         </fieldset>
                     </form>
@@ -74,7 +73,7 @@ $error = isset($_GET['error']) && $_GET['error'] === '1' ? 'Ha ocurrido un error
         <p>No se encontraron recursos turísticos disponibles.</p>
     <?php endif; ?>
     
-    <nav class="enlaces">
+    <nav>
         <a href="reservas.php">Volver al inicio</a>
     </nav>
 </section>

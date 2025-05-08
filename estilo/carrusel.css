@@ -1,5 +1,4 @@
 /* Carrusel styles */
-/* Especificidad: 003 */
 main section:first-of-type {
     position: relative;
     max-width: 50rem;
@@ -10,12 +9,10 @@ main section:first-of-type {
     flex-direction: column;
 }
 
-/* Especificidad: 004 */
 main section:first-of-type h2 {
     margin-bottom: 0.625rem;
 }
 
-/* Especificidad: 004 */
 main section:first-of-type img {
     max-width: 100%;
     max-height: calc(100% - 3.125rem);
@@ -24,7 +21,6 @@ main section:first-of-type img {
 }
 
 /* Button styles */
-/* Especificidad: 004 */
 main section:first-of-type button {
     position: absolute;
     top: 50%;
@@ -43,17 +39,14 @@ main section:first-of-type button {
     align-items: center;
 }
 
-/* Especificidad: 014 */
 main section:first-of-type button:hover {
     background-color: rgba(0, 0, 0, 0.7);
 }
 
-/* Especificidad: 014 */
 main section:first-of-type button:first-of-type {
     left: 0.625rem;
 }
 
-/* Especificidad: 014 */
 main section:first-of-type button:last-of-type {
     right: 0.625rem;
 }

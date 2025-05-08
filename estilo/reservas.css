@@ -1,6 +1,6 @@
 /* Estilos específicos para el sistema de reservas */
 
-/* Mensaje de error */
+/* Mensajes */
 aside[role="alert"] {
     color: #ff0000;
     background-color: #ffeeee;
@@ -9,30 +9,28 @@ aside[role="alert"] {
     margin-bottom: 15px;
 }
 
-/* Mensaje de éxito */
 aside[role="status"] {
     color: #008000;
     background-color: #eeffee;
     padding: 10px;
     border: 1px solid #008000;
     margin-bottom: 15px;
+    
 }
 
-/* Eliminar márgenes y estilos por defecto de los fieldset */
+/* Formularios */
 fieldset {
     margin: 0 0 15px 0;
     padding: 0;
     border: none;
 }
 
-/* Estilos para las etiquetas de formulario */
 label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
 }
 
-/* Estilos para los inputs y selects */
 input, select {
     width: 100%;
     padding: 8px;
@@ -40,7 +38,7 @@ input, select {
     border-radius: 4px;
 }
 
-/* Estilos para los botones y enlaces de acción */
+/* Botones y enlaces */
 button, a[role="button"] {
     background-color: #4CAF50;
     color: white;
@@ -53,17 +51,14 @@ button, a[role="button"] {
     margin-right: 10px;
 }
 
-/* Hover para botones y enlaces */
 button:hover, a[role="button"]:hover {
     background-color: #45a049;
 }
 
-/* Botones de cancelar */
 button[name="cancelar_reserva"], a[role="button"][data-action="cancelar"] {
     background-color: #f44336;
 }
 
-/* Hover para botones de cancelar */
 button[name="cancelar_reserva"]:hover, a[role="button"][data-action="cancelar"]:hover {
     background-color: #da190b;
 }
@@ -75,44 +70,35 @@ section[role="list"] {
     gap: 20px;
 }
 
-/* Item de recurso */
 article {
     border: 1px solid #ddd;
     padding: 15px;
     border-radius: 5px;
 }
 
-/* Tabla de reservas */
+/* Tablas */
 table {
     width: 100%;
     border-collapse: collapse;
 }
 
-/* Celdas de tabla */
 th, td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
 }
 
-/* Encabezados de tabla */
 th {
     background-color: #f2f2f2;
 }
 
-/* Sección de acciones de usuario */
-section[role="complementary"] {
-    margin-top: 30px;
-}
-
-/* Navegación de botones */
+/* Navegación */
 nav {
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
 }
 
-/* Enlaces de navegación adicionales */
 footer nav {
     margin-top: 20px;
 }

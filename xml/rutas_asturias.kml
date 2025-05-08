@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+    <Document>
+        <name>Rutas Turísticas de Asturias</name>
+        <description>Colección de rutas turísticas por Asturias</description>
+        
+    <Folder>
+        <name>Ruta del Castro de Pesoz</name>
+        <description>Ruta turística en Asturias</description>
+        <Style id="linea_ruta_del_castro_de_pesoz">
+            <LineStyle>
+                <color>ff0000ff</color>
+                <width>4</width>
+            </LineStyle>
+        </Style>
+        <Style id="marcador_ruta_del_castro_de_pesoz">
+            <IconStyle>
+                <Icon>
+                    <href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href>
+                </Icon>
+            </IconStyle>
+        </Style>
+        <Placemark>
+            <name>Ruta</name>
+            <styleUrl>#linea_ruta_del_castro_de_pesoz</styleUrl>
+            <LineString>
+                <coordinates>
+                    -6.8756,43.2578,856.0
+-6.8745,43.2589,890.0
+-6.8732,43.2595,915.0
+-6.8728,43.2601,925.0
+-6.8715,43.2608,940.0
+-6.8702,43.2615,960.0
+                </coordinates>
+            </LineString>
+        </Placemark>
+        
+        <Placemark>
+            <name>Hito 1: Mirador del Valle</name>
+            <description>Vista panorámica del valle del Navia y los montes circundantes</description>
+            <styleUrl>#marcador_ruta_del_castro_de_pesoz</styleUrl>
+            <Point>
+                <coordinates>-6.8745,43.2589,890.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Hito 2: Restos del Castro</name>
+            <description>Ruinas del antiguo poblado celta con murallas y fosos defensivos</description>
+            <styleUrl>#marcador_ruta_del_castro_de_pesoz</styleUrl>
+            <Point>
+                <coordinates>-6.8732,43.2595,915.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Hito 3: Fuente de los Celtas</name>
+            <description>Antigua fuente de origen celta con aguas cristalinas</description>
+            <styleUrl>#marcador_ruta_del_castro_de_pesoz</styleUrl>
+            <Point>
+                <coordinates>-6.8728,43.2601,925.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Hito 4: Bosque de Robles</name>
+            <description>Antiguo bosque de robles centenarios</description>
+            <styleUrl>#marcador_ruta_del_castro_de_pesoz</styleUrl>
+            <Point>
+                <coordinates>-6.8715,43.2608,940.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Hito 5: Mirador del Castro</name>
+            <description>Vista panorámica desde el punto más alto del castro</description>
+            <styleUrl>#marcador_ruta_del_castro_de_pesoz</styleUrl>
+            <Point>
+                <coordinates>-6.8702,43.2615,960.0</coordinates>
+            </Point>
+        </Placemark>
+    </Folder>
+    <Folder>
+        <name>Ruta de los Molinos del Navia</name>
+        <description>Ruta turística en Asturias</description>
+        <Style id="linea_ruta_de_los_molinos_del_navia">
+            <LineStyle>
+                <color>ff0000ff</color>
+                <width>4</width>
+            </LineStyle>
+        </Style>
+        <Style id="marcador_ruta_de_los_molinos_del_navia">
+            <IconStyle>
+                <Icon>
+                    <href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href>
+                </Icon>
+            </IconStyle>
+        </Style>
+        <Placemark>
+            <name>Ruta</name>
+            <styleUrl>#linea_ruta_de_los_molinos_del_navia</styleUrl>
+            <LineString>
+                <coordinates>
+                    -6.8765,43.2565,820.0
+-6.8778,43.2558,815.0
+-6.8791,43.2552,810.0
+-6.8804,43.2545,805.0
+-6.8817,43.2538,800.0
+-6.883,43.2532,795.0
+                </coordinates>
+            </LineString>
+        </Placemark>
+        
+        <Placemark>
+            <name>Hito 1: Molino de la Presa</name>
+            <description>Primer molino restaurado con su presa y canal de agua</description>
+            <styleUrl>#marcador_ruta_de_los_molinos_del_navia</styleUrl>
+            <Point>
+                <coordinates>-6.8778,43.2558,815.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Hito 2: Cascada del Navia</name>
+            <description>Hermosa cascada natural en el río Navia</description>
+            <styleUrl>#marcador_ruta_de_los_molinos_del_navia</styleUrl>
+            <Point>
+                <coordinates>-6.8791,43.2552,810.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Hito 3: Molino del Medio</name>
+            <description>Molino restaurado con su maquinaria original</description>
+            <styleUrl>#marcador_ruta_de_los_molinos_del_navia</styleUrl>
+            <Point>
+                <coordinates>-6.8804,43.2545,805.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Hito 4: Bosque de Ribera</name>
+            <description>Frondoso bosque de ribera con alisos y sauces</description>
+            <styleUrl>#marcador_ruta_de_los_molinos_del_navia</styleUrl>
+            <Point>
+                <coordinates>-6.8817,43.2538,800.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Hito 5: Molino del Final</name>
+            <description>Último molino de la ruta, actualmente museo</description>
+            <styleUrl>#marcador_ruta_de_los_molinos_del_navia</styleUrl>
+            <Point>
+                <coordinates>-6.883,43.2532,795.0</coordinates>
+            </Point>
+        </Placemark>
+    </Folder>
+    <Folder>
+        <name>Ruta de la Sidra de Pesoz</name>
+        <description>Ruta turística en Asturias</description>
+        <Style id="linea_ruta_de_la_sidra_de_pesoz">
+            <LineStyle>
+                <color>ff0000ff</color>
+                <width>4</width>
+            </LineStyle>
+        </Style>
+        <Style id="marcador_ruta_de_la_sidra_de_pesoz">
+            <IconStyle>
+                <Icon>
+                    <href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href>
+                </Icon>
+            </IconStyle>
+        </Style>
+        <Placemark>
+            <name>Ruta</name>
+            <styleUrl>#linea_ruta_de_la_sidra_de_pesoz</styleUrl>
+            <LineString>
+                <coordinates>
+                    -6.8745,43.2572,850.0
+-6.8732,43.2578,855.0
+-6.8719,43.2585,860.0
+-6.8706,43.2592,865.0
+-6.8693,43.2599,870.0
+-6.868,43.2606,875.0
+                </coordinates>
+            </LineString>
+        </Placemark>
+        
+        <Placemark>
+            <name>Hito 1: Llagar Tradicional</name>
+            <description>Llagar centenario con prensa de madera</description>
+            <styleUrl>#marcador_ruta_de_la_sidra_de_pesoz</styleUrl>
+            <Point>
+                <coordinates>-6.8732,43.2578,855.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Hito 2: Pomar de Manzanas</name>
+            <description>Antiguo pomar con variedades autóctonas</description>
+            <styleUrl>#marcador_ruta_de_la_sidra_de_pesoz</styleUrl>
+            <Point>
+                <coordinates>-6.8719,43.2585,860.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Hito 3: Llagar Moderno</name>
+            <description>Llagar con tecnología actual y degustación</description>
+            <styleUrl>#marcador_ruta_de_la_sidra_de_pesoz</styleUrl>
+            <Point>
+                <coordinates>-6.8706,43.2592,865.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Hito 4: Museo de la Sidra</name>
+            <description>Museo interactivo sobre la historia de la sidra</description>
+            <styleUrl>#marcador_ruta_de_la_sidra_de_pesoz</styleUrl>
+            <Point>
+                <coordinates>-6.8693,43.2599,870.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Hito 5: Taberna de la Sidra</name>
+            <description>Taberna tradicional con degustación final</description>
+            <styleUrl>#marcador_ruta_de_la_sidra_de_pesoz</styleUrl>
+            <Point>
+                <coordinates>-6.868,43.2606,875.0</coordinates>
+            </Point>
+        </Placemark>
+    </Folder>
+    </Document>
+</kml>

@@ -2,363 +2,294 @@
 <!DOCTYPE rutas SYSTEM "rutas.dtd">
 <rutas>
   <ruta>
-    <nombre>Ruta de los Molinos de Pesoz</nombre>
-    <tipo>Arquitectura y monumentos</tipo>
-    <transporte>A pie</transporte>
-    <fechaInicio>2025-05-15</fechaInicio>
-    <horaInicio>09:30</horaInicio>
-    <duracion>4 horas</duracion>
-    <agencia>Turismo Rural Asturias</agencia>
-    <descripcion>Esta ruta recorre los antiguos molinos hidráulicos de Pesoz, permitiendo conocer el patrimonio industrial tradicional de la zona y disfrutar de impresionantes paisajes naturales a lo largo del recorrido.</descripcion>
-    <personasAdecuadas>Adecuada para todos los públicos, incluso familias con niños</personasAdecuadas>
-    
+    <nombre>Ruta del Castro de Pesoz</nombre>
+    <tipo>Arqueológica</tipo>
+    <medio_transporte>Pie</medio_transporte>
+    <fecha_inicio>2024-04-15</fecha_inicio>
+    <hora_inicio>10:00</hora_inicio>
+    <duracion>2</duracion>
+    <agencia>Ayuntamiento de Pesoz</agencia>
+    <descripcion>Ruta que recorre el antiguo castro celta de Pesoz, con impresionantes vistas del valle y restos arqueológicos de la Edad del Hierro.</descripcion>
+    <personas_adecuadas>Físicamente preparadas</personas_adecuadas>
     <inicio>
       <lugar>Plaza del Ayuntamiento de Pesoz</lugar>
-      <direccion>Plaza Mayor</direccion>
+      <direccion>Plaza del Ayuntamiento, 33735 Pesoz</direccion>
       <coordenadas>
-        <longitud>-6.8932</longitud>
-        <latitud>43.2395</latitud>
-        <altitud>340</altitud>
+        <longitud>-6.8756</longitud>
+        <latitud>43.2578</latitud>
+        <altitud>856</altitud>
       </coordenadas>
     </inicio>
-    
     <referencias>
-      <referencia url="https://www.turismoasturias.es/pesoz">Turismo Asturias - Pesoz</referencia>
-      <referencia url="https://www.pesoz.es/turismo/rutas">Web oficial del Ayuntamiento de Pesoz</referencia>
-      <referencia url="https://www.asturnatura.com/turismo/pesoz/1899.html">Asturnatura - Patrimonio de Pesoz</referencia>
+      <referencia>https://www.ayto-pesoz.es/turismo/rutas</referencia>
+      <referencia>https://www.turismoasturias.es/descubre/naturaleza/rutas-y-senderos/ruta-del-castro</referencia>
     </referencias>
-    
     <recomendacion>8</recomendacion>
-    
     <hitos>
       <hito>
-        <nombreHito>Molino de la Ribera</nombreHito>
-        <descripcionHito>Antiguo molino hidráulico restaurado del siglo XVIII que muestra el funcionamiento tradicional de la molienda.</descripcionHito>
-        <coordenadasHito>
-          <longitud>-6.8954</longitud>
-          <latitud>43.2401</latitud>
-          <altitud>330</altitud>
-        </coordenadasHito>
-        <distancia unidad="km">1.2</distancia>
-        <fotografias>
-          <fotografia>molino-ribera1.jpg</fotografia>
-          <fotografia>molino-ribera2.jpg</fotografia>
-        </fotografias>
-        <videos>
-          <video>molino-funcionamiento.mp4</video>
-        </videos>
+        <nombre>Mirador del Valle</nombre>
+        <descripcion>Vista panorámica del valle del Navia y los montes circundantes</descripcion>
+        <coordenadas>
+          <longitud>-6.8745</longitud>
+          <latitud>43.2589</latitud>
+          <altitud>890</altitud>
+        </coordenadas>
+        <distancia>200</distancia>
+        <galeria_fotos>
+          <foto>https://www.ayto-pesoz.es/fotos/mirador1.jpg</foto>
+          <foto>https://www.ayto-pesoz.es/fotos/mirador2.jpg</foto>
+        </galeria_fotos>
       </hito>
-      
       <hito>
-        <nombreHito>Mirador del Valle</nombreHito>
-        <descripcionHito>Punto panorámico con vistas privilegiadas al valle del río Agüeira y las montañas circundantes.</descripcionHito>
-        <coordenadasHito>
-          <longitud>-6.9012</longitud>
-          <latitud>43.2423</latitud>
-          <altitud>410</altitud>
-        </coordenadasHito>
-        <distancia unidad="km">1.5</distancia>
-        <fotografias>
-          <fotografia>mirador-valle1.jpg</fotografia>
-          <fotografia>mirador-valle2.jpg</fotografia>
-          <fotografia>mirador-valle3.jpg</fotografia>
-        </fotografias>
+        <nombre>Restos del Castro</nombre>
+        <descripcion>Ruinas del antiguo poblado celta con murallas y fosos defensivos</descripcion>
+        <coordenadas>
+          <longitud>-6.8732</longitud>
+          <latitud>43.2595</latitud>
+          <altitud>915</altitud>
+        </coordenadas>
+        <distancia>350</distancia>
+        <galeria_fotos>
+          <foto>https://www.ayto-pesoz.es/fotos/castro1.jpg</foto>
+          <foto>https://www.ayto-pesoz.es/fotos/castro2.jpg</foto>
+        </galeria_fotos>
       </hito>
-      
       <hito>
-        <nombreHito>Molino del Puente</nombreHito>
-        <descripcionHito>Molino tradicional situado junto a un puente histórico de piedra sobre el río Agüeira.</descripcionHito>
-        <coordenadasHito>
-          <longitud>-6.9045</longitud>
-          <latitud>43.2467</latitud>
-          <altitud>315</altitud>
-        </coordenadasHito>
-        <distancia unidad="km">2.1</distancia>
-        <fotografias>
-          <fotografia>molino-puente1.jpg</fotografia>
-          <fotografia>molino-puente2.jpg</fotografia>
-        </fotografias>
-        <videos>
-          <video>puente-medieval.mp4</video>
-        </videos>
+        <nombre>Fuente de los Celtas</nombre>
+        <descripcion>Antigua fuente de origen celta con aguas cristalinas</descripcion>
+        <coordenadas>
+          <longitud>-6.8728</longitud>
+          <latitud>43.2601</latitud>
+          <altitud>925</altitud>
+        </coordenadas>
+        <distancia>450</distancia>
+        <galeria_fotos>
+          <foto>https://www.ayto-pesoz.es/fotos/fuente1.jpg</foto>
+        </galeria_fotos>
       </hito>
-      
       <hito>
-        <nombreHito>Antigua Herrería</nombreHito>
-        <descripcionHito>Edificio restaurado donde se pueden observar las herramientas y técnicas tradicionales de forja utilizadas históricamente en la zona.</descripcionHito>
-        <coordenadasHito>
-          <longitud>-6.9087</longitud>
-          <latitud>43.2489</latitud>
-          <altitud>335</altitud>
-        </coordenadasHito>
-        <distancia unidad="km">1.3</distancia>
-        <fotografias>
-          <fotografia>herreria1.jpg</fotografia>
-          <fotografia>herreria2.jpg</fotografia>
-        </fotografias>
+        <nombre>Bosque de Robles</nombre>
+        <descripcion>Antiguo bosque de robles centenarios</descripcion>
+        <coordenadas>
+          <longitud>-6.8715</longitud>
+          <latitud>43.2608</latitud>
+          <altitud>940</altitud>
+        </coordenadas>
+        <distancia>600</distancia>
+        <galeria_fotos>
+          <foto>https://www.ayto-pesoz.es/fotos/bosque1.jpg</foto>
+          <foto>https://www.ayto-pesoz.es/fotos/bosque2.jpg</foto>
+        </galeria_fotos>
       </hito>
-      
       <hito>
-        <nombreHito>Molino de Argul</nombreHito>
-        <descripcionHito>El molino mejor conservado de la zona, con más de 200 años de antigüedad y maquinaria original restaurada.</descripcionHito>
-        <coordenadasHito>
-          <longitud>-6.9134</longitud>
-          <latitud>43.2512</latitud>
-          <altitud>320</altitud>
-        </coordenadasHito>
-        <distancia unidad="km">1.8</distancia>
-        <fotografias>
-          <fotografia>molino-argul1.jpg</fotografia>
-          <fotografia>molino-argul2.jpg</fotografia>
-          <fotografia>molino-argul3.jpg</fotografia>
-        </fotografias>
-        <videos>
-          <video>restauracion-molino.mp4</video>
-        </videos>
+        <nombre>Mirador del Castro</nombre>
+        <descripcion>Vista panorámica desde el punto más alto del castro</descripcion>
+        <coordenadas>
+          <longitud>-6.8702</longitud>
+          <latitud>43.2615</latitud>
+          <altitud>960</altitud>
+        </coordenadas>
+        <distancia>800</distancia>
+        <galeria_fotos>
+          <foto>https://www.ayto-pesoz.es/fotos/mirador3.jpg</foto>
+        </galeria_fotos>
       </hito>
     </hitos>
-    
-    <planimetria archivo="ruta-molinos.kml">Planimetría generada con Python para la Ruta de los Molinos</planimetria>
-    <altimetria archivo="ruta-molinos.svg">Perfil de elevación generado con Python para la Ruta de los Molinos</altimetria>
+    <planimetria>ruta_castro_pesoz.kml</planimetria>
+    <altimetria>ruta_castro_pesoz.svg</altimetria>
   </ruta>
-  
+
   <ruta>
-    <nombre>Senda del Río Agüeira</nombre>
+    <nombre>Ruta de los Molinos del Navia</nombre>
     <tipo>Paisajística</tipo>
-    <transporte>Bicicleta</transporte>
-    <duracion>3 horas</duracion>
-    <agencia>Sin agencia</agencia>
-    <descripcion>Recorrido que sigue el curso del río Agüeira, permitiendo disfrutar de la vegetación de ribera, pequeñas cascadas y pozas naturales. Ideal para días calurosos de verano.</descripcion>
-    <personasAdecuadas>Personas en buena forma física</personasAdecuadas>
-    
+    <medio_transporte>Pie</medio_transporte>
+    <fecha_inicio>2024-04-16</fecha_inicio>
+    <hora_inicio>09:30</hora_inicio>
+    <duracion>3</duracion>
+    <agencia>Ayuntamiento de Pesoz</agencia>
+    <descripcion>Ruta que recorre los antiguos molinos de agua a orillas del río Navia, combinando patrimonio industrial y naturaleza.</descripcion>
+    <personas_adecuadas>Físicamente preparadas</personas_adecuadas>
     <inicio>
-      <lugar>Área recreativa de Pesoz</lugar>
-      <direccion>Carretera AS-12, km 35</direccion>
+      <lugar>Puente de Pesoz</lugar>
+      <direccion>Carretera AS-12, 33735 Pesoz</direccion>
       <coordenadas>
-        <longitud>-6.8901</longitud>
-        <latitud>43.2375</latitud>
-        <altitud>325</altitud>
+        <longitud>-6.8765</longitud>
+        <latitud>43.2565</latitud>
+        <altitud>820</altitud>
       </coordenadas>
     </inicio>
-    
     <referencias>
-      <referencia url="https://www.turismoasturias.es/rutas-senderismo">Rutas de senderismo Asturias</referencia>
-      <referencia url="https://www.asturiasenbici.com/rutas-pesoz">Asturias en bici - Rutas por Pesoz</referencia>
-      <referencia url="https://www.wikiloc.com/pesoz-rutas">Wikiloc - Rutas por Pesoz</referencia>
+      <referencia>https://www.ayto-pesoz.es/turismo/molinos</referencia>
+      <referencia>https://www.turismoasturias.es/descubre/patrimonio/industrial/molinos-navia</referencia>
     </referencias>
-    
     <recomendacion>9</recomendacion>
-    
     <hitos>
       <hito>
-        <nombreHito>Puente Medieval</nombreHito>
-        <descripcionHito>Antiguo puente de piedra que cruza el río Agüeira, construido en el siglo XV.</descripcionHito>
-        <coordenadasHito>
-          <longitud>-6.8925</longitud>
-          <latitud>43.2390</latitud>
-          <altitud>320</altitud>
-        </coordenadasHito>
-        <distancia unidad="km">0.8</distancia>
-        <fotografias>
-          <fotografia>puente-medieval1.jpg</fotografia>
-          <fotografia>puente-medieval2.jpg</fotografia>
-        </fotografias>
+        <nombre>Molino de la Presa</nombre>
+        <descripcion>Primer molino restaurado con su presa y canal de agua</descripcion>
+        <coordenadas>
+          <longitud>-6.8778</longitud>
+          <latitud>43.2558</latitud>
+          <altitud>815</altitud>
+        </coordenadas>
+        <distancia>150</distancia>
+        <galeria_fotos>
+          <foto>https://www.ayto-pesoz.es/fotos/molino1.jpg</foto>
+        </galeria_fotos>
       </hito>
-      
       <hito>
-        <nombreHito>Cascada del Xiblu</nombreHito>
-        <descripcionHito>Pequeña pero pintoresca cascada entre rocas graníticas con una poza natural ideal para refrescarse.</descripcionHito>
-        <coordenadasHito>
-          <longitud>-6.8976</longitud>
-          <latitud>43.2423</latitud>
-          <altitud>310</altitud>
-        </coordenadasHito>
-        <distancia unidad="km">1.4</distancia>
-        <fotografias>
-          <fotografia>cascada-xiblu1.jpg</fotografia>
-          <fotografia>cascada-xiblu2.jpg</fotografia>
-          <fotografia>cascada-xiblu3.jpg</fotografia>
-        </fotografias>
-        <videos>
-          <video>cascada-sonido.mp4</video>
-        </videos>
+        <nombre>Cascada del Navia</nombre>
+        <descripcion>Hermosa cascada natural en el río Navia</descripcion>
+        <coordenadas>
+          <longitud>-6.8791</longitud>
+          <latitud>43.2552</latitud>
+          <altitud>810</altitud>
+        </coordenadas>
+        <distancia>300</distancia>
+        <galeria_fotos>
+          <foto>https://www.ayto-pesoz.es/fotos/cascada1.jpg</foto>
+          <foto>https://www.ayto-pesoz.es/fotos/cascada2.jpg</foto>
+        </galeria_fotos>
       </hito>
-      
       <hito>
-        <nombreHito>Meandro del Águila</nombreHito>
-        <descripcionHito>Impresionante curva del río donde se pueden observar águilas pescadoras en determinadas épocas del año.</descripcionHito>
-        <coordenadasHito>
-          <longitud>-6.9034</longitud>
-          <latitud>43.2467</latitud>
-          <altitud>305</altitud>
-        </coordenadasHito>
-        <distancia unidad="km">2.3</distancia>
-        <fotografias>
-          <fotografia>meandro1.jpg</fotografia>
-          <fotografia>meandro2.jpg</fotografia>
-        </fotografias>
+        <nombre>Molino del Medio</nombre>
+        <descripcion>Molino restaurado con su maquinaria original</descripcion>
+        <coordenadas>
+          <longitud>-6.8804</longitud>
+          <latitud>43.2545</latitud>
+          <altitud>805</altitud>
+        </coordenadas>
+        <distancia>450</distancia>
+        <galeria_fotos>
+          <foto>https://www.ayto-pesoz.es/fotos/molino2.jpg</foto>
+        </galeria_fotos>
       </hito>
-      
       <hito>
-        <nombreHito>Bosque de Ribera</nombreHito>
-        <descripcionHito>Denso bosque de alisos, fresnos y sauces con una gran biodiversidad de aves y pequeños mamíferos.</descripcionHito>
-        <coordenadasHito>
-          <longitud>-6.9089</longitud>
-          <latitud>43.2498</latitud>
-          <altitud>300</altitud>
-        </coordenadasHito>
-        <distancia unidad="km">1.5</distancia>
-        <fotografias>
-          <fotografia>bosque1.jpg</fotografia>
-          <fotografia>bosque2.jpg</fotografia>
-          <fotografia>bosque3.jpg</fotografia>
-        </fotografias>
-        <videos>
-          <video>aves-bosque.mp4</video>
-        </videos>
+        <nombre>Bosque de Ribera</nombre>
+        <descripcion>Frondoso bosque de ribera con alisos y sauces</descripcion>
+        <coordenadas>
+          <longitud>-6.8817</longitud>
+          <latitud>43.2538</latitud>
+          <altitud>800</altitud>
+        </coordenadas>
+        <distancia>600</distancia>
+        <galeria_fotos>
+          <foto>https://www.ayto-pesoz.es/fotos/bosque3.jpg</foto>
+        </galeria_fotos>
       </hito>
-      
       <hito>
-        <nombreHito>Área de Descanso El Rebollo</nombreHito>
-        <descripcionHito>Zona acondicionada con mesas, bancos y una fuente de agua potable bajo un centenario roble.</descripcionHito>
-        <coordenadasHito>
-          <longitud>-6.9145</longitud>
-          <latitud>43.2523</latitud>
-          <altitud>315</altitud>
-        </coordenadasHito>
-        <distancia unidad="km">1.2</distancia>
-        <fotografias>
-          <fotografia>area-descanso1.jpg</fotografia>
-          <fotografia>area-descanso2.jpg</fotografia>
-        </fotografias>
+        <nombre>Molino del Final</nombre>
+        <descripcion>Último molino de la ruta, actualmente museo</descripcion>
+        <coordenadas>
+          <longitud>-6.8830</longitud>
+          <latitud>43.2532</latitud>
+          <altitud>795</altitud>
+        </coordenadas>
+        <distancia>800</distancia>
+        <galeria_fotos>
+          <foto>https://www.ayto-pesoz.es/fotos/molino3.jpg</foto>
+          <foto>https://www.ayto-pesoz.es/fotos/molino4.jpg</foto>
+        </galeria_fotos>
       </hito>
     </hitos>
-    
-    <planimetria archivo="senda-rio.kml">Planimetría generada con Python para la Senda del Río Agüeira</planimetria>
-    <altimetria archivo="senda-rio.svg">Perfil de elevación generado con Python para la Senda del Río Agüeira</altimetria>
+    <planimetria>ruta_molinos_navia.kml</planimetria>
+    <altimetria>ruta_molinos_navia.svg</altimetria>
   </ruta>
-  
+
   <ruta>
-    <nombre>Ruta Gastronómica de Pesoz</nombre>
+    <nombre>Ruta de la Sidra de Pesoz</nombre>
     <tipo>Gastronómica</tipo>
-    <transporte>A pie</transporte>
-    <fechaInicio>2025-06-10</fechaInicio>
-    <horaInicio>12:00</horaInicio>
-    <duracion>6 horas</duracion>
-    <agencia>Sabores de Asturias</agencia>
-    <descripcion>Un recorrido por los establecimientos más emblemáticos de Pesoz donde degustar la auténtica gastronomía asturiana, desde la fabada hasta los quesos artesanales, acompañados de sidra de la tierra.</descripcion>
-    <personasAdecuadas>Para todos los públicos adultos</personasAdecuadas>
-    
+    <medio_transporte>Pie</medio_transporte>
+    <fecha_inicio>2024-04-17</fecha_inicio>
+    <hora_inicio>11:00</hora_inicio>
+    <duracion>4</duracion>
+    <agencia>Ayuntamiento de Pesoz</agencia>
+    <descripcion>Ruta que recorre las llagares tradicionales de sidra de Pesoz, con degustaciones y explicaciones sobre el proceso de elaboración.</descripcion>
+    <personas_adecuadas>Todas las personas</personas_adecuadas>
     <inicio>
-      <lugar>Plaza de la Iglesia</lugar>
-      <direccion>Calle Mayor, 8</direccion>
+      <lugar>Plaza de la Sidra</lugar>
+      <direccion>Plaza de la Sidra, 33735 Pesoz</direccion>
       <coordenadas>
-        <longitud>-6.8922</longitud>
-        <latitud>43.2385</latitud>
-        <altitud>335</altitud>
+        <longitud>-6.8745</longitud>
+        <latitud>43.2572</latitud>
+        <altitud>850</altitud>
       </coordenadas>
     </inicio>
-    
     <referencias>
-      <referencia url="https://www.gastronomiaasturiana.com/pesoz">Gastronomía Asturiana - Pesoz</referencia>
-      <referencia url="https://www.sidrerias.com/occidenteastur">Sidrerías del Occidente Asturiano</referencia>
-      <referencia url="https://www.quesos-asturianos.org">Asociación de Quesos Artesanos de Asturias</referencia>
+      <referencia>https://www.ayto-pesoz.es/turismo/sidra</referencia>
+      <referencia>https://www.turismoasturias.es/descubre/gastronomia/ruta-sidra-pesoz</referencia>
     </referencias>
-    
-    <recomendacion>10</recomendacion>
-    
+    <recomendacion>7</recomendacion>
     <hitos>
       <hito>
-        <nombreHito>Sidrería El Hórreo</nombreHito>
-        <descripcionHito>Tradicional sidrería donde se puede degustar sidra escanciada por expertos y platos de la gastronomía local.</descripcionHito>
-        <coordenadasHito>
-          <longitud>-6.8929</longitud>
-          <latitud>43.2389</latitud>
-          <altitud>335</altitud>
-        </coordenadasHito>
-        <distancia unidad="metros">150</distancia>
-        <fotografias>
-          <fotografia>sidreria1.jpg</fotografia>
-          <fotografia>sidreria2.jpg</fotografia>
-          <fotografia>escanciado.jpg</fotografia>
-        </fotografias>
-        <videos>
-          <video>escanciado-sidra.mp4</video>
-        </videos>
+        <nombre>Llagar Tradicional</nombre>
+        <descripcion>Llagar centenario con prensa de madera</descripcion>
+        <coordenadas>
+          <longitud>-6.8732</longitud>
+          <latitud>43.2578</latitud>
+          <altitud>855</altitud>
+        </coordenadas>
+        <distancia>100</distancia>
+        <galeria_fotos>
+          <foto>https://www.ayto-pesoz.es/fotos/llagar1.jpg</foto>
+        </galeria_fotos>
       </hito>
-      
       <hito>
-        <nombreHito>Casa Pepe</nombreHito>
-        <descripcionHito>Restaurante familiar especializado en fabada asturiana y cachopo, elaborados con productos locales de máxima calidad.</descripcionHito>
-        <coordenadasHito>
-          <longitud>-6.8942</longitud>
-          <latitud>43.2397</latitud>
-          <altitud>337</altitud>
-        </coordenadasHito>
-        <distancia unidad="metros">250</distancia>
-        <fotografias>
-          <fotografia>casa-pepe1.jpg</fotografia>
-          <fotografia>fabada.jpg</fotografia>
-          <fotografia>cachopo.jpg</fotografia>
-        </fotografias>
+        <nombre>Pomar de Manzanas</nombre>
+        <descripcion>Antiguo pomar con variedades autóctonas</descripcion>
+        <coordenadas>
+          <longitud>-6.8719</longitud>
+          <latitud>43.2585</latitud>
+          <altitud>860</altitud>
+        </coordenadas>
+        <distancia>250</distancia>
+        <galeria_fotos>
+          <foto>https://www.ayto-pesoz.es/fotos/pomar1.jpg</foto>
+          <foto>https://www.ayto-pesoz.es/fotos/pomar2.jpg</foto>
+        </galeria_fotos>
       </hito>
-      
       <hito>
-        <nombreHito>Quesería Artesanal La Cabreira</nombreHito>
-        <descripcionHito>Obrador donde se elaboran quesos artesanales de cabra, con posibilidad de ver el proceso y realizar una degustación.</descripcionHito>
-        <coordenadasHito>
-          <longitud>-6.8967</longitud>
-          <latitud>43.2410</latitud>
-          <altitud>345</altitud>
-        </coordenadasHito>
-        <distancia unidad="metros">450</distancia>
-        <fotografias>
-          <fotografia>queseria1.jpg</fotografia>
-          <fotografia>queseria2.jpg</fotografia>
-          <fotografia>quesos-degustacion.jpg</fotografia>
-        </fotografias>
-        <videos>
-          <video>elaboracion-queso.mp4</video>
-        </videos>
+        <nombre>Llagar Moderno</nombre>
+        <descripcion>Llagar con tecnología actual y degustación</descripcion>
+        <coordenadas>
+          <longitud>-6.8706</longitud>
+          <latitud>43.2592</latitud>
+          <altitud>865</altitud>
+        </coordenadas>
+        <distancia>400</distancia>
+        <galeria_fotos>
+          <foto>https://www.ayto-pesoz.es/fotos/llagar2.jpg</foto>
+        </galeria_fotos>
       </hito>
-      
       <hito>
-        <nombreHito>La Cocina de María</nombreHito>
-        <descripcionHito>Establecimiento especializado en guisos tradicionales y carnes a la brasa, con un ambiente acogedor y familiar.</descripcionHito>
-        <coordenadasHito>
-          <longitud>-6.8991</longitud>
-          <latitud>43.2423</latitud>
-          <altitud>340</altitud>
-        </coordenadasHito>
-        <distancia unidad="metros">500</distancia>
-        <fotografias>
-          <fotografia>cocina-maria1.jpg</fotografia>
-          <fotografia>cocina-maria2.jpg</fotografia>
-          <fotografia>guisos-tradicionales.jpg</fotografia>
-        </fotografias>
+        <nombre>Museo de la Sidra</nombre>
+        <descripcion>Museo interactivo sobre la historia de la sidra</descripcion>
+        <coordenadas>
+          <longitud>-6.8693</longitud>
+          <latitud>43.2599</latitud>
+          <altitud>870</altitud>
+        </coordenadas>
+        <distancia>550</distancia>
+        <galeria_fotos>
+          <foto>https://www.ayto-pesoz.es/fotos/museo1.jpg</foto>
+          <foto>https://www.ayto-pesoz.es/fotos/museo2.jpg</foto>
+        </galeria_fotos>
       </hito>
-      
       <hito>
-        <nombreHito>Pastelería El Dulce</nombreHito>
-        <descripcionHito>Obrador artesanal donde degustar los dulces tradicionales de la región, como casadielles, frixuelos y arroz con leche.</descripcionHito>
-        <coordenadasHito>
-          <longitud>-6.9012</longitud>
-          <latitud>43.2435</latitud>
-          <altitud>338</altitud>
-        </coordenadasHito>
-        <distancia unidad="metros">400</distancia>
-        <fotografias>
-          <fotografia>pasteleria1.jpg</fotografia>
-          <fotografia>dulces-tradicionales.jpg</fotografia>
-          <fotografia>casadielles.jpg</fotografia>
-        </fotografias>
-        <videos>
-          <video>elaboracion-dulces.mp4</video>
-        </videos>
+        <nombre>Taberna de la Sidra</nombre>
+        <descripcion>Taberna tradicional con degustación final</descripcion>
+        <coordenadas>
+          <longitud>-6.8680</longitud>
+          <latitud>43.2606</latitud>
+          <altitud>875</altitud>
+        </coordenadas>
+        <distancia>700</distancia>
+        <galeria_fotos>
+          <foto>https://www.ayto-pesoz.es/fotos/taberna1.jpg</foto>
+        </galeria_fotos>
       </hito>
     </hitos>
-    
-    <planimetria archivo="ruta-gastronomica.kml">Planimetría generada con Python para la Ruta Gastronómica</planimetria>
-    <altimetria archivo="ruta-gastronomica.svg">Perfil de elevación generado con Python para la Ruta Gastronómica</altimetria>
+    <planimetria>ruta_sidra_pesoz.kml</planimetria>
+    <altimetria>ruta_sidra_pesoz.svg</altimetria>
   </ruta>
 </rutas>

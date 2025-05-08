@@ -13,7 +13,7 @@ $mensaje_cancelacion = isset($_GET['cancelacion']) && $_GET['cancelacion'] === '
 $error = isset($_GET['error']) && $_GET['error'] === '1' ? 'Ha ocurrido un error al procesar la solicitud. Inténtelo de nuevo.' : '';
 ?>
 
-<section data-page="mis-reservas">
+<section>
     <h2>Mis Reservas</h2>
     
     <?php if (!empty($mensaje_cancelacion)): ?>
@@ -29,7 +29,7 @@ $error = isset($_GET['error']) && $_GET['error'] === '1' ? 'Ha ocurrido un error
     <?php endif; ?>
     
     <?php if (count($reservasUsuario) > 0): ?>
-        <section data-type="tabla-reservas">
+        <section>
             <table>
                 <thead>
                     <tr>
@@ -60,7 +60,7 @@ $error = isset($_GET['error']) && $_GET['error'] === '1' ? 'Ha ocurrido un error
                                         <button type="submit" name="cancelar_reserva">Cancelar</button>
                                     </form>
                                 <?php endif; ?>
-                                <a href="reservas.php?accion=detalles_reserva&id=<?php echo $res['id']; ?>" role="button" data-action="detalles">Detalles</a>
+                                <a href="reservas.php?accion=detalles_reserva&id=<?php echo $res['id']; ?>" role="button">Detalles</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -71,7 +71,7 @@ $error = isset($_GET['error']) && $_GET['error'] === '1' ? 'Ha ocurrido un error
         <p>No tiene reservas registradas.</p>
     <?php endif; ?>
     
-    <nav data-type="links">
+    <nav>
         <a href="reservas.php?accion=recursos" role="button">Realizar una reserva</a>
         <a href="reservas.php" role="button">Volver al inicio</a>
     </nav>

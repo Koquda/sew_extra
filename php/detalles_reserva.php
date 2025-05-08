@@ -20,11 +20,11 @@ $recursoTuristico = new RecursoTuristico($bd);
 $recursoTuristico->cargarPorId($reserva->getRecursoId());
 ?>
 
-<section data-page="detalles-reserva">
+<section>
     <h2>Detalles de la Reserva</h2>
     
-    <article data-type="detalles">
-        <section data-info="reserva">
+    <article>
+        <section>
             <h3>Información de la Reserva</h3>
             <p><strong>ID de Reserva:</strong> <?php echo $reserva->getId(); ?></p>
             <p><strong>Fecha de Reserva:</strong> <?php echo date('d/m/Y H:i', strtotime($reserva->getFechaReserva())); ?></p>
@@ -33,7 +33,7 @@ $recursoTuristico->cargarPorId($reserva->getRecursoId());
             <p><strong>Precio Total:</strong> <?php echo number_format($reserva->getPrecioTotal(), 2); ?> €</p>
         </section>
         
-        <section data-info="recurso">
+        <section>
             <h3>Información del Recurso Turístico</h3>
             <p><strong>Nombre:</strong> <?php echo $reserva->getNombreRecurso(); ?></p>
             <p><strong>Tipo:</strong> <?php echo $reserva->getTipoRecurso(); ?></p>
@@ -43,7 +43,7 @@ $recursoTuristico->cargarPorId($reserva->getRecursoId());
         </section>
     </article>
     
-    <footer data-type="acciones">
+    <footer>
         <?php if ($reserva->getEstadoId() == 1 || $reserva->getEstadoId() == 2): // Pendiente o Confirmada ?>
             <form method="post" action="reservas.php" onsubmit="return confirm('¿Está seguro de que desea cancelar esta reserva?');">
                 <input type="hidden" name="reserva_id" value="<?php echo $reserva->getId(); ?>">

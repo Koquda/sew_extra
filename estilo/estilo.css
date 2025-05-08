@@ -12,8 +12,8 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    color: #111;
-    background-color: #fff;
+    color: #e0e0e0;
+    background-color: #1a1a1a;
     overflow-x: hidden;
 }
 
@@ -26,7 +26,7 @@ p, li, dd, th, td, summary {
 /* Encabezados */
 /* Especificidad: 001 */
 h1, h2, h3 {
-    color: #000;
+    color: #81c784;
     hyphens: auto;
     overflow-wrap: break-word;
 }
@@ -35,14 +35,14 @@ h1, h2, h3 {
 h1 {
     font-size: 2.5rem;
     text-align: center;
-    padding: 1em 0;
+    padding: 1.5rem 0;
     margin-top: 0;
 }
 
 /* Especificidad: 001 */
 h2 {
     font-size: 2rem;
-    margin: 1em 0 0.5em;
+    margin: 1.5rem 0 0.8rem;
     border-bottom: 0.125rem solid #4CAF50;
     padding-bottom: 0.3em;
 }
@@ -50,13 +50,13 @@ h2 {
 /* Especificidad: 001 */
 h3 { 
     font-size: 1.5rem; 
-    margin: 1em 0 0.5em; 
+    margin: 1.5rem 0 0.8rem; 
 }
 
 /* Enlaces */
 /* Especificidad: 001 */
 a {
-    color: #0044cc;
+    color: #81c784;
     text-decoration: none;
     transition: color 0.3s;
     overflow-wrap: break-word;
@@ -64,13 +64,13 @@ a {
 
 /* Especificidad: 011 */
 a:hover { 
-    color: #003399;
+    color: #4CAF50;
     text-decoration: underline; 
 }
 
-/* Especificidad: 011 - Herencia de fondo: body (#fff) */
+/* Especificidad: 011 */
 a:visited { 
-    color: #3d8b40; 
+    color: #a5d6a7; 
 }
 
 /* Contenedores */
@@ -82,25 +82,25 @@ main, section, article, figure {
 
 /* Especificidad: 001 */
 main { 
-    padding: 1em; 
+    padding: 1rem; 
     overflow-wrap: break-word;
 }
 
 /* Especificidad: 001 */
 section { 
-    margin-bottom: 2em; 
+    margin-bottom: 2rem; 
 }
 
 /* Especificidad: 001 */
 article { 
-    margin-bottom: 1.5em; 
+    margin-bottom: 1.5rem; 
 }
 
 /* Listas normales */
 /* Especificidad: 001 */
 ul, ol {
-    margin: 1.5em 0;
-    padding-left: 1.5em;
+    margin: 1.5rem 0;
+    padding-left: 1.5rem;
     list-style-position: outside;
     line-height: 1.8;
     border-left: 0.125rem solid #4CAF50;
@@ -108,23 +108,22 @@ ul, ol {
 
 /* Especificidad: 001 */
 li {
-    margin-bottom: 0.8em;
+    margin-bottom: 0.8rem;
     overflow-wrap: break-word;
 }
 
 /* Estilo para listas anidadas */
 /* Especificidad: 002 */
 li ul, li ol {
-    margin: 0.5em 0;
-    border-left: 0.125rem dashed #ccc;
-    padding-left: 1em;
+    margin: 0.8rem 0;
+    border-left: 0.125rem dashed #2d2d2d;
+    padding-left: 1rem;
     list-style: none;
-    position: relative;
 }
 
 /* Especificidad: 003 */
 li ul li, li ol li {
-    margin-left: 1em;
+    margin-left: 1rem;
     position: relative;
 }
 
@@ -133,21 +132,21 @@ li ul li::before, li ol li::before {
     content: '\2022';
     position: absolute;
     left: -1em;
-    color: #555;
+    color: #e0e0e0;
 }
 
 /* Lista de definición */
 /* Especificidad: 001 */
 dt {
     font-weight: bold;
-    color: #3fec4b;
-    margin-top: 0.8em;
+    color: #81c784;
+    margin-top: 0.8rem;
 }
 
 /* Especificidad: 001 */
 dd {
-    margin-left: 2em;
-    margin-bottom: 0.8em;
+    margin-left: 2rem;
+    margin-bottom: 0.8rem;
 }
 
 /* Tablas */
@@ -155,43 +154,43 @@ dd {
 table {
     border-collapse: collapse;
     width: 100%;
-    margin: 1em 0;
-    border: 0.0625rem solid #ddd;
+    margin: 1rem 0;
+    border: 0.0625rem solid #2d2d2d;
     table-layout: fixed;
 }
 
 /* Especificidad: 001 */
 caption {
     caption-side: top;
-    padding: 0.5em;
+    padding: 0.8rem;
     font-weight: bold;
-    color: #2c3e50;
+    color: #81c784;
 }
 
 /* Especificidad: 001 */
 th {
     background-color: #4CAF50;
-    color: white;
-    padding: 0.8em;
+    color: #e0e0e0;
+    padding: 0.8rem;
     text-align: left;
-    border: 0.0625rem solid #ddd;
+    border: 0.0625rem solid #2d2d2d;
 }
 
 /* Especificidad: 001 */
 td {
-    padding: 0.8em;
-    border: 0.0625rem solid #ddd;
+    padding: 0.8rem;
+    border: 0.0625rem solid #2d2d2d;
     vertical-align: top;
 }
 
 /* Especificidad: 022 */
 tbody tr:nth-child(even) { 
-    background-color: #f2f2f2; 
+    background-color: #2d2d2d; 
 }
 
 /* Especificidad: 012 */
 tbody tr:hover { 
-    background-color: #e9e9e9; 
+    background-color: #333333; 
 }
 
 /* Multimedia */
@@ -204,27 +203,27 @@ img, video, audio {
 
 /* Especificidad: 001 */
 figure {
-    margin: 1em 0;
+    margin: 1rem 0;
     text-align: center;
 }
 
-/* Especificidad: 001 - Herencia de fondo: body (#fff) */
+/* Especificidad: 001 */
 figcaption {
     font-style: italic;
-    margin-top: 0.5em;
-    color: #666; 
+    margin-top: 0.8rem;
+    color: #e0e0e0; 
 }
 
-/* Navegación - el menú requiere la clase active por especificación del proyecto */
+/* Navegación */
 /* Especificidad: 001 */
 nav {
-    background-color: #333;
-    padding: 1em 0;
+    background-color: #2d2d2d;
+    padding: 1rem 0;
     position: sticky;
     top: 0;
     width: 100%;
     z-index: 100;
-    box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.3);
 }
 
 /* Especificidad: 002 */
@@ -235,52 +234,92 @@ nav ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 1rem;
 }
 
 /* Especificidad: 003 */
 nav ul li {
     display: inline-block;
-    margin: 0 0.5em;
+    margin: 0;
 }
 
-/* Especificidad: 004 - Herencia de fondo: nav (#333) */
+/* Especificidad: 004 */
 nav ul li a {
-    color: white;
-    padding: 0.5em 1em;
+    color: #e0e0e0;
+    padding: 0.8rem 1.5rem;
     display: block;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
     border-radius: 0.25rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.0625rem;
+    font-size: 0.9rem;
 }
 
 /* Especificidad: 014 */
 nav ul li a:hover {
-    background-color: #555;
+    background-color: #333333;
     text-decoration: none;
+    transform: translateY(-0.125rem);
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
 }
 
-/* Clase active para el menú - permitida por el enunciado */
 /* Especificidad: 014 */
-nav ul li a.active {
+nav ul li a[aria-current="page"] {
     background-color: #4CAF50;
-    font-weight: bold;
+    color: #e0e0e0;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+}
+
+/* Media Queries para navegación */
+@media screen and (max-width: 768px) {
+    /* Especificidad: 002 */
+    nav ul {
+        gap: 0.5rem;
+    }
+    
+    /* Especificidad: 004 */
+    nav ul li a {
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* Especificidad: 002 */
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    /* Especificidad: 003 */
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* Especificidad: 004 */
+    nav ul li a {
+        padding: 0.8rem;
+    }
 }
 
 /* Pie de página */
 /* Especificidad: 001 */
 footer {
-    background-color: #1a1a1a;
-    color: #f2f2f2;
+    background-color: #2d2d2d;
+    color: #e0e0e0;
     text-align: center;
-    padding: 1em 0;
-    margin-top: 2em;
+    padding: 1rem 0;
+    margin-top: 2rem;
 }
 
 /* Especificidad: 002 */
 footer p { 
-    margin: 0; 
+    margin: 0.8rem 0; 
 }
 
-/* Especificidad: 002 - Herencia de fondo: footer (#1a1a1a) */
+/* Especificidad: 002 */
 footer a { 
-    color: #3399ff; 
+    color: #4CAF50; 
 }

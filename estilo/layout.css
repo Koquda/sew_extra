@@ -1,11 +1,9 @@
 /* Base structure */
-/* Especificidad: 001 */
 html, body {
     width: 100%;
     overflow-x: hidden;
 }
 
-/* Especificidad: 001 */
 body {
     display: flex;
     flex-direction: column;
@@ -13,13 +11,11 @@ body {
 }
 
 /* Contenedores principales */
-/* Especificidad: 001 */
 main, section, header, footer, nav, article, figure {
     width: 100%;
     box-sizing: border-box;
 }
 
-/* Especificidad: 001 */
 main {
     flex: 1;
     margin: 0 auto;
@@ -27,33 +23,28 @@ main {
     overflow-wrap: break-word;
 }
 
-/* Especificidad: 001 */
 header, footer {
     flex-shrink: 0;
 }
 
-/* Navegación Flexbox */
-/* Especificidad: 001 */
+/* Navegación */
 nav {
     display: flex;
     justify-content: center;
     overflow-x: auto;
 }
 
-/* Especificidad: 002 */
 nav ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-/* Especificidad: 003 */
 nav ul li {
     flex: 0 1 auto;
 }
 
 /* Grid layout */
-/* Especificidad: 001 */
 section {
     display: grid;
     grid-template-columns: 1fr;
@@ -61,29 +52,25 @@ section {
     margin-bottom: 2em;
 }
 
-/* Especificidad: 002 */
 section figure {
     display: grid;
     place-items: center;
     margin: 0;
 }
 
-/* Especificidad: 002 */
 body main {
     display: grid;
     grid-template-columns: 1fr;
     gap: 2em;
 }
 
-/* Tablas adaptativas */
-/* Especificidad: 001 */
+/* Tablas */
 table {
     width: 100%;
     table-layout: fixed;
     box-sizing: border-box;
 }
 
-/* Especificidad: 001 */
 table, th, td {
     max-width: 100%;
     overflow-wrap: break-word;
@@ -91,13 +78,11 @@ table, th, td {
 }
 
 /* Elementos layout */
-/* Especificidad: 003 */
 main section + section {
     border-top: 0.0625rem solid #eee;
     padding-top: 1em;
 }
 
-/* Especificidad: 002 */
 section ul, section ol {
     columns: 1;
     column-gap: 2em;
@@ -106,7 +91,6 @@ section ul, section ol {
     box-sizing: border-box;
 }
 
-/* Especificidad: 002 */
 section article {
     display: grid;
     grid-template-columns: 1fr;
@@ -117,7 +101,6 @@ section article {
     box-sizing: border-box;
 }
 
-/* Especificidad: 003 */
 section figure img, section figure video, section figure audio {
     width: 50%;
     height: auto;
@@ -127,22 +110,22 @@ section figure img, section figure video, section figure audio {
 }
 
 /* Media queries */
-@media screen and (min-width: 48rem) { /* Tablets */
+@media screen and (min-width: 48rem) {
     main section:first-child {
-        grid-column: 1 / -1; /* Mantiene la configuración de ancho completo para la primera sección */
+        grid-column: 1 / -1;
     }
 }
 
-@media screen and (min-width: 64rem) { /* Desktop */
+@media screen and (min-width: 64rem) {
     main {
         max-width: 90%;
     }
     section article {
-        grid-template-columns: 1fr 2fr; /* Mantiene la configuración de diseño para artículos */
+        grid-template-columns: 1fr;
     }
 }
 
-/* Media queries importantes para accesibilidad */
+/* Media queries para accesibilidad */
 @media print {
     nav {
         display: none;
