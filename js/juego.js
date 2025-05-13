@@ -116,8 +116,7 @@ class Game {
                         <legend>Opciones</legend>
                         ${question.options.map((option, index) => `
                             <p data-option="${index}">
-                                <input type="radio" name="answer" value="${index}">
-                                <label>${option}</label>
+                                <input type="radio" name="answer" value="${index}">${option}
                             </p>
                         `).join('')}
                     </fieldset>
