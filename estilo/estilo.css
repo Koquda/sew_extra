@@ -81,17 +81,25 @@ img {
     max-width: 100%;
     height: auto;
     display: block;
-    margin: 1rem 0;
+    margin: 1rem auto;
 }
 
 figure {
-    margin: 1rem 0;
+    margin: 1rem auto;
+    text-align: center;
 }
 
 figcaption {
     text-align: center;
     font-style: italic;
     color: #666;
+}
+
+video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem auto;
 }
 
 /* Forms */

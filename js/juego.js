@@ -137,7 +137,7 @@ class Game {
             radioInput.prop('checked', true);
         });
 
-        $('button').on('click', () => {
+        $('input[type="button"]').on('click', () => {
             const selectedAnswer = $('input[name="answer"]:checked').val();
             
             if (selectedAnswer === undefined) {
@@ -162,12 +162,12 @@ class Game {
             <article>
                 <h3>¡Juego terminado!</h3>
                 <p>Tu puntuación final es: ${score} de ${this.questions.length}</p>
-                <button type="button">Jugar de nuevo</button>
+                <input type="button" value="Jugar de nuevo">
             </article>
         `;
 
         $('section').html(resultHtml);
-        $('button').on('click', () => {
+        $('input[type="button"]').on('click', () => {
             this.quiz = new Quiz(this.questions);
             this.startGame();
         });
