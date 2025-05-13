@@ -1,37 +1,20 @@
-/* Base structure */
-html, body {
-    width: 100%;
-    overflow-x: hidden;
-}
-
+/* Layout styles */
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
-/* Contenedores principales */
-main, section, header, footer, nav, article, figure {
-    width: 100%;
-    box-sizing: border-box;
+/* Header */
+header {
+    background-color: #fff;
+    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.1);
 }
 
-main {
-    flex: 1;
-    margin: 0 auto;
-    padding: 1em;
-    overflow-wrap: break-word;
-}
-
-header, footer {
-    flex-shrink: 0;
-}
-
-/* Navegación */
+/* Navigation */
 nav {
-    display: flex;
-    justify-content: center;
-    overflow-x: auto;
+    background-color: #fff;
+    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.1);
 }
 
 nav ul {
@@ -41,144 +24,115 @@ nav ul {
 }
 
 nav ul li {
-    flex: 0 1 auto;
+    flex: 1;
+    min-width: 7.5rem;
+    text-align: center;
 }
 
-/* Grid layout */
-section {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5em;
-    margin-bottom: 2em;
-}
-
-section figure {
-    display: grid;
-    place-items: center;
-    margin: 0;
-}
-
-body main {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2em;
-}
-
-/* Tablas */
-table {
-    width: 100%;
-    table-layout: fixed;
-    box-sizing: border-box;
-}
-
-table, th, td {
-    max-width: 100%;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-}
-
-/* Elementos layout */
-main section + section {
-    border-top: 0.0625rem solid #eee;
-    padding-top: 1em;
-}
-
-section ul, section ol {
-    columns: 1;
-    column-gap: 2em;
-    column-rule: 0.0625rem solid #eee;
-    max-width: 100%;
-    box-sizing: border-box;
-}
-
-section article {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1em;
-    padding: 1em;
-    border: 0.0625rem solid #eee;
-    border-radius: 0.3125rem;
-    box-sizing: border-box;
-}
-
-section figure img, section figure video, section figure audio {
-    width: 50%;
-    height: auto;
-    max-width: 50%;
+/* Main content */
+main {
+    flex: 1;
+    padding: 2rem;
+    max-width: 75rem;
     margin: 0 auto;
-    object-fit: contain;
+    width: 100%;
 }
 
-/* Media queries */
-@media screen and (min-width: 48rem) {
-    main section:first-child {
-        grid-column: 1 / -1;
+/* Sections */
+section {
+    margin-bottom: 2rem;
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.1);
+}
+
+/* Articles */
+article {
+    margin-bottom: 1.5rem;
+}
+
+/* Tables layout */
+table {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+    gap: 0.0625rem;
+    background-color: #ddd;
+}
+
+thead, tbody, tr {
+    display: contents;
+}
+
+th, td {
+    background-color: #fff;
+    padding: 1rem;
+}
+
+/* Multi-column layout for definition lists */
+dl {
+    column-count: 2;
+    column-gap: 2rem;
+}
+
+@media (max-width: 48rem) {
+    dl {
+        column-count: 1;
     }
-}
-
-@media screen and (min-width: 64rem) {
+    
+    nav ul {
+        flex-direction: column;
+    }
+    
+    nav ul li {
+        width: 100%;
+    }
+    
     main {
-        max-width: 90%;
+        padding: 1rem;
     }
-    section article {
+    
+    section {
+        padding: 1rem;
+    }
+}
+
+/* Footer */
+footer {
+    background-color: #fff;
+    box-shadow: 0 -0.125rem 0.25rem rgba(0,0,0,0.1);
+    margin-top: auto;
+}
+
+/* Responsive images */
+figure {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+/* Restaurant table specific layout */
+#tablaRestaurantes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.0625rem;
+    background-color: #ddd;
+}
+
+@media (max-width: 30rem) {
+    #tablaRestaurantes {
         grid-template-columns: 1fr;
     }
-}
-
-/* Media queries para accesibilidad */
-@media print {
-    nav {
-        display: none;
+    
+    h1 {
+        font-size: 2rem;
     }
     
-    body {
-        background-color: white;
-        color: black;
+    h2 {
+        font-size: 1.5rem;
     }
     
-    a {
-        text-decoration: underline;
-        color: #000;
-    }
-    
-    main section {
-        page-break-inside: avoid;
-    }
-}
-
-@media screen and (-webkit-min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi) {
-    body {
-        font-size: 1.125rem;
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #222;
-        color: #eee;
-    }
-    
-    a, h1, h2, h3 {
-        color: #8bc34a;
-    }
-    
-    table {
-        border-color: #444;
-    }
-    
-    th {
-        background-color: #3d8b40;
-    }
-    
-    td {
-        border-color: #444;
-    }
-    
-    tbody tr:nth-child(even) {
-        background-color: #333;
-    }
-    
-    tbody tr:hover {
-        background-color: #444;
+    h3 {
+        font-size: 1.2rem;
     }
 }

@@ -121,9 +121,7 @@ class Game {
                             </p>
                         `).join('')}
                     </fieldset>
-                    <button type="button">
-                        ${this.quiz.currentQuestionIndex === this.questions.length - 1 ? 'Finalizar' : 'Siguiente'}
-                    </button>
+                    <input type="button" value="${this.quiz.currentQuestionIndex === this.questions.length - 1 ? 'Finalizar' : 'Siguiente'}">
                 </form>
             </article>
         `;

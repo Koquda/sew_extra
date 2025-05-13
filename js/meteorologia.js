@@ -1,14 +1,18 @@
 /**
- * Clase principal para manejar la información meteorológica
+ * Clase para manejar la información meteorológica
  */
 class Meteorologia {
     constructor() {
         // Key de OpenWeather API - en producción esto debería estar en un servidor
-        this.apiKey = "bec0832374cee309477e3a6d5e5bef94"; // Necesitarás reemplazar esto con tu API key de OpenWeather
-        this.ciudad = "Pesoz"; // Capital del concejo
+        this.apiKey = "bec0832374cee309477e3a6d5e5bef94";
+        this.ciudad = "Pesoz";
         this.urlBase = "https://api.openweathermap.org/data/2.5/";
-        this.unidades = "metric"; // Celsius
-        this.idioma = "es"; // Español
+        this.unidades = "metric";
+        this.idioma = "es";
+        
+        // Referencias a los contenedores
+        this.$contenedorActual = null;
+        this.$contenedorPronostico = null;
         
         // Inicializar toda la funcionalidad al cargar la página
         $(document).ready(() => {
@@ -20,16 +24,9 @@ class Meteorologia {
      * Inicia la funcionalidad de meteorología
      */
     iniciar() {
-        // Crear estructura HTML para la información meteorológica
         this.crearEstructuraHTML();
-        
-        // Inicializar las clases para clima actual y pronóstico después de crear la estructura
-        this.climaActual = new ClimaActual(this);
-        this.pronostico = new Pronostico(this);
-        
-        // Cargar datos meteorológicos
-        this.climaActual.cargarDatos();
-        this.pronostico.cargarDatos();
+        this.cargarDatosActual();
+        this.cargarDatosPronostico();
     }
     
     /**
@@ -42,56 +39,63 @@ class Meteorologia {
         const $seccionActual = $("<section>");
         $seccionActual.html(`
             <h2>Clima actual en ${this.ciudad}</h2>
-            <section>
-                <section>
-                    <p>Cargando información del clima actual...</p>
-                </section>
-            </section>
+            <article>
+                <p>Cargando información del clima actual...</p>
+            </article>
         `);
         
         // Sección para el pronóstico de 7 días
         const $seccionPronostico = $("<section>");
         $seccionPronostico.html(`
             <h2>Pronóstico para los próximos 7 días</h2>
-            <section>
-                <section>
-                    <p>Cargando pronóstico...</p>
-                </section>
-            </section>
+            <p>Cargando pronóstico...</p>
         `);
         
         // Añadir secciones al main
         $main.append($seccionActual);
         $main.append($seccionPronostico);
-    }
-}
-
-/**
- * Clase para manejar la información del clima actual
- */
-class ClimaActual {
-    constructor(meteorologia) {
-        this.meteorologia = meteorologia;
-        // Usar selector posicional: la primera sección después de la introducción, dentro su primera subsección
-        this.$contenedor = $("main section:nth-of-type(2) > section > section");
+        
+        // Guardar referencias a los contenedores
+        this.$contenedorActual = $("main section:nth-of-type(2) > article");
+        this.$contenedorPronostico = $("main section:nth-of-type(3)");
     }
     
     /**
      * Carga los datos del clima actual
      */
-    cargarDatos() {
-        const url = `${this.meteorologia.urlBase}weather?q=${this.meteorologia.ciudad}&appid=${this.meteorologia.apiKey}&units=${this.meteorologia.unidades}&lang=${this.meteorologia.idioma}`;
+    cargarDatosActual() {
+        const url = `${this.urlBase}weather?q=${this.ciudad}&appid=${this.apiKey}&units=${this.unidades}&lang=${this.idioma}`;
         
         $.ajax({
             url: url,
             method: "GET",
             dataType: "json",
             success: (data) => {
-                this.mostrarDatos(data);
+                this.mostrarDatosActual(data);
             },
             error: (error) => {
-                this.mostrarError("No se pudo cargar la información del clima actual.");
+                this.mostrarError(this.$contenedorActual, "No se pudo cargar la información del clima actual.");
                 console.error("Error al cargar el clima actual:", error);
+            }
+        });
+    }
+    
+    /**
+     * Carga los datos del pronóstico
+     */
+    cargarDatosPronostico() {
+        const url = `${this.urlBase}forecast?q=${this.ciudad}&appid=${this.apiKey}&units=${this.unidades}&lang=${this.idioma}`;
+        
+        $.ajax({
+            url: url,
+            method: "GET",
+            dataType: "json",
+            success: (data) => {
+                this.mostrarDatosPronostico(data);
+            },
+            error: (error) => {
+                this.mostrarError(this.$contenedorPronostico, "No se pudo cargar el pronóstico del tiempo.");
+                console.error("Error al cargar el pronóstico:", error);
             }
         });
     }
@@ -100,111 +104,46 @@ class ClimaActual {
      * Muestra los datos del clima actual en la interfaz
      * @param {Object} data - Datos del clima actual
      */
-    mostrarDatos(data) {
-        // Si no hay contenedor, salir
-        if (this.$contenedor.length === 0) return;
+    mostrarDatosActual(data) {
+        if (this.$contenedorActual.length === 0) return;
         
-        // Formatear datos
         const temperatura = Math.round(data.main.temp);
         const sensacionTermica = Math.round(data.main.feels_like);
         const descripcion = data.weather[0].description;
         const humedad = data.main.humidity;
-        const viento = Math.round(data.wind.speed * 3.6); // Convertir de m/s a km/h
+        const viento = Math.round(data.wind.speed * 3.6);
         const icono = data.weather[0].icon;
         const iconoUrl = `https://openweathermap.org/img/wn/${icono}@2x.png`;
         
-        // Crear HTML para mostrar datos sin usar IDs ni clases
         const html = `
-            <section>
-                <section>
-                    <section>
-                        <img src="${iconoUrl}" alt="${descripcion}">
-                        <h3>${temperatura}°C</h3>
-                        <p>${this.capitalizarPrimeraLetra(descripcion)}</p>
-                    </section>
-                    <section>
-                        <p><strong>Sensación térmica:</strong> ${sensacionTermica}°C</p>
-                        <p><strong>Humedad:</strong> ${humedad}%</p>
-                        <p><strong>Viento:</strong> ${viento} km/h</p>
-                    </section>
-                </section>
-            </section>
+            <img src="${iconoUrl}" alt="${descripcion}">
+            <h3>${temperatura}°C</h3>
+            <p>${this.capitalizarPrimeraLetra(descripcion)}</p>
+            <p><strong>Sensación térmica:</strong> ${sensacionTermica}°C</p>
+            <p><strong>Humedad:</strong> ${humedad}%</p>
+            <p><strong>Viento:</strong> ${viento} km/h</p>
         `;
         
-        // Actualizar contenido
-        this.$contenedor.html(html);
-    }
-    
-    /**
-     * Muestra un mensaje de error
-     * @param {string} mensaje - Mensaje de error a mostrar
-     */
-    mostrarError(mensaje) {
-        this.$contenedor.html(`<p>${mensaje}</p>`);
-    }
-    
-    /**
-     * Capitaliza la primera letra de una cadena
-     * @param {string} texto - Texto a capitalizar
-     * @returns {string} Texto con primera letra en mayúscula
-     */
-    capitalizarPrimeraLetra(texto) {
-        return texto.charAt(0).toUpperCase() + texto.slice(1);
-    }
-}
-
-/**
- * Clase para manejar el pronóstico de los próximos 7 días
- */
-class Pronostico {
-    constructor(meteorologia) {
-        this.meteorologia = meteorologia;
-        // Usar selector posicional: la tercera sección del main (después de la introducción y el clima actual),
-        // dentro su primera subsección y luego la primera subsección de ésta
-        this.$contenedor = $("main section:nth-of-type(3) > section > section");
-    }
-    
-    /**
-     * Carga los datos del pronóstico
-     */
-    cargarDatos() {
-        // Para el pronóstico de 7 días usamos la API oneCall
-        const url = `${this.meteorologia.urlBase}forecast?q=${this.meteorologia.ciudad}&appid=${this.meteorologia.apiKey}&units=${this.meteorologia.unidades}&lang=${this.meteorologia.idioma}`;
-        
-        $.ajax({
-            url: url,
-            method: "GET",
-            dataType: "json",
-            success: (data) => {
-                this.mostrarDatos(data);
-            },
-            error: (error) => {
-                this.mostrarError("No se pudo cargar el pronóstico del tiempo.");
-                console.error("Error al cargar el pronóstico:", error);
-            }
-        });
+        this.$contenedorActual.html(html);
     }
     
     /**
      * Muestra los datos del pronóstico en la interfaz
      * @param {Object} data - Datos del pronóstico
      */
-    mostrarDatos(data) {
-        // Si no hay contenedor, salir
-        if (this.$contenedor.length === 0) return;
+    mostrarDatosPronostico(data) {
+        if (this.$contenedorPronostico.length === 0) return;
         
-        // Procesar los datos para obtener pronóstico diario (cada 24h)
         const pronosticoDiario = this.procesarPronosticoDiario(data);
-        
-        // Actualizar contenido - creamos directamente la estructura HTML
         let htmlContenido = '';
         
-        // Crear una tarjeta para cada día del pronóstico
         pronosticoDiario.forEach((dia) => {
             htmlContenido += this.crearTarjetaPronosticoHTML(dia);
         });
         
-        this.$contenedor.html(htmlContenido);
+        // Eliminar el párrafo de carga y añadir el contenido después del h2
+        this.$contenedorPronostico.find("p").remove();
+        this.$contenedorPronostico.find("h2").after(htmlContenido);
     }
     
     /**
@@ -213,27 +152,20 @@ class Pronostico {
      * @returns {Array} Array de objetos con el pronóstico para cada día
      */
     procesarPronosticoDiario(data) {
-        // La API forecast devuelve datos cada 3 horas, necesitamos agruparlos por día
         const dias = [];
         const diasProcesados = new Set();
-        
-        // Limitamos a 7 días
         let contadorDias = 0;
         
         data.list.forEach(item => {
-            // Obtener fecha del pronóstico
             const fecha = new Date(item.dt * 1000);
             const dia = fecha.getDate();
             
-            // Si ya hemos procesado 7 días, salimos
             if (contadorDias >= 7) return;
             
-            // Si no hemos procesado este día, lo añadimos
             if (!diasProcesados.has(dia)) {
                 diasProcesados.add(dia);
                 contadorDias++;
                 
-                // Crear objeto con información del día
                 dias.push({
                     fecha: fecha,
                     temperatura: Math.round(item.main.temp),
@@ -242,7 +174,7 @@ class Pronostico {
                     descripcion: item.weather[0].description,
                     icono: item.weather[0].icon,
                     humedad: item.main.humidity,
-                    viento: Math.round(item.wind.speed * 3.6) // m/s a km/h
+                    viento: Math.round(item.wind.speed * 3.6)
                 });
             }
         });
@@ -256,14 +188,10 @@ class Pronostico {
      * @returns {string} HTML para la tarjeta de pronóstico
      */
     crearTarjetaPronosticoHTML(dia) {
-        // Nombres de días de la semana en español
         const nombresDias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
         const nombreDia = nombresDias[dia.fecha.getDay()];
-        
-        // Formatear fecha
         const fechaFormateada = `${dia.fecha.getDate()}/${dia.fecha.getMonth() + 1}`;
         
-        // Crear HTML para la tarjeta
         return `
             <article>
                 <h4>${nombreDia} ${fechaFormateada}</h4>
@@ -279,10 +207,11 @@ class Pronostico {
     
     /**
      * Muestra un mensaje de error
+     * @param {jQuery} $contenedor - Contenedor donde mostrar el error
      * @param {string} mensaje - Mensaje de error a mostrar
      */
-    mostrarError(mensaje) {
-        this.$contenedor.html(`<p>${mensaje}</p>`);
+    mostrarError($contenedor, mensaje) {
+        $contenedor.html(`<p>${mensaje}</p>`);
     }
     
     /**

@@ -27,8 +27,7 @@ class Noticias {
     mostrarNoticias(noticias) {
         // Limpiar el ul
         $(this.ulElement).empty();
-        // Insertar título como <li>
-        $(this.ulElement).append('<li><h2>Noticias sobre Pesoz y los alrededores</h2></li>');
+        $(this.ulElement).append('<h2>Noticias sobre Pesoz y los alrededores</h2>');
         // Insertar noticias como <li>
         noticias.slice(0,5).forEach(function(noticia) {
             $(this.ulElement).append(`
