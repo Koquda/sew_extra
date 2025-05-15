@@ -1,12 +1,12 @@
 <?php
-require_once 'Entity.php';
 
 /**
  * Clase para gestionar los usuarios
  * @author Alejandro Campa Martínez
  */
-class Usuario extends Entity {
+class Usuario {
     // Propiedades
+    private int $id = 0;
     private string $nombre = '';
     private string $apellidos = '';
     private string $email = '';
@@ -14,15 +14,21 @@ class Usuario extends Entity {
     private string $contrasena = '';
     private string $fechaRegistro = '';
     
+    private BaseDatos $bd;
+    
     /**
      * Constructor de la clase
      * @param BaseDatos $bd Objeto de conexión a la base de datos
      */
     public function __construct($bd) {
-        parent::__construct($bd);
+        $this->bd = $bd;
     }
     
-    // Métodos getter y setter
+    // Getters y setters
+    public function getId(): int {
+        return $this->id;
+    }
+
     public function getNombre(): string {
         return $this->nombre;
     }
@@ -56,11 +62,7 @@ class Usuario extends Entity {
     }
     
     public function setContrasena(string $contrasena): void {
-        $this->contrasena = password_hash($contrasena, PASSWORD_DEFAULT);
-    }
-    
-    public function getFechaRegistro(): string {
-        return $this->fechaRegistro;
+        $this->password = password_hash($contrasena, PASSWORD_DEFAULT);
     }
     
     /**
@@ -71,10 +73,10 @@ class Usuario extends Entity {
         try {
             // Verificar si el email ya existe
             $sql = "SELECT id FROM usuarios WHERE email = ?";
-            $resultado = $this->baseDatos->ejecutarConsulta($sql, [$this->email]);
+            $resultado = $this->bd->ejecutarConsulta($sql, [$this->email]);
             
             if ($resultado && $resultado->num_rows > 0) {
-                return false; // El email ya existe
+                return false; // El email ya existe, no se puede registrar
             }
             
             // Insertar el usuario
@@ -88,8 +90,8 @@ class Usuario extends Entity {
                 $this->contrasena
             ];
             
-            if ($this->baseDatos->ejecutarConsulta($sql, $params)) {
-                $this->id = $this->baseDatos->getUltimoId();
+            if ($this->bd->ejecutarConsulta($sql, $params)) {
+                $this->id = $this->bd->getUltimoId();
                 return true;
             }
             return false;
@@ -106,7 +108,7 @@ class Usuario extends Entity {
      */
     public function iniciarSesion(string $email, string $contrasena): bool {
         $sql = "SELECT * FROM usuarios WHERE email = ?";
-        $resultado = $this->baseDatos->ejecutarConsulta($sql, [$email]);
+        $resultado = $this->bd->ejecutarConsulta($sql, [$email]);
         
         if ($resultado && $fila = $resultado->fetch_assoc()) {
             if (password_verify($contrasena, $fila['contrasena'])) {
@@ -128,10 +130,10 @@ class Usuario extends Entity {
      * @param int $id ID del usuario
      * @return bool Verdadero si se encontró el usuario, falso en caso contrario
      */
-    public function cargarPorId(int $id): bool {
+    public function getById(int $id): bool {
         try {
             $sql = "SELECT * FROM usuarios WHERE id = ?";
-            $resultado = $this->baseDatos->ejecutarConsulta($sql, [$id]);
+            $resultado = $this->bd->ejecutarConsulta($sql, [$id]);
             
             if ($resultado && $fila = $resultado->fetch_assoc()) {
                 $this->id = $fila['id'];
@@ -139,7 +141,7 @@ class Usuario extends Entity {
                 $this->apellidos = $fila['apellidos'];
                 $this->email = $fila['email'];
                 $this->telefono = $fila['telefono'];
-                $this->contrasena = $fila['contrasena'];
+                $this->password = $fila['contrasena'];
                 $this->fechaRegistro = $fila['fecha_registro'];
                 return true;
             }
@@ -148,68 +150,6 @@ class Usuario extends Entity {
         } catch (Exception $e) {
             return false;
         }
-    }
-    
-    /**
-     * Método para actualizar los datos del usuario
-     * @return bool Verdadero si la actualización fue exitosa, falso en caso contrario
-     */
-    private function actualizar(): bool {
-        if ($this->id <= 0) {
-            return false;
-        }
-        
-        $sql = "UPDATE usuarios 
-                SET nombre = ?, apellidos = ?, email = ?, telefono = ? 
-                WHERE id = ?";
-        $params = [
-            $this->nombre,
-            $this->apellidos,
-            $this->email,
-            $this->telefono,
-            $this->id
-        ];
-        
-        return $this->baseDatos->ejecutarConsulta($sql, $params) !== null;
-    }
-    
-    public function guardar(): bool {
-        if ($this->id > 0) {
-            return $this->actualizar();
-        }
-        return $this->registrar();
-    }
-    
-    public function eliminar(): bool {
-        if ($this->id <= 0) {
-            return false;
-        }
-        
-        $sql = "DELETE FROM usuarios WHERE id = ?";
-        return $this->baseDatos->ejecutarConsulta($sql, [$this->id]) !== null;
-    }
-    
-    public function toArray(): array {
-        return [
-            'id' => $this->id,
-            'nombre' => $this->nombre,
-            'apellidos' => $this->apellidos,
-            'email' => $this->email,
-            'telefono' => $this->telefono,
-            'fecha_registro' => $this->fechaRegistro
-        ];
-    }
-    
-    public static function buscarPorEmail(BaseDatos $bd, string $email): ?Usuario {
-        $usuario = new Usuario($bd);
-        $sql = "SELECT id FROM usuarios WHERE email = ?";
-        $resultado = $bd->ejecutarConsulta($sql, [$email]);
-        
-        if ($resultado && $fila = $resultado->fetch_assoc()) {
-            $usuario->cargarPorId($fila['id']);
-            return $usuario;
-        }
-        return null;
     }
 }
 ?>

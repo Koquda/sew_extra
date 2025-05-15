@@ -29,50 +29,30 @@ $error = isset($_GET['error']) && $_GET['error'] === '1' ? 'Ha ocurrido un error
     <?php endif; ?>
     
     <?php if (count($reservasUsuario) > 0): ?>
-        <section>
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Recurso</th>
-                        <th>Tipo</th>
-                        <th>Fecha de reserva</th>
-                        <th>Personas</th>
-                        <th>Precio total</th>
-                        <th>Estado</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($reservasUsuario as $res): ?>
-                        <tr>
-                            <td><?php echo $res['id']; ?></td>
-                            <td><?php echo $res['nombre_recurso']; ?></td>
-                            <td><?php echo $res['tipo_recurso']; ?></td>
-                            <td><?php echo date('d/m/Y H:i', strtotime($res['fecha_reserva'])); ?></td>
-                            <td><?php echo $res['numero_personas']; ?></td>
-                            <td><?php echo number_format($res['precio_total'], 2); ?> €</td>
-                            <td><?php echo $res['estado_nombre']; ?></td>
-                            <td>
-                                <?php if ($res['estado_id'] == 1 || $res['estado_id'] == 2): // Pendiente o Confirmada ?>
-                                    <form method="post" action="reservas.php" onsubmit="return confirm('¿Está seguro de que desea cancelar esta reserva?');">
-                                        <input type="hidden" name="reserva_id" value="<?php echo $res['id']; ?>">
-                                        <button type="submit" name="cancelar_reserva">Cancelar</button>
-                                    </form>
-                                <?php endif; ?>
-                                <a href="reservas.php?accion=detalles_reserva&id=<?php echo $res['id']; ?>" role="button">Detalles</a>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-        </section>
+        <?php foreach ($reservasUsuario as $res): ?>
+            <article>
+                <h3>Reserva #<?php echo $res['id']; ?></h3>
+                <p>Estado: <?php echo $res['estado_nombre']; ?></p>
+                <p>Recurso: <?php echo $res['nombre_recurso']; ?></p>
+                <p>Tipo: <?php echo $res['tipo_recurso']; ?></p>
+                <p>Fecha de reserva: <?php echo date('d/m/Y H:i', strtotime($res['fecha_reserva'])); ?></p>
+                <p>Número de personas: <?php echo $res['numero_personas']; ?></p>
+                <p>Precio total: <?php echo number_format($res['precio_total'], 2); ?> €</p>
+                <?php if ($res['estado_id'] == 1 || $res['estado_id'] == 2): // Pendiente o Confirmada ?>
+                    <form method="post" action="reservas.php" onsubmit="return confirm('¿Está seguro de que desea cancelar esta reserva?');">
+                        <input type="hidden" name="reserva_id" value="<?php echo $res['id']; ?>">
+                        <input type="submit" name="cancelar_reserva" value="Cancelar">
+                    </form>
+                <?php endif; ?>
+                <input type="button" value="Ver detalles" onclick="window.location.href='reservas.php?accion=detalles_reserva&id=<?php echo $res['id']; ?>'">
+            </article>
+        <?php endforeach; ?>
     <?php else: ?>
         <p>No tiene reservas registradas.</p>
     <?php endif; ?>
     
     <nav>
-        <a href="reservas.php?accion=recursos" role="button">Realizar una reserva</a>
-        <a href="reservas.php" role="button">Volver al inicio</a>
+        <input type="button" value="Realizar una reserva" onclick="window.location.href='reservas.php?accion=recursos'">
+        <input type="button" value="Volver al inicio" onclick="window.location.href='reservas.php'">
     </nav>
 </section>

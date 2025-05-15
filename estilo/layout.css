@@ -47,9 +47,13 @@ section {
     box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.1);
 }
 
-/* Articles */
-article {
-    margin-bottom: 1.5rem;
+fieldset {
+    margin: 0;
+    padding: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
 
 /* Tables layout */

@@ -1,12 +1,12 @@
 <?php
-require_once 'Entity.php';
 
 /**
  * Clase para gestionar las reservas
  * @author Alejandro Campa Martínez
  */
-class Reserva extends Entity {
+class Reserva {
     // Propiedades
+    private int $id = 0;
     private int $usuarioId = 0;
     private int $recursoId = 0;
     private string $fechaReserva = '';
@@ -21,12 +21,14 @@ class Reserva extends Entity {
     private string $fechaFinRecurso = '';
     private string $estadoNombre = '';
     
+    private BaseDatos $bd;
+
     /**
      * Constructor de la clase
      * @param BaseDatos $bd Objeto de conexión a la base de datos
      */
     public function __construct($bd) {
-        parent::__construct($bd);
+        $this->bd = $bd;
         $this->nombreRecurso = "";
         $this->tipoRecurso = "";
         $this->fechaInicioRecurso = "";
@@ -35,6 +37,11 @@ class Reserva extends Entity {
     }
     
     // Métodos getter y setter
+
+    public function getId(): int {
+        return $this->id;
+    }
+
     public function getUsuarioId(): int {
         return $this->usuarioId;
     }
@@ -53,10 +60,6 @@ class Reserva extends Entity {
     
     public function getFechaReserva(): string {
         return $this->fechaReserva;
-    }
-    
-    public function setFechaReserva(string $fechaReserva): void {
-        $this->fechaReserva = $fechaReserva;
     }
     
     public function getNumeroPersonas(): int {
@@ -129,8 +132,8 @@ class Reserva extends Entity {
             $this->estadoId
         ];
         
-        if ($this->baseDatos->ejecutarConsulta($sql, $params)) {
-            $this->id = $this->baseDatos->getUltimoId();
+        if ($this->bd->ejecutarConsulta($sql, $params)) {
+            $this->id = $this->bd->getUltimoId();
             return true;
         }
         return false;
@@ -150,33 +153,7 @@ class Reserva extends Entity {
             $this->id
         ];
         
-        return $this->baseDatos->ejecutarConsulta($sql, $params) !== null;
-    }
-    
-    public function eliminar(): bool {
-        if ($this->id <= 0) {
-            return false;
-        }
-        
-        $sql = "DELETE FROM reservas WHERE id = ?";
-        return $this->baseDatos->ejecutarConsulta($sql, [$this->id]) !== null;
-    }
-    
-    public function toArray(): array {
-        return [
-            'id' => $this->id,
-            'usuario_id' => $this->usuarioId,
-            'recurso_id' => $this->recursoId,
-            'fecha_reserva' => $this->fechaReserva,
-            'numero_personas' => $this->numeroPersonas,
-            'precio_total' => $this->precioTotal,
-            'estado_id' => $this->estadoId,
-            'nombre_recurso' => $this->nombreRecurso,
-            'tipo_recurso' => $this->tipoRecurso,
-            'fecha_inicio_recurso' => $this->fechaInicioRecurso,
-            'fecha_fin_recurso' => $this->fechaFinRecurso,
-            'estado_nombre' => $this->estadoNombre
-        ];
+        return $this->bd->ejecutarConsulta($sql, $params) !== null;
     }
     
     /**
@@ -187,7 +164,7 @@ class Reserva extends Entity {
      */
     public function calcularPrecioTotal(int $recursoId, int $numeroPersonas): float {
         $sql = "SELECT precio FROM recursos_turisticos WHERE id = ?";
-        $resultado = $this->baseDatos->ejecutarConsulta($sql, [$recursoId]);
+        $resultado = $this->bd->ejecutarConsulta($sql, [$recursoId]);
         
         if ($resultado && $fila = $resultado->fetch_assoc()) {
             return $fila['precio'] * $numeroPersonas;
@@ -212,7 +189,7 @@ class Reserva extends Entity {
                 INNER JOIN estados_reserva er ON r.estado_id = er.id
                 WHERE r.usuario_id = ?
                 ORDER BY r.fecha_reserva DESC";
-        $resultado = $this->baseDatos->ejecutarConsulta($sql, [$usuarioId]);
+        $resultado = $this->bd->ejecutarConsulta($sql, [$usuarioId]);
         
         $reservas = [];
         if ($resultado) {
@@ -240,7 +217,7 @@ class Reserva extends Entity {
                 INNER JOIN tipos_recursos tr ON rt.tipo_id = tr.id
                 INNER JOIN estados_reserva er ON r.estado_id = er.id
                 WHERE r.id = ?";
-        $resultado = $this->baseDatos->ejecutarConsulta($sql, [$id]);
+        $resultado = $this->bd->ejecutarConsulta($sql, [$id]);
         
         if ($resultado && $fila = $resultado->fetch_assoc()) {
             $this->id = $fila['id'];
@@ -270,37 +247,7 @@ class Reserva extends Entity {
         $sql = "UPDATE reservas 
                 SET estado_id = (SELECT id FROM estados_reserva WHERE nombre = 'Cancelada')
                 WHERE id = ? AND usuario_id = ?";
-        return $this->baseDatos->ejecutarConsulta($sql, [$id, $usuarioId]) !== null;
-    }
-    
-    /**
-     * Método para confirmar una reserva
-     * @param int $id ID de la reserva
-     * @return bool Verdadero si la confirmación fue exitosa, falso en caso contrario
-     */
-    public function confirmar(int $id): bool {
-        $sql = "UPDATE reservas 
-                SET estado_id = (SELECT id FROM estados_reserva WHERE nombre = 'Confirmada')
-                WHERE id = ?";
-        return $this->baseDatos->ejecutarConsulta($sql, [$id]) !== null;
-    }
-    
-    /**
-     * Método para obtener todos los estados de reserva
-     * @return array Array con los estados de reserva
-     */
-    public function obtenerEstadosReserva(): array {
-        $sql = "SELECT * FROM estados_reserva ORDER BY nombre ASC";
-        $resultado = $this->baseDatos->ejecutarConsulta($sql);
-        
-        $estados = [];
-        if ($resultado) {
-            while ($fila = $resultado->fetch_assoc()) {
-                $estados[] = $fila;
-            }
-        }
-        
-        return $estados;
+        return $this->bd->ejecutarConsulta($sql, [$id, $usuarioId]) !== null;
     }
 }
 ?>

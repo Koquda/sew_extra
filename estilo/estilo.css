@@ -117,6 +117,30 @@ input[type="button"]:hover, input[type="submit"]:hover {
     background-color: #2980b9;
 }
 
+/* Fieldset styles */
+fieldset {
+    border: none;
+}
+
+/* Select and Number Input styles */
+select, input[type="number"] {
+    padding: 0.5rem;
+    border: 0.0625rem solid #ddd;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 15rem;
+}
+
+select:hover, input[type="number"]:hover {
+    border-color: #3498db;
+}
+
+select:focus, input[type="number"]:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
 /* Definition lists */
 dl {
     margin-bottom: 1rem;
@@ -169,34 +193,7 @@ footer {
 }
 
 /* Weather articles */
-section:nth-of-type(2) > article {
-    text-align: center;
-    padding: 2rem;
-    background-color: #fff;
-    border-radius: 1rem;
-    box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.1);
-    margin: 1rem 0;
-}
-
-section:nth-of-type(2) > article img {
-    width: 6rem;
-    height: 6rem;
-    margin: 0 auto;
-}
-
-section:nth-of-type(2) > article h3 {
-    font-size: 2.5rem;
-    margin: 1rem 0;
-    color: #2c3e50;
-}
-
-section:nth-of-type(2) > article p {
-    font-size: 1.1rem;
-    margin: 0.5rem 0;
-    color: #34495e;
-}
-
-section:nth-of-type(3) article {
+section article {
     display: inline-block;
     width: calc(33.333% - 1rem);
     margin: 0.5rem;
@@ -208,44 +205,44 @@ section:nth-of-type(3) article {
     vertical-align: top;
 }
 
-section:nth-of-type(3) article img {
+section article img {
     width: 4rem;
     height: 4rem;
     margin: 0 auto;
 }
 
-section:nth-of-type(3) article h4 {
+section article h4 {
     font-size: 1.2rem;
     margin: 0.75rem 0;
     color: #2c3e50;
 }
 
-section:nth-of-type(3) article p {
+section article p {
     font-size: 1rem;
     margin: 0.25rem 0;
     color: #34495e;
 }
 
-section:nth-of-type(3) article p.temp {
+section article p.temp {
     font-size: 1.5rem;
     font-weight: bold;
     color: #2c3e50;
     margin: 0.5rem 0;
 }
 
-section:nth-of-type(3) article p.minmax {
+section article p.minmax {
     color: #7f8c8d;
     font-size: 0.9rem;
 }
 
 @media (max-width: 48rem) {
-    section:nth-of-type(3) article {
+    section article {
         width: calc(50% - 1rem);
     }
 }
 
 @media (max-width: 30rem) {
-    section:nth-of-type(3) article {
+    section article {
         width: 100%;
         margin: 0.5rem 0;
     }

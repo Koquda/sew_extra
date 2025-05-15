@@ -32,8 +32,8 @@
 	<main>
 		<?php
 		// Enable error reporting
-		error_reporting(E_ALL);
-		ini_set('display_errors', 1);
+		error_reporting(error_level: E_ALL);
+		ini_set(option: 'display_errors', value: 1);
 		
 		// Incluir las clases necesarias
 		require_once 'php/BaseDatos.php';
@@ -65,6 +65,7 @@
 		
 		// Procesar inicio de sesión
 		if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['iniciar_sesion'])) {
+			// TODO: Show error if email or password is incorrect
 			$email = isset($_POST['email']) ? $_POST['email'] : '';
 			$contrasena = isset($_POST['contrasena']) ? $_POST['contrasena'] : '';
 			
@@ -166,6 +167,7 @@
 					$reserva = new Reserva($bd);
 					$precio_total = $reserva->calcularPrecioTotal($recurso_id, $numero_personas);
 					
+					// TODO: I don't know if I like this, maybe save in db?
 					// Guardar la reserva provisional en la sesión para el presupuesto
 					$_SESSION['reserva_provisional'] = array(
 						'recurso_id' => $recurso_id,

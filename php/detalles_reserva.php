@@ -17,40 +17,38 @@ if (!$reserva->cargarPorId($reserva_id) || $reserva->getUsuarioId() != $_SESSION
 
 // Cargar el recurso turístico
 $recursoTuristico = new RecursoTuristico($bd);
-$recursoTuristico->cargarPorId($reserva->getRecursoId());
+$recursoTuristico->getById($reserva->getRecursoId());
 ?>
 
 <section>
     <h2>Detalles de la Reserva</h2>
     
     <article>
-        <section>
-            <h3>Información de la Reserva</h3>
-            <p><strong>ID de Reserva:</strong> <?php echo $reserva->getId(); ?></p>
-            <p><strong>Fecha de Reserva:</strong> <?php echo date('d/m/Y H:i', strtotime($reserva->getFechaReserva())); ?></p>
-            <p><strong>Estado:</strong> <?php echo $reserva->getEstadoNombre(); ?></p>
-            <p><strong>Número de Personas:</strong> <?php echo $reserva->getNumeroPersonas(); ?></p>
-            <p><strong>Precio Total:</strong> <?php echo number_format($reserva->getPrecioTotal(), 2); ?> €</p>
-        </section>
-        
-        <section>
-            <h3>Información del Recurso Turístico</h3>
-            <p><strong>Nombre:</strong> <?php echo $reserva->getNombreRecurso(); ?></p>
-            <p><strong>Tipo:</strong> <?php echo $reserva->getTipoRecurso(); ?></p>
-            <p><strong>Descripción:</strong> <?php echo $recursoTuristico->getDescripcion(); ?></p>
-            <p><strong>Fecha de Inicio:</strong> <?php echo date('d/m/Y H:i', strtotime($reserva->getFechaInicioRecurso())); ?></p>
-            <p><strong>Fecha de Finalización:</strong> <?php echo date('d/m/Y H:i', strtotime($reserva->getFechaFinRecurso())); ?></p>
-        </section>
+        <h3>Información de la Reserva</h3>
+        <p><strong>ID de Reserva:</strong> <?php echo $reserva->getId(); ?></p>
+        <p><strong>Fecha de Reserva:</strong> <?php echo date('d/m/Y H:i', strtotime($reserva->getFechaReserva())); ?></p>
+        <p><strong>Estado:</strong> <?php echo $reserva->getEstadoNombre(); ?></p>
+        <p><strong>Número de Personas:</strong> <?php echo $reserva->getNumeroPersonas(); ?></p>
+        <p><strong>Precio Total:</strong> <?php echo number_format($reserva->getPrecioTotal(), 2); ?> €</p>
     </article>
     
-    <footer>
-        <?php if ($reserva->getEstadoId() == 1 || $reserva->getEstadoId() == 2): // Pendiente o Confirmada ?>
-            <form method="post" action="reservas.php" onsubmit="return confirm('¿Está seguro de que desea cancelar esta reserva?');">
-                <input type="hidden" name="reserva_id" value="<?php echo $reserva->getId(); ?>">
-                <button type="submit" name="cancelar_reserva">Cancelar Reserva</button>
-            </form>
-        <?php endif; ?>
-        
-        <a href="reservas.php?accion=mis_reservas" role="button">Volver a Mis Reservas</a>
-    </footer>
+    <article>
+        <h3>Información del Recurso Turístico</h3>
+        <p><strong>Nombre:</strong> <?php echo $reserva->getNombreRecurso(); ?></p>
+        <p><strong>Tipo:</strong> <?php echo $reserva->getTipoRecurso(); ?></p>
+        <p><strong>Descripción:</strong> <?php echo $recursoTuristico->getDescripcion(); ?></p>
+        <p><strong>Fecha de Inicio:</strong> <?php echo date('d/m/Y H:i', strtotime($reserva->getFechaInicioRecurso())); ?></p>
+        <p><strong>Fecha de Finalización:</strong> <?php echo date('d/m/Y H:i', strtotime($reserva->getFechaFinRecurso())); ?></p>
+    </article>
+
+    <?php if ($reserva->getEstadoId() == 1 || $reserva->getEstadoId() == 2): // Pendiente o Confirmada ?>
+        <form method="post" action="reservas.php" onsubmit="return confirm('¿Está seguro de que desea cancelar esta reserva?');">
+            <input type="hidden" name="reserva_id" value="<?php echo $reserva->getId(); ?>">
+            <input type="submit" name="cancelar_reserva" value="Cancelar Reserva">
+        </form>
+    <?php endif; ?>
+    
+    <nav>
+        <input type="button" value="Volver a Mis Reservas" onclick="window.location.href='reservas.php?accion=mis_reservas'">
+    </nav>
 </section>
