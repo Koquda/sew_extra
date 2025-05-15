@@ -112,7 +112,7 @@ figure {
 }
 
 /* Restaurant table specific layout */
-#tablaRestaurantes {
+table {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0.0625rem;
@@ -120,7 +120,7 @@ figure {
 }
 
 @media (max-width: 30rem) {
-    #tablaRestaurantes {
+    table {
         grid-template-columns: 1fr;
     }
     
