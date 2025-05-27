@@ -82,8 +82,8 @@ try {
     // Cargar datos desde los archivos CSV separados
     echo "<h2>Cargando datos iniciales desde archivos CSV separados...</h2>";
     
-    // Directorio de archivos CSV
-    $datosDir = $directorio . "/datos";
+    // Directorio de archivos CSV (ahora en el mismo directorio que el script)
+    $datosDir = $directorio;
     if (!is_dir($datosDir)) {
         throw new Exception("El directorio de datos no existe en la ruta: " . $datosDir);
     }
