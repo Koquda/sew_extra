@@ -1,10 +1,12 @@
 /* General styles */
+/* Especificidad: 0,0,0 */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Especificidad: 0,0,1 */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -13,70 +15,87 @@ body {
 }
 
 /* Typography */
-h1, h2, h3, h4, h5, h6 {
-    color: #2c3e50;
+h1,                 /* Especificidad: 0,0,1 */
+h2,                 /* Especificidad: 0,0,1 */
+h3,                 /* Especificidad: 0,0,1 */
+h4,                 /* Especificidad: 0,0,1 */
+h5,                 /* Especificidad: 0,0,1 */
+h6 {                /* Especificidad: 0,0,1 */
+    color: #2c3e50; /* color de fondo heredado de body */
     margin-bottom: 1rem;
 }
 
+/* Especificidad: 0,0,1 */
 h1 {
     font-size: 2.5rem;
     text-align: center;
     padding: 1rem;
 }
 
+/* Especificidad: 0,0,1 */
 h2 {
     font-size: 2rem;
     margin-top: 2rem;
 }
 
+/* Especificidad: 0,0,1 */
 h3 {
     font-size: 1.5rem;
 }
 
+/* Especificidad: 0,0,1 */
 p {
     margin-bottom: 1rem;
 }
 
-/* Links */
+/* Especificidad: 0,0,1 */
 a {
-    color: #3498db;
+    color: #3498db; /* color de fondo heredado de body */
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
+/* Especificidad: 0,1,1 */
 a:hover {
-    color: #2980b9;
+    color: #2980b9; /* color de fondo heredado de body */
 }
 
 /* Lists */
-ul, ol {
+ul,                 /* Especificidad: 0,0,1 */
+ol {                /* Especificidad: 0,0,1 */
     margin-left: 2rem;
     margin-bottom: 1rem;
 }
 
+/* Especificidad: 0,0,1 */
 li {
     margin-bottom: 0.5rem;
 }
 
 /* Tables */
+/* Especificidad: 0,0,1 */
 table {
     border-collapse: collapse;
     width: 100%;
     margin-bottom: 1rem;
+    background-color: #ddd; /* color de primer plano heredado de body */
 }
 
-th, td {
+th,                 /* Especificidad: 0,0,1 */
+td {                /* Especificidad: 0,0,1 */
     padding: 0.75rem;
     border: 0.0625rem solid #ddd;
     text-align: left;
 }
 
+/* Especificidad: 0,0,1 */
 th {
-    background-color: #f8f9fa;
+    background-color: #f8f9fa; /* color de primer plano heredado de body */
     font-weight: bold;
 }
 
 /* Images and figures */
+/* Especificidad: 0,0,1 */
 img {
     max-width: 100%;
     height: auto;
@@ -84,17 +103,20 @@ img {
     margin: 1rem auto;
 }
 
+/* Especificidad: 0,0,1 */
 figure {
     margin: 1rem auto;
     text-align: center;
 }
 
+/* Especificidad: 0,0,1 */
 figcaption {
     text-align: center;
     font-style: italic;
-    color: #666;
+    color: #666; /* color de fondo heredado de body */
 }
 
+/* Especificidad: 0,0,1 */
 video {
     max-width: 100%;
     height: auto;
@@ -103,7 +125,8 @@ video {
 }
 
 /* Forms */
-input[type="button"], input[type="submit"] {
+input[type="button"],        /* Especificidad: 0,1,1 */
+input[type="submit"] {       /* Especificidad: 0,1,1 */
     padding: 0.5rem 1rem;
     background-color: #3498db;
     color: white;
@@ -113,11 +136,13 @@ input[type="button"], input[type="submit"] {
     transition: background-color 0.3s ease;
 }
 
-input[type="button"]:hover, input[type="submit"]:hover {
-    background-color: #2980b9;
+input[type="button"]:hover,  /* Especificidad: 0,2,1 */
+input[type="submit"]:hover { /* Especificidad: 0,2,1 */
+    background-color: #2980b9; /* color de primer plano heredado de input[type="button"] */
 }
 
 /* File input styles */
+/* Especificidad: 0,1,1 */
 input[type="file"] {
     padding: 0.5rem;
     border: 0.125rem solid #3498db;
@@ -132,6 +157,7 @@ input[type="file"] {
     max-width: 20rem;
 }
 
+/* Especificidad: 0,2,1 */
 input[type="file"]:hover {
     background-color: #3498db;
     color: white;
@@ -140,15 +166,17 @@ input[type="file"]:hover {
     box-shadow: 0 0.25rem 0.5rem rgba(52, 152, 219, 0.3);
 }
 
+/* Especificidad: 0,2,1 */
 input[type="file"]:focus {
     outline: 0.125rem solid #3498db;
     outline-offset: 0.125rem;
-    background-color: #e3f2fd;
+    background-color: #e3f2fd; /* color de primer plano heredado de body */
 }
 
 /* File input container styling */
+/* Especificidad: 0,1,2 */
 article:has(input[type="file"]) {
-    background-color: #f8f9fa;
+    background-color: #f8f9fa; /* color de primer plano heredado de body */
     border-left: 0.25rem solid #3498db;
     padding: 1.5rem;
     margin: 1rem 0;
@@ -156,19 +184,21 @@ article:has(input[type="file"]) {
     transition: all 0.3s ease;
 }
 
-article:has(input[type="file"]:hover),
-article:has(input[type="file"]:focus) {
-    background-color: #e3f2fd;
+article:has(input[type="file"]:hover),   /* Especificidad: 0,2,2 */
+article:has(input[type="file"]:focus) {  /* Especificidad: 0,2,2 */
+    background-color: #e3f2fd; /* color de primer plano heredado de body */
     transform: translateX(0.25rem);
 }
 
 /* Fieldset styles */
+/* Especificidad: 0,0,1 */
 fieldset {
     border: none;
 }
 
 /* Select and Number Input styles */
-select, input[type="number"] {
+select,                     /* Especificidad: 0,0,1 */
+input[type="number"] {      /* Especificidad: 0,1,1 */
     padding: 0.5rem;
     border: 0.0625rem solid #ddd;
     border-radius: 0.25rem;
@@ -177,127 +207,150 @@ select, input[type="number"] {
     max-width: 15rem;
 }
 
-select:hover, input[type="number"]:hover {
+select:hover,               /* Especificidad: 0,1,1 */
+input[type="number"]:hover {/* Especificidad: 0,2,1 */
     border-color: #3498db;
 }
 
-select:focus, input[type="number"]:focus {
+select:focus,               /* Especificidad: 0,1,1 */
+input[type="number"]:focus {/* Especificidad: 0,2,1 */
     outline: none;
     border-color: #3498db;
 }
 
 /* Definition lists */
+/* Especificidad: 0,0,1 */
 dl {
     margin-bottom: 1rem;
 }
 
+/* Especificidad: 0,0,1 */
 dt {
     font-weight: bold;
-    color: #2c3e50;
+    color: #2c3e50; /* color de fondo heredado de body */
 }
 
+/* Especificidad: 0,0,1 */
 dd {
     margin-left: 2rem;
     margin-bottom: 0.5rem;
 }
 
 /* Navigation */
+/* Especificidad: 0,0,2 */
 nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
+/* Especificidad: 0,0,3 */
 nav ul li {
     margin: 0;
 }
 
+/* Especificidad: 0,0,4 */
 nav ul li a {
     display: block;
     padding: 0.75rem 1rem;
-    color: #333;
+    color: #333; /* color de fondo heredado de nav ul li a */
     text-decoration: none;
     transition: background-color 0.3s ease;
 }
 
+/* Especificidad: 0,1,4 */
 nav ul li a:hover {
-    background-color: #f8f9fa;
+    background-color: #f8f9fa; /* color de primer plano heredado de nav ul li a */
 }
 
+/* Especificidad: 0,1,4 */
 nav ul li a.active {
     background-color: #3498db;
     color: white;
 }
 
 /* Footer */
+/* Especificidad: 0,0,1 */
 footer {
     text-align: center;
     padding: 1rem;
-    color: #666;
+    color: #666; /* color de fondo heredado de body */
     font-size: 0.9rem;
 }
 
 /* Weather articles */
+/* Especificidad: 0,0,2 */
 section article {
     display: block;
     width: 100%;
     margin: 0.5rem 0;
     padding: 1.5rem;
-    background-color: #fff;
+    background-color: #fff; /* color de primer plano heredado de body */
     border-radius: 0.75rem;
     box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.1);
     text-align: left;
 }
 
+/* Especificidad: 0,0,3 */
 section article img {
     width: 4rem;
     height: 4rem;
     margin: 0 auto;
 }
 
+/* Especificidad: 0,0,3 */
 section article h4 {
     font-size: 1.2rem;
     margin: 0.75rem 0;
-    color: #2c3e50;
+    color: #2c3e50; /* color de fondo heredado de section article */
 }
 
+/* Especificidad: 0,0,3 */
 section article p {
     font-size: 1rem;
     margin: 0.25rem 0;
-    color: #34495e;
+    color: #34495e; /* color de fondo heredado de section article */
 }
-
-section article p.temp {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #2c3e50;
-    margin: 0.5rem 0;
-}
-
-section article p.minmax {
-    color: #7f8c8d;
-    font-size: 0.9rem;
-}
-
 
 
 /* Carousel styles */
-main > section:has(img + button + button) {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
+/* Especificidad: 0,0,6 */
+main > section:has(h2 + img + button + button) {
+    padding: 1rem;
+    text-align: center;
 }
 
-main > section:has(img + button + button) img {
+/* Especificidad: 0,0,7 */
+main > section:has(h2 + img + button + button) > h2 {
+    margin-bottom: 1rem;
+    color: #2c3e50; /* color de fondo heredado de body */
+}
+
+/* Especificidad: 0,0,6 */
+main > section:has(h2 + img + button + button) {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Especificidad: 0,0,7 */
+main > section:has(h2 + img + button + button) > div {
+    position: relative;
+    display: inline-block;
+}
+
+/* Especificidad: 0,0,7 */
+main > section:has(h2 + img + button + button) img {
     width: 40rem;
     height: 30rem;
     object-fit: cover;
     margin: 0;
+    display: block;
 }
 
-main > section:has(img + button + button) button {
+/* Especificidad: 0,0,7 */
+main > section:has(h2 + img + button + button) button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -315,33 +368,49 @@ main > section:has(img + button + button) button {
     justify-content: center;
 }
 
-main > section:has(img + button + button) button:hover {
+/* Especificidad: 0,1,7 */
+main > section:has(h2 + img + button + button) button:hover {
     background-color: #3498db;
     color: white;
 }
 
-main > section:has(img + button + button) button:first-of-type {
+/* Especificidad: 0,1,7 */
+main > section:has(h2 + img + button + button) button:first-of-type {
     left: 1rem;
 }
 
-main > section:has(img + button + button) button:last-of-type {
+/* Especificidad: 0,1,7 */
+main > section:has(h2 + img + button + button) button:last-of-type {
     right: 1rem;
 }
 
 @media (max-width: 48rem) {
-    main > section:has(img + button + button) img {
-        width: 100%;
-        height: 20rem;
+    /* Especificidad: 0,0,7 */
+    main > section:has(h2 + img + button + button) img {
+        width: 100%; /* width produce una advertencia css por redefinicion */
+        height: 20rem; /* height produce una advertencia css por redefinicion */
     }
     
-    main > section:has(img + button + button) button {
-        width: 2.5rem;
-        height: 2.5rem;
-        font-size: 1.2rem;
+    /* Especificidad: 0,0,7 */
+    main > section:has(h2 + img + button + button) button {
+        width: 2.5rem; /* width produce una advertencia css por redefinicion */
+        height: 2.5rem; /* height produce una advertencia css por redefinicion */
+        font-size: 1.2rem; /* font-size produce una advertencia css por redefinicion */
+    }
+    
+    /* Especificidad: 0,1,7 */
+    main > section:has(h2 + img + button + button) button:first-of-type {
+        left: 0.5rem; /* left produce una advertencia css por redefinicion */
+    }
+    
+    /* Especificidad: 0,1,7 */
+    main > section:has(h2 + img + button + button) button:last-of-type {
+        right: 0.5rem; /* right produce una advertencia css por redefinicion */
     }
 }
 
 /* System messages styles */
+/* Especificidad: 0,1,1 */
 section[data-message="success"] {
     padding: 1rem 1.5rem;
     margin: 1rem 0;
@@ -354,6 +423,7 @@ section[data-message="success"] {
     color: #155724;
 }
 
+/* Especificidad: 0,1,1 */
 section[data-message="error"] {
     padding: 1rem 1.5rem;
     margin: 1rem 0;
@@ -378,6 +448,7 @@ section[data-message="error"] {
 }
 
 /* Map container styles */
+/* Especificidad: 0,1,1 */
 section[data-map="container"] {
     height: 37.5rem;
     width: 100%;
@@ -385,24 +456,27 @@ section[data-map="container"] {
     border-radius: 0.5rem;
     overflow: visible;
     padding: 0.5rem;
-    background-color: #f9f9f9;
+    background-color: #f9f9f9; /* color de fondo heredado de body */
 }
 
 @media (max-width: 48rem) {
+    /* Especificidad: 0,1,1 */
     section[data-map="container"] {
-        height: 31.25rem;
-        padding: 0.25rem;
+        height: 31.25rem; /* height produce una advertencia css por redefinicion */
+        padding: 0.25rem; /* padding produce una advertencia css por redefinicion */
     }
 }
 
 @media (max-width: 30rem) {
+    /* Especificidad: 0,1,1 */
     section[data-map="container"] {
-        height: 25rem;
-        padding: 0.25rem;
+        height: 25rem; /* height produce una advertencia css por redefinicion */
+        padding: 0.25rem; /* padding produce una advertencia css por redefinicion */
     }
 }
 
 /* Radio button styles */
+/* Especificidad: 0,1,1 */
 input[type="radio"] {
     appearance: none;
     width: 1.25rem;
@@ -415,11 +489,12 @@ input[type="radio"] {
     cursor: pointer;
 }
 
+/* Especificidad: 0,2,1 */
 input[type="radio"]:checked {
-    background-color: #3498db;
-    border-color: #3498db;
+    background-color: #3498db; /* color de fondo heredado de body */
 }
 
+/* Especificidad: 0,2,2 */
 input[type="radio"]:checked::after {
     content: '';
     position: absolute;
@@ -428,6 +503,230 @@ input[type="radio"]:checked::after {
     transform: translate(-50%, -50%);
     width: 0.5rem;
     height: 0.5rem;
-    background-color: white;
+    background-color: white; /* color de fondo heredado de body */
     border-radius: 50%;
+}
+
+/* Typography responsive adjustments */
+@media (max-width: 48rem) {
+    /* Especificidad: 0,0,1 */
+    h1 {
+        font-size: 2rem; /* font-size produce una advertencia css por redefinicion */
+        padding: 0.5rem; /* padding produce una advertencia css por redefinicion */
+    }
+    
+    /* Especificidad: 0,0,1 */
+    h2 {
+        font-size: 1.5rem; /* font-size produce una advertencia css por redefinicion */
+        margin-top: 1.5rem; /* margin-top produce una advertencia css por redefinicion */
+    }
+    
+    /* Especificidad: 0,0,1 */
+    h3 {
+        font-size: 1.25rem; /* font-size produce una advertencia css por redefinicion */
+    }
+}
+
+@media (max-width: 30rem) {
+    /* Especificidad: 0,0,1 */
+    h1 {
+        font-size: 1.75rem; /* font-size produce una advertencia css por redefinicion */
+        padding: 0.25rem; /* padding produce una advertencia css por redefinicion */
+    }
+    
+    /* Especificidad: 0,0,1 */
+    h2 {
+        font-size: 1.25rem; /* font-size produce una advertencia css por redefinicion */
+        margin-top: 1rem; /* margin-top produce una advertencia css por redefinicion */
+    }
+    
+    /* Especificidad: 0,0,1 */
+    h3 {
+        font-size: 1.1rem; /* font-size produce una advertencia css por redefinicion */
+    }
+    
+    /* Especificidad: 0,0,1 */
+    p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Forms responsive design */
+@media (max-width: 48rem) {
+    /* Especificidad: 0,1,1 */
+    input[type="file"] {
+        font-size: 0.9rem; /* font-size produce una advertencia css por redefinicion */
+        padding: 0.4rem; /* padding produce una advertencia css por redefinicion */
+        max-width: 100%; /* max-width produce una advertencia css por redefinicion */
+    }
+    
+    /* Especificidad: 0,1,2 */
+    article:has(input[type="file"]) {
+        padding: 1rem; /* padding produce una advertencia css por redefinicion */
+        margin: 0.5rem 0; /* margin produce una advertencia css por redefinicion */
+    }
+    
+    select,                     /* Especificidad: 0,0,1 */
+    input[type="number"] {      /* Especificidad: 0,1,1 */
+        font-size: 0.9rem; /* font-size produce una advertencia css por redefinicion */
+        max-width: 100%; /* max-width produce una advertencia css por redefinicion */
+    }
+    
+    input[type="button"],       /* Especificidad: 0,1,1 */
+    input[type="submit"] {      /* Especificidad: 0,1,1 */
+        padding: 0.4rem 0.8rem; /* padding produce una advertencia css por redefinicion */
+        font-size: 0.9rem;
+        width: 100%;
+        max-width: 15rem;
+    }
+}
+
+@media (max-width: 30rem) {
+    /* Especificidad: 0,1,1 */
+    input[type="file"] {
+        font-size: 0.8rem; /* font-size produce una advertencia css por redefinicion */
+        padding: 0.3rem; /* padding produce una advertencia css por redefinicion */
+    }
+    
+    /* Especificidad: 0,1,2 */
+    article:has(input[type="file"]) {
+        padding: 0.75rem; /* padding produce una advertencia css por redefinicion */
+    }
+    
+    input[type="button"],       /* Especificidad: 0,1,1 */
+    input[type="submit"] {      /* Especificidad: 0,1,1 */
+        padding: 0.5rem; /* padding produce una advertencia css por redefinicion */
+        font-size: 0.8rem; /* font-size produce una advertencia css por redefinicion */
+    }
+    
+    /* Especificidad: 0,0,1 */
+    fieldset {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+    }
+    
+    /* Especificidad: 0,1,1 */
+    input[type="radio"] {
+        width: 1rem; /* width produce una advertencia css por redefinicion */
+        height: 1rem; /* height produce una advertencia css por redefinicion */
+        margin-right: 0.5rem; /* margin-right produce una advertencia css por redefinicion */
+    }
+    
+    /* Especificidad: 0,3,1 */
+    input[type="radio"]:checked::after {
+        width: 0.4rem; /* width produce una advertencia css por redefinicion */
+        height: 0.4rem; /* height produce una advertencia css por redefinicion */
+    }
+}
+
+/* Weather articles responsive */
+@media (max-width: 48rem) {
+    /* Especificidad: 0,0,2 */
+    section article {
+        padding: 1rem; /* padding produce una advertencia css por redefinicion */
+        margin: 0.25rem 0; /* margin produce una advertencia css por redefinicion */
+    }
+    
+    /* Especificidad: 0,0,3 */
+    section article img {
+        width: 3rem; /* width produce una advertencia css por redefinicion */
+        height: 3rem; /* height produce una advertencia css por redefinicion */
+    }
+    
+    /* Especificidad: 0,0,3 */
+    section article h4 {
+        font-size: 1.1rem; /* font-size produce una advertencia css por redefinicion */
+        margin: 0.5rem 0; /* margin produce una advertencia css por redefinicion */
+    }
+}
+
+@media (max-width: 30rem) {
+    /* Especificidad: 0,0,2 */
+    section article {
+        padding: 0.75rem; /* padding produce una advertencia css por redefinicion */
+    }
+    
+    /* Especificidad: 0,0,3 */
+    section article img {
+        width: 2.5rem; /* width produce una advertencia css por redefinicion */
+        height: 2.5rem; /* height produce una advertencia css por redefinicion */
+    }
+    
+    /* Especificidad: 0,0,3 */
+    section article h4 {
+        font-size: 1rem; /* font-size produce una advertencia css por redefinicion */
+    }
+    
+    /* Especificidad: 0,0,3 */
+    section article p {
+        font-size: 0.9rem; /* font-size produce una advertencia css por redefinicion */
+    }
+}
+
+/* Tables responsive enhancement */
+@media (max-width: 48rem) {
+    /* Especificidad: 0,0,1 */
+    table {
+        font-size: 0.9rem;
+    }
+    
+    th,                 /* Especificidad: 0,0,1 */
+    td {                /* Especificidad: 0,0,1 */
+        padding: 0.5rem; /* padding produce una advertencia css por redefinicion */
+    }
+}
+
+@media (max-width: 30rem) {
+    /* Especificidad: 0,0,1 */
+    table {
+        font-size: 0.8rem; /* font-size produce una advertencia css por redefinicion */
+    }
+    
+    th,                 /* Especificidad: 0,0,1 */
+    td {                /* Especificidad: 0,0,1 */
+        padding: 0.4rem; /* padding produce una advertencia css por redefinicion */
+    }
+}
+
+/* Navigation responsive improvements */
+@media (max-width: 48rem) {
+    /* Especificidad: 0,0,4 */
+    nav ul li a {
+        padding: 0.5rem 0.75rem; /* padding produce una advertencia css por redefinicion */
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 30rem) {
+    /* Especificidad: 0,0,4 */
+    nav ul li a {
+        padding: 0.4rem 0.5rem; /* padding produce una advertencia css por redefinicion */
+        font-size: 0.8rem; /* font-size produce una advertencia css por redefinicion */
+    }
+}
+
+/* Lists responsive spacing */
+@media (max-width: 48rem) {
+    ul,                 /* Especificidad: 0,0,1 */
+    ol {                /* Especificidad: 0,0,1 */
+        margin-left: 1.5rem; /* margin-left produce una advertencia css por redefinicion */
+    }
+    
+    /* Especificidad: 0,0,1 */
+    li {
+        margin-bottom: 0.3rem; /* margin-bottom produce una advertencia css por redefinicion */
+    }
+}
+
+@media (max-width: 30rem) {
+    ul,                 /* Especificidad: 0,0,1 */
+    ol {                /* Especificidad: 0,0,1 */
+        margin-left: 1rem; /* margin-left produce una advertencia css por redefinicion */
+    }
+    
+    /* Especificidad: 0,0,1 */
+    li {
+        margin-bottom: 0.25rem; /* margin-bottom produce una advertencia css por redefinicion */
+    }
 }
