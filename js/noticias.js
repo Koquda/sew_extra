@@ -1,6 +1,14 @@
 class Noticias {
-    constructor(ulElement) {
-        this.ulElement = ulElement;
+    constructor() {
+        // Crear la sección y el ul dinámicamente
+        const main = $('main');
+        const section = $('<section></section>');
+        section.append('<h2>Noticias sobre Pesoz y los alrededores</h2>');
+        const ul = $('<ul></ul>');
+        section.append(ul);
+        main.append(section);
+        
+        this.ulElement = ul;
         this.apiKey = '4a236f45a50843a5827606a3edb96ed2';
     }
 
@@ -27,7 +35,6 @@ class Noticias {
     mostrarNoticias(noticias) {
         // Limpiar el ul
         $(this.ulElement).empty();
-        $(this.ulElement).append('<h2>Noticias sobre Pesoz y los alrededores</h2>');
         // Insertar noticias como <li>
         noticias.slice(0,5).forEach(function(noticia) {
             $(this.ulElement).append(`
@@ -41,8 +48,7 @@ class Noticias {
 }
 
 $(document).ready(function() {
-    // Seleccionar el ul dentro de section dentro de main
-    const ulNoticias = $('main section ul');
-    const noticias = new Noticias(ulNoticias);
+    // Las noticias crearán su propia sección dinámicamente
+    const noticias = new Noticias();
     noticias.cargarNoticias();
 });

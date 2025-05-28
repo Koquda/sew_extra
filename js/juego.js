@@ -101,7 +101,8 @@ class Game {
     }
 
     startGame() {
-        $('section').empty();
+        // Limpiar la sección pero mantener un título consistente
+        $('section').html('<h2>Juego turístico de Pesoz</h2>');
         this.displayQuestion();
     }
 
@@ -125,7 +126,10 @@ class Game {
             </article>
         `;
 
-        $('section').html(questionHtml);
+        // Remover artículos existentes pero mantener el título h2
+        $('section article').remove();
+        // Añadir la nueva pregunta después del título
+        $('section').append(questionHtml);
         this.setupEventListeners();
     }
 
@@ -165,7 +169,9 @@ class Game {
             </article>
         `;
 
-        $('section').html(resultHtml);
+        // Mantener el título y mostrar los resultados
+        $('section').html('<h2>Juego turístico de Pesoz</h2>');
+        $('section').append(resultHtml);
         $('input[type="button"]').on('click', () => {
             this.quiz = new Quiz(this.questions);
             this.startGame();

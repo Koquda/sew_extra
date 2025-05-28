@@ -196,9 +196,10 @@ class Meteorologia {
             <article>
                 <h4>${nombreDia} ${fechaFormateada}</h4>
                 <img src="https://openweathermap.org/img/wn/${dia.icono}@2x.png" alt="${this.capitalizarPrimeraLetra(dia.descripcion)}">
-                <p class="temp">${dia.temperatura}°C</p>
-                <p class="minmax">${dia.tempMin}°C / ${dia.tempMax}°C</p>
-                <p>${this.capitalizarPrimeraLetra(dia.descripcion)}</p>
+                <p>Temperatura: ${dia.temperatura}°C</p>
+                <p>Mínima: ${dia.tempMin}°C</p>
+                <p>Máxima: ${dia.tempMax}°C</p>
+                <p>Descripción: ${this.capitalizarPrimeraLetra(dia.descripcion)}</p>
                 <p>Humedad: ${dia.humedad}%</p>
                 <p>Viento: ${dia.viento} km/h</p>
             </article>

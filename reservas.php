@@ -25,7 +25,7 @@
 			<li><a href="rutas.html">Rutas</a></li>
 			<li><a href="meteorologia.html">Meteorología</a></li>
 			<li><a href="juego.html">Juego</a></li>
-			<li><a href="reservas.php" aria-current="page">Reservas</a></li>
+			<li><a href="reservas.php" class="active">Reservas</a></li>
 			<li><a href="ayuda.html">Ayuda</a></li>
 		</ul>
 	</nav>
